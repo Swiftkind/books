@@ -1,0 +1,646 @@
+/* latin-ext */
+@font-face {
+  font-family: 'Lato Light';
+  font-style: normal;
+  font-weight: 300;
+  src: local("Lato Light"), local("Lato-Light"), url(../fonts/lato/Lato-Light.woff2) format("woff2");
+  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Lato Light';
+  font-style: normal;
+  font-weight: 300;
+  src: local("Lato Light"), local("Lato-Light"), url(../fonts/lato/Lato-Light2.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Lato Regular';
+  font-style: normal;
+  font-weight: 400;
+  src: local("Lato Regular"), local("Lato-Regular"), url(../fonts/lato/Lato-Regular.woff2) format("woff2");
+  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Lato Regular';
+  font-style: normal;
+  font-weight: 400;
+  src: local("Lato Regular"), local("Lato-Regular"), url(../fonts/lato/Lato-Regular2.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Lato Bold';
+  font-style: normal;
+  font-weight: 700;
+  src: local("Lato Bold"), local("Lato-Bold"), url(../fonts/lato/Lato-Bold.woff2) format("woff2");
+  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Lato Bold';
+  font-style: normal;
+  font-weight: 700;
+  src: local("Lato Bold"), local("Lato-Bold"), url(../fonts/lato/Lato-Bold2.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+/* latin */
+@font-face {
+  font-family: 'Open Sans Light';
+  font-style: normal;
+  font-weight: 300;
+  src: local("Open Sans Light"), local("OpenSans-Light"), url(../fonts/open-sans/open-sans-light.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+/* latin */
+@font-face {
+  font-family: 'Open Sans Regular';
+  font-style: normal;
+  font-weight: 400;
+  src: local("Open Sans"), local("OpenSans"), url(../fonts/open-sans/open-sans-regular.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+/* latin */
+@font-face {
+  font-family: 'Open Sans Semibold';
+  font-style: normal;
+  font-weight: 600;
+  src: local("Open Sans Semibold"), local("OpenSans-Semibold"), url(../fonts/open-sans/open-sans-semibold.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+/* latin */
+@font-face {
+  font-family: 'Open Sans Bold';
+  font-style: normal;
+  font-weight: 700;
+  src: local("Open Sans Bold"), local("OpenSans-Bold"), url(../fonts/open-sans/open-sans-bold.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+/* line 110, ../sass/_typography.scss */
+body {
+  font-family: "Lato Regular", Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #333;
+}
+
+/* line 1, ../sass/_extends.scss */
+h1 {
+  font-size: 30px;
+  font-family: "Lato Regular";
+}
+
+/* line 6, ../sass/_extends.scss */
+h2 {
+  font-size: 27px;
+  font-family: "Lato Light";
+}
+
+/* line 11, ../sass/_extends.scss */
+h3 {
+  font-size: 20px;
+  font-family: "Lato Light";
+}
+
+/* line 16, ../sass/_extends.scss */
+h4 {
+  font-family: "Lato Light";
+  font-size: 14px;
+}
+
+/* line 21, ../sass/_extends.scss */
+p {
+  font-size: 14px;
+}
+
+/* line 25, ../sass/_extends.scss */
+a {
+  text-decoration: none;
+}
+/* line 27, ../sass/_extends.scss */
+a:hover, a:visited, a:active, a:focus {
+  text-decoration: none;
+}
+/* line 32, ../sass/_extends.scss */
+a:hover:focus, a:visited:focus, a:active:focus, a:focus:focus {
+  text-decoration: none;
+}
+
+/* line 38, ../sass/_extends.scss */
+.gr-link {
+  color: #12c88d;
+}
+
+/* line 42, ../sass/_extends.scss */
+.btn-green {
+  padding: 9px 17px !important;
+  margin-top: 11px !important;
+  border-radius: 28px !important;
+  background-color: #12c88d !important;
+}
+/* line 47, ../sass/_extends.scss */
+.btn-green:hover {
+  background-color: #0db57e !important;
+  transition: 0.2s;
+  color: #fff !important;
+}
+
+/* line 54, ../sass/_extends.scss */
+.text-link {
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+  max-width: 9em;
+  word-break: break-all;
+  white-space: pre-wrap;
+  color: #2fdcc6;
+}
+
+/* line 66, ../sass/_extends.scss */
+.notification {
+  border-radius: 2.4px;
+  background-color: #f72e66;
+  color: #fff;
+  padding: 4px 6px;
+}
+
+/* line 74, ../sass/_extends.scss */
+.user-profile .user-avatar {
+  position: absolute;
+}
+/* line 77, ../sass/_extends.scss */
+.user-profile .avatar-sm,
+.user-profile .avatar-md {
+  background-size: cover;
+  overflow: hidden;
+}
+/* line 82, ../sass/_extends.scss */
+.user-profile .photo {
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+/* line 88, ../sass/_extends.scss */
+.user-profile .details {
+  margin-left: 5em;
+}
+
+/* line 93, ../sass/_extends.scss */
+.avatar-xs {
+  width: 25px;
+  height: 25px;
+}
+
+/* line 98, ../sass/_extends.scss */
+.avatar-sm {
+  width: 42px;
+  height: 42px;
+}
+
+/* line 103, ../sass/_extends.scss */
+.avatar-md {
+  width: 60px;
+  height: 60px;
+}
+
+/* line 108, ../sass/_extends.scss */
+.avatar-lg {
+  width: 140px;
+  height: 140px;
+}
+
+/* line 114, ../sass/_extends.scss */
+.green-br {
+  color: #12c98f;
+  border: solid 2px #12c98f;
+  padding: 10px 18px;
+  border-radius: 30px;
+  font-weight: bold;
+}
+/* line 120, ../sass/_extends.scss */
+.green-br:hover {
+  background: #12c98f;
+  color: #fff;
+  border: solid 2px #12c98f;
+  transition: 0.2s ease;
+}
+
+/* line 128, ../sass/_extends.scss */
+.bookmark-btn {
+  margin-top: 10px;
+}
+/* line 130, ../sass/_extends.scss */
+.bookmark-btn img {
+  width: 1.3em;
+}
+
+/* line 136, ../sass/_extends.scss */
+.no-padding {
+  padding: 0;
+}
+
+/* line 142, ../sass/_extends.scss */
+.social-meta a {
+  color: #67727c;
+  margin-right: 20px;
+}
+/* line 145, ../sass/_extends.scss */
+.social-meta a span {
+  margin-right: 2px;
+}
+/* line 150, ../sass/_extends.scss */
+.social-meta a#like.active, .social-meta a#read.active {
+  color: #fe4b60;
+}
+
+/* line 1, ../sass/_header.scss */
+.main-nav {
+  background: #20333c;
+  border-radius: 0;
+  margin-bottom: 0;
+  height: 60px;
+}
+/* line 6, ../sass/_header.scss */
+.main-nav a {
+  color: #fff;
+  font-family: "Lato Regular";
+}
+/* line 12, ../sass/_header.scss */
+.main-nav .navbar-nav li a {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+/* line 15, ../sass/_header.scss */
+.main-nav .navbar-nav li a:hover {
+  background: none;
+  color: #0db57e;
+}
+/* line 24, ../sass/_header.scss */
+.main-nav .navbar-right .dropdown .dropdown-toggle {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  display: inline-flex;
+  align-items: center;
+}
+/* line 29, ../sass/_header.scss */
+.main-nav .navbar-right .dropdown .dropdown-toggle img {
+  margin: 0 8.5px;
+}
+/* line 32, ../sass/_header.scss */
+.main-nav .navbar-right .dropdown .dropdown-toggle:hover {
+  color: #fff;
+}
+/* line 38, ../sass/_header.scss */
+.main-nav .navbar-right .dropdown.open a:active {
+  background: none;
+}
+
+/* line 1, ../sass/_dashboard.scss */
+.page-wrapper {
+  background: linear-gradient(to bottom left, #1f3042, #1c1e2b, #1c1f2d 27%, #111c22 72%, #080f13);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+}
+
+/* line 9, ../sass/_dashboard.scss */
+.main-wrapper {
+  height: 100%;
+  position: relative;
+}
+/* line 12, ../sass/_dashboard.scss */
+.main-wrapper .sidebar {
+  padding: 60px 20px 60px 45px;
+  width: 350px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  bottom: 0;
+  background: none;
+  overflow-y: auto;
+}
+/* line 22, ../sass/_dashboard.scss */
+.main-wrapper .sidebar .section {
+  margin: 50px 0;
+}
+/* line 25, ../sass/_dashboard.scss */
+.main-wrapper .sidebar .section.recent-activities .item {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4.8px;
+  background-color: #1f2731;
+  padding: 15px 24px;
+}
+/* line 30, ../sass/_dashboard.scss */
+.main-wrapper .sidebar .section.recent-activities .item .details {
+  font-family: "Open Sans Light";
+}
+/* line 32, ../sass/_dashboard.scss */
+.main-wrapper .sidebar .section.recent-activities .item .details p {
+  margin: 0;
+  color: #fff;
+}
+/* line 36, ../sass/_dashboard.scss */
+.main-wrapper .sidebar .section.recent-activities .item .details small {
+  color: #9daab6;
+}
+/* line 46, ../sass/_dashboard.scss */
+.main-wrapper .sidebar .user-profile h3 {
+  font-family: "Lato Regular";
+  color: #ffffff;
+}
+/* line 50, ../sass/_dashboard.scss */
+.main-wrapper .sidebar .user-profile small {
+  font-size: 13.9px;
+  font-weight: 100;
+  text-align: left;
+  color: #9daab6;
+}
+/* line 58, ../sass/_dashboard.scss */
+.main-wrapper .sidebar ul.nav-links {
+  list-style: none;
+  padding: 0;
+}
+/* line 61, ../sass/_dashboard.scss */
+.main-wrapper .sidebar ul.nav-links li {
+  margin: 12px 0;
+}
+/* line 63, ../sass/_dashboard.scss */
+.main-wrapper .sidebar ul.nav-links li a {
+  color: #9daab6;
+  font-size: 14px;
+}
+/* line 66, ../sass/_dashboard.scss */
+.main-wrapper .sidebar ul.nav-links li a span {
+  margin-right: 12px;
+}
+/* line 69, ../sass/_dashboard.scss */
+.main-wrapper .sidebar ul.nav-links li a .details {
+  margin-left: 2.5em;
+}
+/* line 77, ../sass/_dashboard.scss */
+.main-wrapper .main-container {
+  position: absolute;
+  left: 350px;
+  top: 0;
+  bottom: 0;
+  background: none;
+  right: 0;
+}
+/* line 84, ../sass/_dashboard.scss */
+.main-wrapper .main-container .author-profile {
+  position: relative;
+}
+/* line 86, ../sass/_dashboard.scss */
+.main-wrapper .main-container .author-profile .cover-container {
+  position: relative;
+  width: 100%;
+  z-index: 4;
+}
+/* line 90, ../sass/_dashboard.scss */
+.main-wrapper .main-container .author-profile .cover-container .cover-wrapper {
+  margin-top: 0px;
+  height: 500px;
+}
+/* line 91, ../sass/_dashboard.scss */
+.main-wrapper .main-container .author-profile .cover-container .cover-wrapper::before {
+  display: block;
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  box-shadow: inset 0 0 1px 1px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+/* line 102, ../sass/_dashboard.scss */
+.main-wrapper .main-container .author-profile .cover-container .cover-wrapper .cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+}
+/* line 109, ../sass/_dashboard.scss */
+.main-wrapper .main-container .author-profile .cover-container .cover-wrapper .cover img {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -9999px;
+  bottom: -9999px;
+  margin: auto 0;
+  width: 100%;
+  transform: translate3d(0px, 41.9775px, 0px);
+  transform: none;
+}
+/* line 120, ../sass/_dashboard.scss */
+.main-wrapper .main-container .author-profile .cover-container .cover-wrapper .cover .overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+  width: 100%;
+  transform: translate3d(0px, 41.9775px, 0px);
+  transform: none;
+  background: linear-gradient(to top, rgba(19, 27, 33, 0.7), rgba(19, 30, 46, 0.6), rgba(30, 48, 73, 0.2));
+  z-index: 2;
+}
+/* line 136, ../sass/_dashboard.scss */
+.main-wrapper .main-container .author-profile .profile-details {
+  position: absolute;
+  z-index: 6;
+  display: flex;
+  align-items: center;
+  height: 396px;
+  width: 90%;
+  top: 80px;
+  color: #fff;
+}
+/* line 145, ../sass/_dashboard.scss */
+.main-wrapper .main-container .author-profile .profile-details .user-profile {
+  width: 100%;
+  padding-left: 86px;
+}
+/* line 148, ../sass/_dashboard.scss */
+.main-wrapper .main-container .author-profile .profile-details .user-profile .details {
+  margin-left: 12em;
+}
+/* line 150, ../sass/_dashboard.scss */
+.main-wrapper .main-container .author-profile .profile-details .user-profile .details h1 {
+  margin: 10px 0;
+}
+/* line 153, ../sass/_dashboard.scss */
+.main-wrapper .main-container .author-profile .profile-details .user-profile .details h3 {
+  width: 80%;
+}
+/* line 156, ../sass/_dashboard.scss */
+.main-wrapper .main-container .author-profile .profile-details .user-profile .details .social-icons {
+  margin-top: -0.5em;
+}
+/* line 158, ../sass/_dashboard.scss */
+.main-wrapper .main-container .author-profile .profile-details .user-profile .details .social-icons a {
+  margin: 0 10.5px;
+  color: #fff;
+  font-size: 20px;
+}
+/* line 165, ../sass/_dashboard.scss */
+.main-wrapper .main-container .author-profile .profile-details .user-profile .actions {
+  width: 17em;
+  margin-top: 25px;
+}
+/* line 172, ../sass/_dashboard.scss */
+.main-wrapper .main-container .profile-content {
+  position: relative;
+  z-index: 4;
+  top: 350px;
+  background: linear-gradient(to top right, #131f27, #10181e);
+  padding: 40px;
+  width: 95%;
+  margin: 0 auto;
+  margin-left: 2.5%;
+  margin-top: -400px;
+  margin-bottom: 470px;
+}
+/* line 183, ../sass/_dashboard.scss */
+.main-wrapper .main-container .profile-content .profile-sidebar {
+  padding-right: 1em;
+  font-family: "Open Sans Regular";
+}
+/* line 187, ../sass/_dashboard.scss */
+.main-wrapper .main-container .profile-content .profile-sidebar .user-info .message {
+  line-height: 1.43;
+  text-align: left;
+  color: #9daab6;
+}
+/* line 192, ../sass/_dashboard.scss */
+.main-wrapper .main-container .profile-content .profile-sidebar .user-info .meta-info {
+  color: #9daab6;
+}
+/* line 194, ../sass/_dashboard.scss */
+.main-wrapper .main-container .profile-content .profile-sidebar .user-info .meta-info span {
+  margin-right: 0.2em;
+  font-size: 1.2em;
+}
+/* line 201, ../sass/_dashboard.scss */
+.main-wrapper .main-container .profile-content .book-card {
+  background-color: #131f27;
+  border-radius: 10px;
+  height: 100%;
+  display: flex;
+  -webkit-box-shadow: 0px 34px 38px -53px rgba(0, 0, 0, 0.26);
+  -moz-box-shadow: 0px 34px 38px -53px rgba(0, 0, 0, 0.26);
+  box-shadow: 0px 34px 38px -53px rgba(0, 0, 0, 0.26);
+  margin: 30px 0;
+}
+/* line 210, ../sass/_dashboard.scss */
+.main-wrapper .main-container .profile-content .book-card .cover {
+  width: 220px;
+  float: left;
+  height: 220px;
+  overflow: hidden;
+  border-bottom-left-radius: 10px;
+}
+/* line 216, ../sass/_dashboard.scss */
+.main-wrapper .main-container .profile-content .book-card .cover img {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+/* line 221, ../sass/_dashboard.scss */
+.main-wrapper .main-container .profile-content .book-card .details {
+  padding: 0 40px 0 20px;
+  width: 100%;
+  position: relative;
+}
+/* line 225, ../sass/_dashboard.scss */
+.main-wrapper .main-container .profile-content .book-card .details .bookmark-btn {
+  color: #2e455a;
+  font-size: 1.5em;
+}
+/* line 228, ../sass/_dashboard.scss */
+.main-wrapper .main-container .profile-content .book-card .details .bookmark-btn:hover {
+  transition: ease 0.2s;
+  color: #5d7992;
+}
+/* line 233, ../sass/_dashboard.scss */
+.main-wrapper .main-container .profile-content .book-card .details .status {
+  color: #0ecfeb;
+  margin-top: 5px;
+}
+/* line 237, ../sass/_dashboard.scss */
+.main-wrapper .main-container .profile-content .book-card .details .title {
+  color: #fff;
+  padding-right: 3em;
+  line-height: 1.4;
+  margin-bottom: 5px;
+}
+/* line 243, ../sass/_dashboard.scss */
+.main-wrapper .main-container .profile-content .book-card .details .description {
+  color: #9daab6;
+  line-height: 1.43;
+  text-align: left;
+  font-family: "Open Sans Regular";
+}
+/* line 249, ../sass/_dashboard.scss */
+.main-wrapper .main-container .profile-content .book-card .details .rating {
+  color: #fac331;
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+/* line 253, ../sass/_dashboard.scss */
+.main-wrapper .main-container .profile-content .book-card .details .rating span {
+  margin: 0 0.2em;
+}
+/* line 257, ../sass/_dashboard.scss */
+.main-wrapper .main-container .profile-content .book-card .details .price {
+  color: #0ec896;
+}
+/* line 260, ../sass/_dashboard.scss */
+.main-wrapper .main-container .profile-content .book-card .details .social-meta {
+  position: absolute;
+  bottom: 0;
+}
+/* line 267, ../sass/_dashboard.scss */
+.main-wrapper .main-container .profile-content .related-books .section-header {
+  font-weight: 300;
+  text-align: left;
+  color: #9daab6;
+  font-family: "Lato Regular";
+}
+/* line 273, ../sass/_dashboard.scss */
+.main-wrapper .main-container .profile-content .related-books .books {
+  margin-top: 30px;
+}
+/* line 275, ../sass/_dashboard.scss */
+.main-wrapper .main-container .profile-content .related-books .books .item {
+  display: inline-block;
+  float: left;
+  margin-right: 15px;
+}
+/* line 279, ../sass/_dashboard.scss */
+.main-wrapper .main-container .profile-content .related-books .books .item .cover {
+  width: 152px;
+  height: 227px;
+  overflow: hidden;
+}
+/* line 285, ../sass/_dashboard.scss */
+.main-wrapper .main-container .profile-content .related-books .books .item .title {
+  color: #ffffff;
+  margin-bottom: 0;
+  margin-top: 10px;
+}
+/* line 290, ../sass/_dashboard.scss */
+.main-wrapper .main-container .profile-content .related-books .books .item .category {
+  color: #9daab6;
+}
+/* line 294, ../sass/_dashboard.scss */
+.main-wrapper .main-container .profile-content .related-books .books .item .social-meta a {
+  margin: 0 6px;
+}

@@ -21,6 +21,13 @@
         url      : '',
         template : '<ui-view></ui-view>'
       })
+      .state('logout', {
+        url          : '/logout/',
+        controller   : function ($scope, AuthService) {
+          AuthService.logout()
+            .then(function (r) { window.location.href="/login/"; });
+        }
+      })
       .state('dashboard', {
         url          : '/',
         templateUrl  : TEMPLATE_URL + 'users/dashboard.html',

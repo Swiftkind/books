@@ -1,0 +1,94 @@
+<a href="#">
+    <div class="user-profile">
+        <div class="avatar-md pull-left">
+            <div class="photo img-circle" style="background-image:url('/static/images/userx3.png');">
+            </div>
+        </div>
+        <div class="details">
+            <h3 ng-if="ctrl.AuthService.auth.first_name && ctrl.AuthService.auth.last_name">{{ ctrl.AuthService.auth.first_name }} {{ ctrl.AuthService.auth.last_name }}</h3>
+            <h3 ng-if="!ctrl.AuthService.auth.first_name && !ctrl.AuthService.auth.last_name">{{ ctrl.AuthService.auth.email }}</h3>
+            <small>@{{ ctrl.AuthService.auth.username }}</small>
+        </div>
+    </div>
+</a>
+<div class="section">
+    <ul class="nav-links">
+        <li>
+            <a ui-sref="dashboard"><span class="icon ion-home"></span>Home</a>
+        </li>
+        <li>
+            <a ui-sref="library"><span class="icon ion-grid"></span>My Library</a>
+        </li>
+        <li>
+            <a ui-sref="trending"><span class="icon ion-arrow-graph-up-right"></span>Trending</a>
+        </li>
+        <li>
+            <a ui-sref="following"><span class="icon ion-ios-person-outline"></span>Following</a>
+        </li>
+    </ul>
+</div>
+<div class="section">
+    <ul class="nav-links">
+        <li>
+            <p class="nav-title">Library</p>
+        </li>
+        <li>
+            <a ui-sref="history"><span class="icon ion-android-time"></span>History</a>
+        </li>
+        <li>
+            <a ui-sref="bookmarks"><span class="icon ion-android-bookmark"></span>Bookmarks</a>
+        </li>
+        <li>
+            <a ui-sref="favorites"><span class="icon ion-ios-person-outline"></span>Favorites</a>
+        </li>
+    </ul>
+</div>
+<div class="section recent-activities">
+    <ul class="nav-links">
+        <li>
+            <p class="nav-title">Recent Activities</p>
+        </li>
+        <li class="item">
+            <a href="#">
+                <div class="user-profile">
+                    <div class="avatar-xs pull-left">
+                        <div class="photo img-circle" style="background-image:url('/static/images/userx3.png');">
+                        </div>
+                    </div>
+                    <div class="details">
+                        <p>Username Lastname</p>
+                        <small>@username123</small>
+                    </div>
+                </div>
+            </a>
+        </li>
+        <li class="item">
+            <a href="#">
+                <div class="user-profile">
+                    <div class="avatar-xs pull-left">
+                        <div class="photo img-circle" style="background-image:url('/static/images/userx3.png');">
+                        </div>
+                    </div>
+                    <div class="details">
+                        <p>Username Lastname</p>
+                        <small>@username123</small>
+                    </div>
+                </div>
+            </a>
+        </li>
+        <li class="item">
+            <a href="#">
+                <div class="user-profile">
+                    <div class="avatar-xs pull-left">
+                        <div class="photo img-circle" style="background-image:url('/static/images/userx3.png');">
+                        </div>
+                    </div>
+                    <div class="details">
+                        <p>Username Lastname</p>
+                        <small>@username123</small>
+                    </div>
+                </div>
+            </a>
+        </li>
+    </ul>
+</div>

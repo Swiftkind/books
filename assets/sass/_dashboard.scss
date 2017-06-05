@@ -1,0 +1,303 @@
+.page-wrapper {
+    background: linear-gradient(to bottom left, #1f3042, #1c1e2b, #1c1f2d 27%, #111c22 72%, #080f13);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.main-wrapper {
+    height: 100%;
+    position: relative;
+    .sidebar {
+        padding: 60px 20px 60px 45px;
+        width: 350px;
+        position: fixed;
+        left: 0;
+        top: 0;
+        height: 100%;
+        bottom: 0;
+        background: none;
+        overflow-y: auto;
+        .section {
+            margin: 50px 0;
+            &.recent-activities {
+                .item {
+                    background: rgba(#fff, 0.1);
+                    border-radius: 4.8px;
+                    background-color: #1f2731;
+                    padding: 15px 24px;
+                    .details {
+                    	font-family: $Open-Sans-Light;
+                        p {
+                            margin: 0;
+                            color: #fff;
+                        }
+                        small {
+                             color: #9daab6;
+
+
+                        }
+                    }
+                }
+            }
+        }
+        .user-profile {
+            h3 {
+                font-family: $Lato-Regular;
+                color: #ffffff;
+            }
+            small {
+                font-size: 13.9px;
+                font-weight: 100;
+                text-align: left;
+                color: #9daab6;
+            }
+        }
+        ul {
+            &.nav-links {
+                list-style: none;
+                padding: 0;
+                li {
+                    margin: 12px 0;
+                    a {
+                        color: #9daab6;
+                        font-size: 14px;
+                        span {
+                            margin-right: 12px;
+                        }
+                        .details {
+                            margin-left: 2.5em;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .main-container {
+        position: absolute;
+        left: 350px;
+        top: 0;
+        bottom: 0;
+        background: none;
+        right: 0;
+        .author-profile {
+            position: relative;
+            .cover-container {
+                position: relative;
+                width: 100%;
+                z-index: 4;
+                .cover-wrapper {
+                    &::before {
+                        display: block;
+                        content: "";
+                        position: absolute;
+                        height: 100%;
+                        width: 100%;
+                        box-shadow: inset 0 0 1px 1px rgba(0, 0, 0, 0.2);
+                        z-index: 1;
+                    }
+                    margin-top: 0px;
+                    height: 500px;
+                    .cover {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+                        overflow: hidden;
+                        img {
+                            position: absolute;
+                            left: 0;
+                            right: 0;
+                            top: -9999px;
+                            bottom: -9999px;
+                            margin: auto 0;
+                            width: 100%;
+                            transform: translate3d(0px, 41.9775px, 0px);
+                            transform: none;
+                        }
+                        .overlay {
+                            position: absolute;
+                            left: 0;
+                            right: 0;
+                            top: 0;
+                            bottom: 0;
+                            margin: auto 0;
+                            width: 100%;
+                            transform: translate3d(0px, 41.9775px, 0px);
+                            transform: none;
+                            background: linear-gradient(to top, rgba(19, 27, 33, 0.7), rgba(19, 30, 46, 0.6), rgba(30, 48, 73, 0.2));
+                            z-index: 2;
+                        }
+                    }
+                }
+            }
+            .profile-details {
+                position: absolute;
+                z-index: 6;
+                display: flex;
+                align-items: center;
+                height: 396px;
+                width: 90%;
+                top: 80px;
+                color: #fff;
+                .user-profile {
+                    width: 100%;
+                    padding-left: 86px;
+                    .details {
+                        margin-left: 12em;
+                        h1 {
+                            margin: 10px 0;
+                        }
+                        h3 {
+                            width: 80%;
+                        }
+                        .social-icons {
+                            margin-top: -0.5em;
+                            a {
+                                margin: 0 10.5px;
+                                color: #fff;
+                                font-size: 20px;
+                            }
+                        }
+                    }
+                    .actions {
+                        width: 17em;
+                        margin-top: 25px;
+                    }
+                }
+            }
+        }
+        .profile-content {
+            position: relative;
+            z-index: 4;
+            top: 350px;
+            background: linear-gradient(to top right, #131f27, #10181e);
+            padding: 40px;
+            width: 95%;
+            margin: 0 auto;
+            margin-left: 2.5%;
+            margin-top: -400px;
+            margin-bottom: 470px;
+            .profile-sidebar {
+                padding-right: 1em;
+                font-family: $Open-Sans-Regular;
+                .user-info {
+                    .message {
+                        line-height: 1.43;
+                        text-align: left;
+                        color: #9daab6;
+                    }
+                    .meta-info {
+                        color: #9daab6;
+                        span {
+                            margin-right: 0.2em;
+                            font-size: 1.2em;
+                        }
+                    }
+                }
+            }
+            .book-card {
+                background-color: #131f27;
+                border-radius: 10px;
+                height: 100%;
+                display: flex;
+                -webkit-box-shadow: 0px 34px 38px -53px rgba(0, 0, 0, 0.26);
+                -moz-box-shadow: 0px 34px 38px -53px rgba(0, 0, 0, 0.26);
+                box-shadow: 0px 34px 38px -53px rgba(0, 0, 0, 0.26);
+                margin: 30px 0;
+                .cover {
+                    width: 220px;
+                    float: left;
+                    height: 220px;
+                    overflow: hidden;
+                    border-bottom-left-radius: 10px;
+                    img {
+                        border-top-left-radius: 10px;
+                        border-bottom-left-radius: 10px;
+                    }
+                }
+                .details {
+                    padding: 0 40px 0 20px;
+                    width: 100%;
+                    position: relative;
+                    .bookmark-btn {
+                        color: #2e455a;
+                        font-size: 1.5em;
+                        &:hover {
+                            transition: ease 0.2s;
+                            color: #5d7992;
+                        }
+                    }
+                    .status {
+                        color: #0ecfeb;
+                        margin-top: 5px;
+                    }
+                    .title {
+                        color: #fff;
+                        padding-right: 3em;
+                        line-height: 1.4;
+                        margin-bottom: 5px;
+                    }
+                    .description {
+                        color: #9daab6;
+                        line-height: 1.43;
+                        text-align: left;
+                        font-family: $Open-Sans-Regular;
+                    }
+                    .rating {
+                        color: #fac331;
+                        font-size: 12px;
+                        margin-bottom: 8px;
+                        span {
+                            margin: 0 0.2em;
+                        }
+                    }
+                    .price {
+                        color: #0ec896;
+                    }
+                    .social-meta {
+                        position: absolute;
+                        bottom: 0;
+                    }
+                }
+            }
+            .related-books {
+                .section-header {
+                    font-weight: 300;
+                    text-align: left;
+                    color: #9daab6;
+                    font-family: $Lato-Regular;
+                }
+                .books {
+                    margin-top: 30px;
+                    .item {
+                        display: inline-block;
+                        float: left;
+                        margin-right: 15px;
+                        .cover {
+                            width: 152px;
+                            height: 227px;
+                            overflow: hidden;
+                            img {}
+                        }
+                        .title {
+                            color: #ffffff;
+                            margin-bottom: 0;
+                            margin-top: 10px;
+                        }
+                        .category {
+                            color: #9daab6;
+                        }
+                        .social-meta {
+                            a {
+                                margin: 0 6px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

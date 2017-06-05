@@ -3,14 +3,19 @@
 
   angular
     .module('core')
+    .controller('UserController', UserController)
     .controller('IndexController', IndexController)
     .controller('LoginController', LoginController)
     .controller('DashboardController', DashboardController)
     .controller('ProfileController', ProfileController)
   ;
 
-  /* INDEX PAGE CONTROLLER
-   */
+  function UserController ($scope, AuthService) {
+    var self = this;
+
+    self.AuthService = AuthService;
+  };
+
   function IndexController ($scope) {
     var self = this;
   };
@@ -24,7 +29,7 @@
       AuthService.login(data).then(
         function (resp) {
           // successfully logged in
-          window.location.reload();
+          window.location.href="/";
         },
         function (resp) {
           // error
@@ -42,15 +47,27 @@
 
   }; // END OF DASHBOARD CONTROLLER
 
-  function ProfileController ($scope, $stateParams, AuthService) {
+  function ProfileController ($scope, $stateParams, AuthService, BookService) {
     var self = this;
 
-    self.user = undefined;
+    self._ = _;
+    self.AuthService = AuthService;
 
+    self.user = undefined;
+    self.books = [];
+
+    /* GET USER DETAILS
+     */
     AuthService.detail($stateParams.handle).then(
       function (resp) {
         // successfully retrieved the data
         self.user = resp.data;
+
+        /* GET BOOKS LIST
+         */
+        BookService.list({author:self.user.id}).then(function (resp) {
+          self.books = resp.data;
+        });
       },
       function (resp) {
         console.log(resp);
@@ -59,6 +76,17 @@
       }
     );
 
+    /* follow/unfollow user
+     */
+    self.follow = function (id) {
+      if (_.contains(self.user.fans, self.AuthService.auth.id)) {
+        self.user.fans = _.without(self.user.fans, self.AuthService.auth.id);
+      } else {
+        self.user.fans.push(self.AuthService.auth.id);
+      }
+      
+      AuthService.follow(id);
+    };
 
   };
 

@@ -4,20 +4,42 @@
 <html>
 
 <head>
+    <title>Book</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/ionicons.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 
     <base href="/">
 </head>
 
 <body ng-app="core">
-    <ui-view></ui-view>
+    <div class="page-wrapper">
+
+        {% if user.is_authenticated %}
+        <nav ng-include
+             ng-controller="UserController as ctrl"
+             src="'/static/apps/templates/nav.html'"
+             class="nav navbar main-nav navbar-fixed-top"></nav>
+
+        <div class="main-wrapper">
+            <div ng-include
+                 ng-controller="UserController as ctrl"
+                 src="'/static/apps/templates/sidebar.html'"
+                 class="sidebar"></div>
+            {% endif %}
+
+            <ui-view></ui-view>
+        </div>
+    </div>
 
     {# ANGULAR SCRIPTS #}
     <script src="{% static 'node_modules/angular/angular.min.js' %}"></script>
     <script src="{% static 'node_modules/angular-ui-router/release/angular-ui-router.min.js' %}"></script>
     <script src="{% static 'node_modules/angular-bootstrap/ui-bootstrap.min.js' %}"></script>
+    <script src="{% static 'node_modules/underscore/underscore-min.js' %}"></script>
 
     <script src="{% static 'apps/app.js' %}"></script>
     {% if user.is_authenticated %}
@@ -28,6 +50,8 @@
 
     <script src="{% static 'apps/users/controllers.js' %}"></script>
     <script src="{% static 'apps/users/services.js' %}"></script>
+
+    <script src="{% static 'apps/books/services.js' %}"></script>
 </body>
 
 </html>

@@ -1,0 +1,45 @@
+.main-nav {
+    background: #20333c;
+    border-radius: 0;
+    margin-bottom: 0;
+    height: 60px;
+    a {
+        color: #fff;
+        font-family: $Lato-Regular;
+    }
+    .navbar-nav {
+        li {
+            a {
+                padding-top: 20px;
+                padding-bottom: 20px;
+                &:hover{
+                	background: none;
+                	color: #0db57e;
+                }
+            }
+        }
+    }
+    .navbar-right {
+        .dropdown {
+            .dropdown-toggle {
+                padding-top: 15px;
+                padding-bottom: 15px;
+                display: inline-flex;
+                align-items: center;
+                img {
+                    margin: 0 8.5px;
+                }
+                &:hover{
+                	color: #fff;
+                }
+            }
+            &.open{
+            	a{
+            		&:active{
+            			background:none;
+            		}
+            	}
+            }
+        }
+    }
+}

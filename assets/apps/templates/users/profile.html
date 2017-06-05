@@ -1,1 +1,184 @@
-{{ ctrl.user.email }}
+<div class="main-container">
+    <div class="author-profile">
+        <div class="cover-container">
+            <div class="cover-wrapper">
+                <div class="cover">
+                    <img src="/static/images/cover.jpg" class="img-responsive">
+                    <div class="overlay"></div>
+                </div>
+            </div>
+        </div>
+        <div class="profile-details">
+            <div class="user-profile">
+                <div class="avatar-lg user-avatar">
+                    <div class="photo img-circle" style="background-image:url('/static/images/userx3.png');">
+                    </div>
+                </div>
+                <div class="details">
+                    <h4>Fiction Writer</h4>
+                    <h1 ng-if="ctrl.user.first_name && ctrl.user.last_name">{{ ctrl.user.first_name }} {{ ctrl.user.last_name }}</h1>
+                    <h1 ng-if="!ctrl.user.first_name && !ctrl.user.last_name">{{ ctrl.user.first_name }} {{ ctrl.user.last_name }}</h1>
+                    <h3>Shaman hell of salvia activated charcoal. Marfa cred flexitarian hammock air plant street art.</h3>
+                    <div>
+                        <div class="pull-right social-icons">
+                            <a href="#"><span class="icon ion-social-facebook"></span></a>
+                            <a href="#"><span class="icon ion-social-pinterest"></span></a>
+                            <a href="#"><span class="icon ion-social-instagram-outline"></span></a>
+                            <a href="#"><span class="icon ion-social-snapchat"></span></a>
+                            <a href="#"><span class="icon ion-social-twitter"></span></a>
+                        </div>
+                        <div class="actions">
+                            <div class="pull-right">
+                                <a ng-click="ctrl.follow(ctrl.user.id);" class="green-br">
+                                    <span ng-if="!ctrl._.contains(ctrl.user.fans, ctrl.AuthService.auth.id)">Subscribe</span>
+                                    <span ng-if="ctrl._.contains(ctrl.user.fans, ctrl.AuthService.auth.id)">Subscribed</span>
+                                </a>
+                            </div>
+                            <p>{{ ctrl.user.fans.length }} Subscribers</p>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <div class="profile-content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-3 no-padding">
+                    <div class="profile-sidebar">
+                        <div class="user-info">
+                            <p class="message">
+                                Hell of paleo drinking vinegar, la croix adaptogen tofu blog you probably haven't heard of them taiyaki tumblr bicycle rights fanny pack mustache cornhole..
+                                <br><br>
+                                <a href="#" class="text-link">https://www.wattpad.com/user/OnneeChan</a>
+                            </p>
+                            <div class="meta-info">
+                                <p><span class="icon ion-location"></span> San Francisco, California</p>
+                                <p>Joined since Feb 2014</p>
+                                <strong><a href="#" class="gr-link"><span class="icon ion-ios-chatbubble-outline"></span>Send Hanna a message</a></strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-9">
+
+                    <div ng-repeat="book in ctrl.books" class="book-card">
+                        <div class="cover">
+                            <img src="{{ book.cover }}" class="img-responsive">
+                        </div>
+                        <div class="details">
+                            <div>
+                                <div class="price pull-right">
+                                    <p ng-if="book.price !== '0.00'">${{ book.price }}</p>
+                                    <p ng-if="book.price === '0.00'">FREE</p>
+                                </div>
+                                <h3 class="title">{{ book.title }}</h3>
+                                <div>
+                                    <div class="rating">
+                                    <span class="icon ion-android-star"></span>
+                                    <span class="icon ion-android-star"></span>
+                                    <span class="icon ion-android-star-outline"></span>
+                                    <span class="icon ion-android-star-outline"></span>
+                                    <span class="icon ion-android-star-outline"></span>
+                                    <span class="status hide">Trending</span>
+                                </div>
+                                </div>
+                            </div>
+                            <!-- limited to 300 characters -->
+                            <p class="description">{{ book.description }}</p>
+                            <div class="social-meta">
+                                <p>
+                                    <a href="#" id="like" class="active"><span class="icon ion-heart"></span> {{ book.interested.length }}</a>
+                                    <a href="#" id="read" class="active" ><span class="icon ion-ios-book"></span>1,202</a>
+                                    <a href="#" ><span class="icon ion-chatbubble"></span>{{ book.reviews.length }}</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="profile-content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="related-books">
+                        <h4 class="text-uppercase section-header">RELATED BOOKS</h4>
+                        <div class="books">
+                            <div class="item">
+                                <div class="cover">
+                                    <img src="/static/images/book2.jpg" class="img-responsive">
+                                </div>  
+                                <p class="title">The Road</p>
+                                <p class="category">Classics</p>
+                                <div class="social-meta">
+                                    <p>
+                                        <a href="#" id="like" class="active"><span class="icon ion-heart"></span> 12</a>
+                                        <a href="#" id="read" class="active" ><span class="icon ion-ios-book"></span>2</a>
+                                        <a href="#" ><span class="icon ion-chatbubble"></span>32</a>
+                                    </p>
+                                </div>
+                            </div><div class="item">
+                                <div class="cover">
+                                    <img src="/static/images/book2.jpg" class="img-responsive">
+                                </div>  
+                                <p class="title">The Road</p>
+                                <p class="category">Classics</p>
+                                <div class="social-meta">
+                                    <p>
+                                        <a href="#" id="like" class="active"><span class="icon ion-heart"></span> 12</a>
+                                        <a href="#" id="read" class="active" ><span class="icon ion-ios-book"></span>2</a>
+                                        <a href="#" ><span class="icon ion-chatbubble"></span>32</a>
+                                    </p>
+                                </div>
+                            </div><div class="item">
+                                <div class="cover">
+                                    <img src="/static/images/book2.jpg" class="img-responsive">
+                                </div>  
+                                <p class="title">The Road</p>
+                                <p class="category">Classics</p>
+                                <div class="social-meta">
+                                    <p>
+                                        <a href="#" id="like" class="active"><span class="icon ion-heart"></span> 12</a>
+                                        <a href="#" id="read" class="active" ><span class="icon ion-ios-book"></span>2</a>
+                                        <a href="#" ><span class="icon ion-chatbubble"></span>32</a>
+                                    </p>
+                                </div>
+                            </div><div class="item">
+                                <div class="cover">
+                                    <img src="/static/images/book2.jpg" class="img-responsive">
+                                </div>  
+                                <p class="title">The Road</p>
+                                <p class="category">Classics</p>
+                                <div class="social-meta">
+                                    <p>
+                                        <a href="#" id="like" class="active"><span class="icon ion-heart"></span> 12</a>
+                                        <a href="#" id="read" class="active" ><span class="icon ion-ios-book"></span>2</a>
+                                        <a href="#" ><span class="icon ion-chatbubble"></span>32</a>
+                                    </p>
+                                </div>
+                            </div><div class="item">
+                                <div class="cover">
+                                    <img src="/static/images/book2.jpg" class="img-responsive">
+                                </div>  
+                                <p class="title">The Road</p>
+                                <p class="category">Classics</p>
+                                <div class="social-meta">
+                                    <p>
+                                        <a href="#" id="like" class="active"><span class="icon ion-heart"></span> 12</a>
+                                        <a href="#" id="read" class="active" ><span class="icon ion-ios-book"></span>2</a>
+                                        <a href="#" ><span class="icon ion-chatbubble"></span>32</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -7,5 +7,11 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.6.4",
+    "angular-bootstrap": "^0.12.2",
+    "angular-ui-router": "^1.0.3",
+    "underscore": "^1.8.3"
+  }
 }

@@ -19,6 +19,10 @@ class UserAPI(viewsets.ViewSet):
             return Response(status=204)
         return Response(serializer.errors, status=400)
 
+    def disconnect(self, *args, **kwargs):
+        logout(self.request)
+        return Response(status=204)
+
     def auth(self, *args, **kwargs):
         serializer = UserSerializer(self.request.user)
         return Response(serializer.data, status=200)
@@ -28,3 +32,23 @@ class UserAPI(viewsets.ViewSet):
             User, username=kwargs.get('handle')))
 
         return Response(serializer.data, status=200)
+
+    def follow(self, *args, **kwargs):
+        profile = get_object_or_404(User, id=kwargs.get('id'))
+        profile.follow(self.request.user)
+
+        return Response(status=204)
+
+    def fans(self, *args, **kwargs):
+        serializer = UserSerializer(
+            get_object_or_404(
+                User, id=kwargs.get('id')
+            ).fans.all(), many=True)
+
+        return Response(serializer.data, status=200)
+
+
+class UsersAPI(viewsets.ViewSet):
+    """ users endpoint
+    """
+    pass

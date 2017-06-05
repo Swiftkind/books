@@ -37,6 +37,16 @@ class User(AbstractBaseUser, PermissionsMixin):
     username = models.CharField(max_length=150, unique=True)
     first_name = models.CharField(max_length=40, null=True, blank=True)
     last_name = models.CharField(max_length=40, null=True, blank=True)
+    job_title = models.CharField(max_length=150, null=True, blank=True)
+    quote = models.CharField(max_length=250, null=True, blank=True)
+    about_me = models.TextField(null=True, blank=True)
+    website = models.URLField(null=True, blank=True)
+    location = models.CharField(max_length=150, null=True, blank=True)
+    country = models.CharField(max_length=150, null=True, blank=True)
+
+    image = models.ImageField(upload_to="users/", null=True, blank=True)
+
+    fans = models.ManyToManyField('self', blank=True)
 
     date_joined = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -64,3 +74,23 @@ class User(AbstractBaseUser, PermissionsMixin):
         """ Returns the short name for the user.
         """
         return "{}".format(self.first_name)
+
+    def follow(self, fan):
+        if self.fans.filter(id=fan.id).exists():
+            self.fans.remove(fan)
+            return
+        
+        self.fans.add(fan)
+        return
+
+
+class Commendation(models.Model):
+    """ user commendation
+    """
+    author = models.ForeignKey(User)
+    content = models.TextField()
+
+    date_created = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return "{}| {}".format(self.author, self.date_created)
