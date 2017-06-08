@@ -21,6 +21,14 @@ class Book(models.Model):
     def __str__(self):
         return "{}".format(self.title)
 
+    def favorite(self, user):
+        if self.interested.filter(id=user.id).exists():
+            self.interested.remove(user)
+            return
+        
+        self.interested.add(user)
+        return
+
 
 class Category(models.Model):
     """ book categories

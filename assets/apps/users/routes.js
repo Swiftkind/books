@@ -40,6 +40,12 @@
         controller   : 'ProfileController',
         controllerAs : 'ctrl'
       })
+      .state('favorites', {
+        url          : '/:handle/favorites/',
+        templateUrl  : TEMPLATE_URL + 'users/favorites.html',
+        controller   : 'FavoritesController',
+        controllerAs : 'ctrl'
+      })
     ;
 
   };

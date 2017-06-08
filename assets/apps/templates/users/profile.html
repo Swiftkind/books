@@ -3,7 +3,7 @@
         <div class="cover-container">
             <div class="cover-wrapper">
                 <div class="cover">
-                    <img src="/static/images/cover.jpg" class="img-responsive">
+                    <img src="{{ ctrl.user.cover }}" class="img-responsive">
                     <div class="overlay"></div>
                 </div>
             </div>
@@ -11,14 +11,14 @@
         <div class="profile-details">
             <div class="user-profile">
                 <div class="avatar-lg user-avatar">
-                    <div class="photo img-circle" style="background-image:url('/static/images/userx3.png');">
+                    <div class="photo img-circle" style="background-image:url('{{ ctrl.user.image }}');">
                     </div>
                 </div>
                 <div class="details">
-                    <h4>Fiction Writer</h4>
+                    <h4>{{ ctrl.user.job_title }}</h4>
                     <h1 ng-if="ctrl.user.first_name && ctrl.user.last_name">{{ ctrl.user.first_name }} {{ ctrl.user.last_name }}</h1>
                     <h1 ng-if="!ctrl.user.first_name && !ctrl.user.last_name">{{ ctrl.user.first_name }} {{ ctrl.user.last_name }}</h1>
-                    <h3>Shaman hell of salvia activated charcoal. Marfa cred flexitarian hammock air plant street art.</h3>
+                    <h3>{{ ctrl.user.quote }}</h3>
                     <div>
                         <div class="pull-right social-icons">
                             <a href="#"><span class="icon ion-social-facebook"></span></a>
@@ -49,13 +49,13 @@
                     <div class="profile-sidebar">
                         <div class="user-info">
                             <p class="message">
-                                Hell of paleo drinking vinegar, la croix adaptogen tofu blog you probably haven't heard of them taiyaki tumblr bicycle rights fanny pack mustache cornhole..
+                                {{ ctrl.user.about_me }}
                                 <br><br>
-                                <a href="#" class="text-link">https://www.wattpad.com/user/OnneeChan</a>
+                                <a href="#" class="text-link">{{ ctrl.user.website }}</a>
                             </p>
                             <div class="meta-info">
-                                <p><span class="icon ion-location"></span> San Francisco, California</p>
-                                <p>Joined since Feb 2014</p>
+                                <p><span class="icon ion-location"></span> {{ ctrl.user.location }}, {{ ctrl.user.country }}</p>
+                                <p>Joined since {{ ctrl.user.date_joined|date:"MMM dd" }}</p>
                                 <strong><a href="#" class="gr-link"><span class="icon ion-ios-chatbubble-outline"></span>Send Hanna a message</a></strong>
                             </div>
                         </div>
@@ -90,7 +90,7 @@
                             <p class="description">{{ book.description }}</p>
                             <div class="social-meta">
                                 <p>
-                                    <a href="#" id="like" class="active"><span class="icon ion-heart"></span> {{ book.interested.length }}</a>
+                                    <a href ng-click="ctrl.favorite(book)" id="like" class="active"><span class="icon ion-heart"></span> {{ book.interested.length }}</a>
                                     <a href="#" id="read" class="active" ><span class="icon ion-ios-book"></span>1,202</a>
                                     <a href="#" ><span class="icon ion-chatbubble"></span>{{ book.reviews.length }}</a>
                                 </p>

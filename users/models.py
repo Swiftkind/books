@@ -1,9 +1,11 @@
+from django.apps import apps
 from django.contrib.auth.models import (
     AbstractBaseUser,
     BaseUserManager,
     PermissionsMixin,
 )
 from django.db import models
+from django.shortcuts import get_object_or_404
 from django.utils.translation import ugettext_lazy as _
 
 
@@ -44,6 +46,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     location = models.CharField(max_length=150, null=True, blank=True)
     country = models.CharField(max_length=150, null=True, blank=True)
 
+    cover = models.ImageField(upload_to="users/cover/", null=True, blank=True)
     image = models.ImageField(upload_to="users/", null=True, blank=True)
 
     fans = models.ManyToManyField('self', blank=True)
@@ -82,6 +85,7 @@ class User(AbstractBaseUser, PermissionsMixin):
         
         self.fans.add(fan)
         return
+
 
 
 class Commendation(models.Model):
