@@ -1,4 +1,5 @@
 from django.apps import apps
+from django.conf import settings
 from django.contrib.auth.models import (
     AbstractBaseUser,
     BaseUserManager,
@@ -78,6 +79,9 @@ class User(AbstractBaseUser, PermissionsMixin):
         """
         return "{}".format(self.first_name)
 
+    def get_following(self):
+        return self.__class__.objects.filter(fans=self)
+
     def follow(self, fan):
         if self.fans.filter(id=fan.id).exists():
             self.fans.remove(fan)
@@ -98,3 +102,10 @@ class Commendation(models.Model):
 
     def __str__(self):
         return "{}| {}".format(self.author, self.date_created)
+
+
+# class Activity(models.Model):
+#     """ user activities
+#     """
+#     user = models.ForeignKey(settings.AUTH_USER_MODEL)
+#     date_created = models.DateTimeField(auto_now_add=True)

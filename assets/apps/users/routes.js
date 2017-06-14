@@ -34,6 +34,18 @@
         controller   : 'DashboardController',
         controllerAs : 'ctrl'
       })
+      .state('feed', {
+        url          : '/feed/',
+        templateUrl  : TEMPLATE_URL + 'users/feed.html',
+        controller   : 'FeedController',
+        controllerAs : 'ctrl'
+      })
+      .state('search', {
+        url          : '/search/',
+        templateUrl  : TEMPLATE_URL + 'users/search.html',
+        controller   : 'SearchController',
+        controllerAs : 'ctrl'
+      })
       .state('profile', {
         url          : '/:handle/',
         templateUrl  : TEMPLATE_URL + 'users/profile.html',

@@ -18,7 +18,12 @@ class BooksAPI(viewsets.ViewSet):
         return Response(serializer.data, status=200)
 
     def search(self, *args, **kwargs):
-        serializer = ''
+        search_item = self.request.query_params.get('q')
+        
+        book = Book.objects.filter(title=search_item)
+        serializer = BookSerializer(book, many=True)
+
+        return Response(serializer.data, status=200)
 
     def _clean_params(self, **params):
         return {k:v if len(v) > 1 else v[0] for k,v in params.items()}

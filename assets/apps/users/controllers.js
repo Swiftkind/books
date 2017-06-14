@@ -44,9 +44,27 @@
   function DashboardController ($scope, AuthService) {
     var self = this;
 
-    self.AuthService = AuthService;
+    
+  };
 
-  }; // END OF DASHBOARD CONTROLLER
+  function FeedController ($scope, FeedService, AuthService) {
+    var self = this;
+
+    self.AuthService = AuthService;
+    self.feeds = [];
+
+    FeedService.feed().then(function (resp) {
+      self.feeds = resp.data;
+    });
+
+
+  }; // END OF FEED CONTROLLER
+
+  function SearchController ($scope, ) {
+    var self = this;
+
+    
+  };
 
   function ProfileController ($scope, $stateParams, AuthService, BookService) {
     var self = this;
