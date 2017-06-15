@@ -12,9 +12,9 @@
             a {
                 padding-top: 20px;
                 padding-bottom: 20px;
-                &:hover{
-                	background: none;
-                	color: #0db57e;
+                &:hover {
+                    background: none;
+                    color: #0db57e;
                 }
             }
         }
@@ -29,16 +29,26 @@
                 img {
                     margin: 0 8.5px;
                 }
-                &:hover{
-                	color: #fff;
+                &:hover {
+                    color: #fff;
                 }
             }
-            &.open{
-            	a{
-            		&:active{
-            			background:none;
-            		}
-            	}
+            &.open {
+                a {
+                    &:active {
+                        background: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.main-wrapper {
+    &.right-open {
+        .main-container {
+            &.dashboard {
+                right: 320px;
             }
         }
     }

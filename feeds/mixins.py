@@ -18,7 +18,7 @@ class FeedMixin(object):
             Q(user__in=auth_user.get_following()) | \
             Q(item_id__in=auth_user.get_following().values_list('id', flat=True),
                 item_type=self._get_model(User))
-        )
+        ).order_by('-date_created')
 
     def _get_model(self, _model):
         return ContentType.objects.get(model=_model._meta.model_name)

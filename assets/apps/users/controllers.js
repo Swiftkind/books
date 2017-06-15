@@ -7,6 +7,7 @@
     .controller('IndexController', IndexController)
     .controller('LoginController', LoginController)
     .controller('DashboardController', DashboardController)
+    .controller('FeedController', FeedController)
     .controller('ProfileController', ProfileController)
     .controller('FavoritesController', FavoritesController)
   ;
@@ -53,10 +54,16 @@
     self.AuthService = AuthService;
     self.feeds = [];
 
+    self.actionText = {
+      add      : "Published a new book",
+      update   : "Updated the book",
+      follow   : "Followed",
+      favorite : "Favorited the book"
+    };
+
     FeedService.feed().then(function (resp) {
       self.feeds = resp.data;
     });
-
 
   }; // END OF FEED CONTROLLER
 

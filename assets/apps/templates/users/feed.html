@@ -1,10 +1,121 @@
-<div class="main-container">
-    
-    <div class="feed">
-        <div ng-repeat="feed in ctrl.feeds" class="col-md-12">
-            <h3>asdasda</h3>
-            <hr>
-        </div>
-    </div>
+<div class="main-container dashboard">
+    <div class="book-list">
 
+        <div ng-repeat="feed in ctrl.feeds" class="feed-item">
+            <div class="user-profile">
+                <div class="avatar-sm pull-left">
+                    <div class="photo img-circle" style="background-image:url('{{ feed.user.image }}');">
+                    </div>
+                </div>
+                <div class="details">
+                    <p>
+                        <a ui-sref="profile({handle:feed.user.username})"><span class="user">{{ feed.user.display_name }}</span></a>
+                        <span class="event-name">{{ ctrl.actionText[feed.action] }}&nbsp;&nbsp;<a href="">{{ feed.item.title || feed.item.display_name }}</a></span>
+                    </p>
+                </div>
+            </div>
+
+            <div ng-if="feed.action !== 'follow'" class="book-card">
+                <div class="cover">
+                    <img src="{{ feed.item.cover }}" class="img-responsive">
+                </div>
+                <div class="details">
+                    <div>
+                        <div class="pull-right">
+                        </div>
+                        <h3 class="title">{{ feed.item.title }}</h3>
+                        <div>
+                            <div class="price pull-right">
+                                <p ng-if="feed.item.price !== '0.00'">$ {{ feed.item.price }}</p>
+                                <p ng-if="feed.item.price === '0.00'">FREE</p>
+                            </div>
+                            <div class="rating">
+                                <span class="icon ion-android-star"></span>
+                                <span class="icon ion-android-star"></span>
+                                <span class="icon ion-android-star"></span>
+                                <span class="icon ion-android-star-outline"></span>
+                                <span class="icon ion-android-star-outline"></span>
+                                <span class="status">Trending</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- limited to 300 characters -->
+                    <p class="description">{{ feed.item.description }}</p>
+                    <div>
+                        <div class="social-meta">
+                            <div class="pull-right">
+                                <a href="#"><span class="icon ion-android-share-alt"></span></a>
+                                <a href="#"><span class="icon ion-more"></span></a>
+                            </div>
+                            <a href="#">Read now</a>
+                            <a href="#"><span class="icon ion-ios-heart-outline"></span></a>
+                            <a href="#">
+                                <div class="photo img-circle " style="background-image:url('/static/images/userx3.png');"></div>
+                                <div class="photo img-circle " style="background-image:url('/static/images/userx3.png');"></div>
+                                <div class="photo img-circle " style="background-image:url('/static/images/userx3.png');"></div>
+                                <div class="photo img-circle " style="background-image:url('/static/images/userx3.png');"></div>
+                                <div class="photo img-circle more-people">+5</div>
+                            </a>
+                            <a href="#">9 Comments</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="activities" style="display:none;">
+    <ul class="nav-links">
+        <div>
+            <!-- 
+            <div class="pull-right">
+                <a href="#"><span class="icon ion-ios-arrow-thin-right"></span></a>
+            </div> -->
+            <p class="nav-title">Recent Activities</p>
+        </div>
+        <li class="item">
+            <a href="#">
+                <div class="user-profile">
+                    <div class="avatar-as pull-left">
+                        <div class="photo img-circle" style="background-image:url('assets/images/userx3.png');">
+                        </div>
+                    </div>
+                    <div class="details">
+                        <div>
+                            <div class="pull-right">
+                                <span>2m</span>
+                            </div>
+                            <p>Username Lastname</p>
+                        </div>
+                        <p>
+                            Released a new book called how to stay beast mode when your life is a joke.
+                        </p>
+                    </div>
+                </div>
+            </a>
+        </li>
+        <li class="item">
+            <a href="#">
+                <div class="user-profile">
+                    <div class="avatar-as pull-left">
+                        <div class="photo img-circle" style="background-image:url('assets/images/userx3.png');">
+                        </div>
+                    </div>
+                    <div class="details">
+                        <div>
+                            <div class="pull-right">
+                                <span>2m</span>
+                            </div>
+                            <p>Username Lastname</p>
+                        </div>
+                        <p>
+                            Released a new book called how to stay beast mode when your life is a joke.
+                        </p>
+                    </div>
+                </div>
+            </a>
+        </li>
+    </ul>
 </div>
