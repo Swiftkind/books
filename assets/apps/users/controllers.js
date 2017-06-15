@@ -7,7 +7,9 @@
     .controller('IndexController', IndexController)
     .controller('LoginController', LoginController)
     .controller('DashboardController', DashboardController)
+    .controller('FeedController', FeedController)
     .controller('ProfileController', ProfileController)
+    .controller('FavoritesController', FavoritesController)
   ;
 
   function UserController ($scope, AuthService) {
@@ -43,9 +45,33 @@
   function DashboardController ($scope, AuthService) {
     var self = this;
 
-    self.AuthService = AuthService;
+    
+  };
 
-  }; // END OF DASHBOARD CONTROLLER
+  function FeedController ($scope, FeedService, AuthService) {
+    var self = this;
+
+    self.AuthService = AuthService;
+    self.feeds = [];
+
+    self.actionText = {
+      add      : "Published a new book",
+      update   : "Updated the book",
+      follow   : "Followed",
+      favorite : "Favorited the book"
+    };
+
+    FeedService.feed().then(function (resp) {
+      self.feeds = resp.data;
+    });
+
+  }; // END OF FEED CONTROLLER
+
+  function SearchController ($scope, ) {
+    var self = this;
+
+    
+  };
 
   function ProfileController ($scope, $stateParams, AuthService, BookService) {
     var self = this;
@@ -87,6 +113,45 @@
       
       AuthService.follow(id);
     };
+
+    self.favorite = function (book) {
+      if (_.contains(book.interested, self.AuthService.auth.id)) {
+        book.interested = _.without(book.interested, self.AuthService.auth.id);
+      } else {
+        book.interested.push(self.AuthService.auth.id);
+      };
+
+      BookService.favorite(book.id);
+    };
+
+  };
+
+  function FavoritesController ($scope, $stateParams, AuthService, BookService) {
+    var self = this;
+
+    self.AuthService = AuthService;
+
+    self.books = [];
+
+    /* GET USER DETAILS
+     */
+    AuthService.detail($stateParams.handle).then(
+      function (resp) {
+        // successfully retrieved the data
+        self.user = resp.data;
+
+        /* GET BOOKS LIST
+         */
+        BookService.list({interested__in:self.user.id}).then(function (resp) {
+          self.books = resp.data;
+        });
+      },
+      function (resp) {
+        console.log(resp);
+        // error.
+        // TODO: redirect to 404 page
+      }
+    );
 
   };
 

@@ -9,6 +9,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^api/users/', include('users.urls')),
     url(r'^api/books/', include('books.urls')),
+    url(r'^api/feeds/', include('feeds.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 

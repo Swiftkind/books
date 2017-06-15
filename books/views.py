@@ -12,9 +12,28 @@ class BooksAPI(viewsets.ViewSet):
     """
     def list(self, *args, **kwargs):
         serializer = BookSerializer(
-            Book.objects.filter(**self.request.query_params.dict()), many=True)
+            Book.objects.filter(
+                **self._clean_params(**self.request.query_params)), many=True)
 
         return Response(serializer.data, status=200)
 
     def search(self, *args, **kwargs):
-        serializer = ''
+        search_item = self.request.query_params.get('q')
+        
+        book = Book.objects.filter(title=search_item)
+        serializer = BookSerializer(book, many=True)
+
+        return Response(serializer.data, status=200)
+
+    def _clean_params(self, **params):
+        return {k:v if len(v) > 1 else v[0] for k,v in params.items()}
+
+
+class BookAPI(viewsets.ViewSet):
+    """ book detail
+    """
+    def favorite(self, *args, **kwargs):
+        book = get_object_or_404(Book, id=kwargs.get('book_id'))
+        book.favorite(self.request.user)
+
+        return Response(status=204)

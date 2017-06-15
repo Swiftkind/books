@@ -135,19 +135,38 @@ a:hover:focus, a:visited:focus, a:active:focus, a:focus:focus {
 
 /* line 42, ../sass/_extends.scss */
 .btn-green {
-  padding: 9px 17px !important;
+  padding: 10px 40px !important;
   margin-top: 11px !important;
   border-radius: 28px !important;
   background-color: #12c88d !important;
+  margin: 0 .5em;
 }
-/* line 47, ../sass/_extends.scss */
+/* line 48, ../sass/_extends.scss */
 .btn-green:hover {
   background-color: #0db57e !important;
   transition: 0.2s;
   color: #fff !important;
 }
 
-/* line 54, ../sass/_extends.scss */
+/* line 55, ../sass/_extends.scss */
+.br-default {
+  padding: 10px 40px !important;
+  margin-top: 11px !important;
+  border-radius: 28px !important;
+  background-color: transparent;
+  border-radius: 17px;
+  border: solid 2px #9daab6;
+  color: #9daab6;
+  margin: 0 .5em;
+}
+/* line 64, ../sass/_extends.scss */
+.br-default:hover {
+  background-color: #9daab6 !important;
+  transition: 0.2s;
+  color: #fff !important;
+}
+
+/* line 71, ../sass/_extends.scss */
 .text-link {
   hyphens: auto;
   -webkit-hyphens: auto;
@@ -160,7 +179,7 @@ a:hover:focus, a:visited:focus, a:active:focus, a:focus:focus {
   color: #2fdcc6;
 }
 
-/* line 66, ../sass/_extends.scss */
+/* line 83, ../sass/_extends.scss */
 .notification {
   border-radius: 2.4px;
   background-color: #f72e66;
@@ -168,61 +187,70 @@ a:hover:focus, a:visited:focus, a:active:focus, a:focus:focus {
   padding: 4px 6px;
 }
 
-/* line 74, ../sass/_extends.scss */
+/* line 91, ../sass/_extends.scss */
 .user-profile .user-avatar {
   position: absolute;
 }
-/* line 77, ../sass/_extends.scss */
+/* line 94, ../sass/_extends.scss */
 .user-profile .avatar-sm,
-.user-profile .avatar-md {
+.user-profile .avatar-md,
+.user-profile .avatar-xs {
   background-size: cover;
   overflow: hidden;
 }
-/* line 82, ../sass/_extends.scss */
-.user-profile .photo {
+/* line 100, ../sass/_extends.scss */
+.user-profile .details {
+  margin-left: 5em;
+}
+
+/* line 105, ../sass/_extends.scss */
+.photo {
   background-size: cover;
   width: 100%;
   height: 100%;
   overflow: hidden;
 }
-/* line 88, ../sass/_extends.scss */
-.user-profile .details {
-  margin-left: 5em;
-}
 
-/* line 93, ../sass/_extends.scss */
+/* line 112, ../sass/_extends.scss */
 .avatar-xs {
-  width: 25px;
-  height: 25px;
+  width: 20px;
+  height: 20px;
 }
 
-/* line 98, ../sass/_extends.scss */
+/* line 117, ../sass/_extends.scss */
+.avatar-as {
+  width: 30px;
+  height: 30px;
+}
+
+/* line 122, ../sass/_extends.scss */
 .avatar-sm {
   width: 42px;
   height: 42px;
 }
 
-/* line 103, ../sass/_extends.scss */
+/* line 127, ../sass/_extends.scss */
 .avatar-md {
   width: 60px;
   height: 60px;
 }
 
-/* line 108, ../sass/_extends.scss */
+/* line 132, ../sass/_extends.scss */
 .avatar-lg {
   width: 140px;
   height: 140px;
 }
 
-/* line 114, ../sass/_extends.scss */
+/* line 138, ../sass/_extends.scss */
 .green-br {
   color: #12c98f;
   border: solid 2px #12c98f;
-  padding: 10px 18px;
+  padding: 10px 40px;
   border-radius: 30px;
   font-weight: bold;
+  min-width: 116.8px;
 }
-/* line 120, ../sass/_extends.scss */
+/* line 145, ../sass/_extends.scss */
 .green-br:hover {
   background: #12c98f;
   color: #fff;
@@ -230,32 +258,167 @@ a:hover:focus, a:visited:focus, a:active:focus, a:focus:focus {
   transition: 0.2s ease;
 }
 
-/* line 128, ../sass/_extends.scss */
+/* line 153, ../sass/_extends.scss */
 .bookmark-btn {
   margin-top: 10px;
 }
-/* line 130, ../sass/_extends.scss */
+/* line 155, ../sass/_extends.scss */
 .bookmark-btn img {
   width: 1.3em;
 }
 
-/* line 136, ../sass/_extends.scss */
+/* line 161, ../sass/_extends.scss */
 .no-padding {
   padding: 0;
 }
 
-/* line 142, ../sass/_extends.scss */
+/* line 165, ../sass/_extends.scss */
+.h-center {
+  left: 0;
+  right: 0;
+  margin-right: auto;
+  margin-left: 0;
+}
+
+/* line 172, ../sass/_extends.scss */
+.v-center {
+  top: 0 !important;
+  bottom: 0 !important;
+}
+
+/* line 177, ../sass/_extends.scss */
+.align-center {
+  margin: 0 auto;
+}
+
+/* line 183, ../sass/_extends.scss */
 .social-meta a {
   color: #67727c;
   margin-right: 20px;
 }
-/* line 145, ../sass/_extends.scss */
+/* line 186, ../sass/_extends.scss */
 .social-meta a span {
   margin-right: 2px;
 }
-/* line 150, ../sass/_extends.scss */
+/* line 191, ../sass/_extends.scss */
 .social-meta a#like.active, .social-meta a#read.active {
   color: #fe4b60;
+}
+
+/* line 199, ../sass/_extends.scss */
+.secondary-nav {
+  width: 100%;
+}
+/* line 202, ../sass/_extends.scss */
+.secondary-nav li a {
+  text-align: left;
+  color: #ffffff;
+  padding: 0 0 5px;
+  margin: 10px 15px;
+  border-bottom: solid 2px rgba(255, 255, 255, 0);
+  border: none;
+}
+/* line 209, ../sass/_extends.scss */
+.secondary-nav li a:hover {
+  background: none;
+  border-bottom: solid 2px #fff;
+  transition: 0.5s;
+}
+/* line 214, ../sass/_extends.scss */
+.secondary-nav li a.active {
+  background: none;
+  border-bottom: solid 2px #fff;
+  transition: 0.5s;
+}
+
+/* line 224, ../sass/_extends.scss */
+.cover-container {
+  position: relative;
+  width: 100%;
+  z-index: 4;
+}
+/* line 228, ../sass/_extends.scss */
+.cover-container .cover-wrapper {
+  margin-top: 0px;
+  height: 500px;
+}
+/* line 229, ../sass/_extends.scss */
+.cover-container .cover-wrapper::before {
+  display: block;
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  box-shadow: inset 0 0 1px 1px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+/* line 240, ../sass/_extends.scss */
+.cover-container .cover-wrapper .cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+}
+/* line 247, ../sass/_extends.scss */
+.cover-container .cover-wrapper .cover img {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -9999px;
+  bottom: -9999px;
+  margin: auto 0;
+  width: 100%;
+  transform: translate3d(0px, 41.9775px, 0px);
+  transform: none;
+}
+/* line 258, ../sass/_extends.scss */
+.cover-container .cover-wrapper .cover .overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+  width: 100%;
+  transform: translate3d(0px, 41.9775px, 0px);
+  transform: none;
+  background: linear-gradient(to top, rgba(19, 27, 33, 0.7), rgba(19, 30, 46, 0.6), rgba(30, 48, 73, 0.2));
+  z-index: 2;
+}
+
+/* line 276, ../sass/_extends.scss */
+.social-meta {
+  position: absolute;
+  bottom: 15px;
+}
+/* line 279, ../sass/_extends.scss */
+.social-meta a {
+  display: inline-flex;
+  vertical-align: middle;
+}
+/* line 282, ../sass/_extends.scss */
+.social-meta a .photo {
+  border: solid 2px #fff;
+  margin-left: -7px;
+  width: 30px;
+  height: 30px;
+}
+/* line 288, ../sass/_extends.scss */
+.social-meta a .more-people {
+  text-align: center;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  border-radius: 100%;
+  overflow: hidden;
+  border: 2px solid #fff;
+  background: #f5f5f5;
+  width: 30px;
+  height: 30px;
+  position: relative;
+  font-size: 12px;
+  padding-top: 4px;
 }
 
 /* line 1, ../sass/_header.scss */
@@ -300,6 +463,11 @@ a:hover:focus, a:visited:focus, a:active:focus, a:focus:focus {
   background: none;
 }
 
+/* line 50, ../sass/_header.scss */
+.main-wrapper.right-open .main-container.dashboard {
+  right: 320px;
+}
+
 /* line 1, ../sass/_dashboard.scss */
 .page-wrapper {
   background: linear-gradient(to bottom left, #1f3042, #1c1e2b, #1c1f2d 27%, #111c22 72%, #080f13);
@@ -308,15 +476,30 @@ a:hover:focus, a:visited:focus, a:active:focus, a:focus:focus {
   height: 100%;
   overflow-y: auto;
 }
+/* line 7, ../sass/_dashboard.scss */
+.page-wrapper::-webkit-scrollbar-track {
+  background: #121c23;
+  width: 7px;
+}
+/* line 11, ../sass/_dashboard.scss */
+.page-wrapper::-webkit-scrollbar {
+  color: #121c23;
+  width: 7px;
+}
+/* line 15, ../sass/_dashboard.scss */
+.page-wrapper::-webkit-scrollbar-thumb {
+  background-color: #0c1115;
+  outline: 1px solid #0c1115;
+}
 
-/* line 9, ../sass/_dashboard.scss */
+/* line 21, ../sass/_dashboard.scss */
 .main-wrapper {
   height: 100%;
   position: relative;
 }
-/* line 12, ../sass/_dashboard.scss */
+/* line 24, ../sass/_dashboard.scss */
 .main-wrapper .sidebar {
-  padding: 60px 20px 60px 45px;
+  padding: 60px 20px 60px 30px;
   width: 350px;
   position: fixed;
   left: 0;
@@ -326,65 +509,125 @@ a:hover:focus, a:visited:focus, a:active:focus, a:focus:focus {
   background: none;
   overflow-y: auto;
 }
-/* line 22, ../sass/_dashboard.scss */
+/* line 34, ../sass/_dashboard.scss */
 .main-wrapper .sidebar .section {
-  margin: 50px 0;
+  margin: 20px 0;
 }
-/* line 25, ../sass/_dashboard.scss */
-.main-wrapper .sidebar .section.recent-activities .item {
+/* line 36, ../sass/_dashboard.scss */
+.main-wrapper .sidebar .section.recent-activities {
+  max-height: 50%;
+  overflow-y: auto;
+  padding-right: 0.5em;
+}
+/* line 41, ../sass/_dashboard.scss */
+.main-wrapper .sidebar .section.recent-activities .item a {
   background: rgba(255, 255, 255, 0.1);
   border-radius: 4.8px;
   background-color: #1f2731;
   padding: 15px 24px;
+  margin: 12px 0;
 }
-/* line 30, ../sass/_dashboard.scss */
+/* line 47, ../sass/_dashboard.scss */
+.main-wrapper .sidebar .section.recent-activities .item a:hover {
+  background: rgba(140, 203, 249, 0.18);
+  transition: 0.5s;
+}
+/* line 52, ../sass/_dashboard.scss */
 .main-wrapper .sidebar .section.recent-activities .item .details {
   font-family: "Open Sans Light";
 }
-/* line 32, ../sass/_dashboard.scss */
+/* line 54, ../sass/_dashboard.scss */
 .main-wrapper .sidebar .section.recent-activities .item .details p {
   margin: 0;
   color: #fff;
 }
-/* line 36, ../sass/_dashboard.scss */
+/* line 58, ../sass/_dashboard.scss */
 .main-wrapper .sidebar .section.recent-activities .item .details small {
   color: #9daab6;
 }
-/* line 46, ../sass/_dashboard.scss */
+/* line 63, ../sass/_dashboard.scss */
+.main-wrapper .sidebar .section.recent-activities::-webkit-scrollbar-track {
+  background: none !important;
+  width: 5px;
+}
+/* line 67, ../sass/_dashboard.scss */
+.main-wrapper .sidebar .section.recent-activities::-webkit-scrollbar {
+  color: #fff;
+  width: 5px;
+}
+/* line 71, ../sass/_dashboard.scss */
+.main-wrapper .sidebar .section.recent-activities::-webkit-scrollbar-thumb {
+  background-color: #0c1115;
+  outline: 1px solid #0c1115;
+}
+/* line 75, ../sass/_dashboard.scss */
+.main-wrapper .sidebar .section.recent-activities::-webkit-scrollbar-button:vertical:hover {
+  opacity: 1;
+}
+/* line 78, ../sass/_dashboard.scss */
+.main-wrapper .sidebar .section.recent-activities::-webkit-scrollbar-thumb:window-inactive {
+  opacity: 0;
+}
+/* line 84, ../sass/_dashboard.scss */
 .main-wrapper .sidebar .user-profile h3 {
   font-family: "Lato Regular";
   color: #ffffff;
 }
-/* line 50, ../sass/_dashboard.scss */
+/* line 88, ../sass/_dashboard.scss */
 .main-wrapper .sidebar .user-profile small {
   font-size: 13.9px;
   font-weight: 100;
   text-align: left;
   color: #9daab6;
 }
-/* line 58, ../sass/_dashboard.scss */
-.main-wrapper .sidebar ul.nav-links {
+/* line 95, ../sass/_dashboard.scss */
+.main-wrapper .sidebar .user-profile .details p {
+  margin: 0;
+}
+/* line 100, ../sass/_dashboard.scss */
+.main-wrapper .sidebar::-webkit-scrollbar-track {
+  background: none;
+  width: 5px;
+  opacity: 1;
+}
+/* line 105, ../sass/_dashboard.scss */
+.main-wrapper .sidebar::-webkit-scrollbar {
+  color: rgba(18, 28, 25, 0.5);
+  width: 8px;
+}
+/* line 109, ../sass/_dashboard.scss */
+.main-wrapper .sidebar::-webkit-scrollbar-thumb {
+  color: rgba(18, 28, 25, 0.5);
+}
+/* line 112, ../sass/_dashboard.scss */
+.main-wrapper .sidebar::-webkit-scrollbar-button:horizontal:decrement:hover {
+  opacity: 0.7;
+}
+/* line 116, ../sass/_dashboard.scss */
+.main-wrapper .nav-links, .main-wrapper ul.nav-links, .main-wrapper .main-container .profile-content .profile-sidebar ul {
   list-style: none;
   padding: 0;
 }
-/* line 61, ../sass/_dashboard.scss */
-.main-wrapper .sidebar ul.nav-links li {
-  margin: 12px 0;
+/* line 120, ../sass/_dashboard.scss */
+.main-wrapper .nav-links li a, .main-wrapper .main-container .profile-content .profile-sidebar ul li a {
+  display: block;
+  color: #ddd;
+  text-decoration: none;
+  padding: 10px 15px 10px 14px;
 }
-/* line 63, ../sass/_dashboard.scss */
-.main-wrapper .sidebar ul.nav-links li a {
-  color: #9daab6;
-  font-size: 14px;
+/* line 125, ../sass/_dashboard.scss */
+.main-wrapper .nav-links li a:hover, .main-wrapper .main-container .profile-content .profile-sidebar ul li a:hover {
+  background: #20333c;
 }
-/* line 66, ../sass/_dashboard.scss */
-.main-wrapper .sidebar ul.nav-links li a span {
+/* line 128, ../sass/_dashboard.scss */
+.main-wrapper .nav-links li a span, .main-wrapper .main-container .profile-content .profile-sidebar ul li a span {
   margin-right: 12px;
 }
-/* line 69, ../sass/_dashboard.scss */
-.main-wrapper .sidebar ul.nav-links li a .details {
-  margin-left: 2.5em;
+/* line 132, ../sass/_dashboard.scss */
+.main-wrapper .nav-links li a .user-profile .details, .main-wrapper .main-container .profile-content .profile-sidebar ul li a .user-profile .details {
+  margin-left: 3em;
 }
-/* line 77, ../sass/_dashboard.scss */
+/* line 144, ../sass/_dashboard.scss */
 .main-wrapper .main-container {
   position: absolute;
   left: 350px;
@@ -393,67 +636,39 @@ a:hover:focus, a:visited:focus, a:active:focus, a:focus:focus {
   background: none;
   right: 0;
 }
-/* line 84, ../sass/_dashboard.scss */
+/* line 151, ../sass/_dashboard.scss */
+.main-wrapper .main-container.dashboard {
+  background: #f8f5fd;
+  overflow-y: auto;
+  right: 0;
+}
+/* line 155, ../sass/_dashboard.scss */
+.main-wrapper .main-container.dashboard .book-list {
+  padding: 80px 33px;
+}
+/* line 157, ../sass/_dashboard.scss */
+.main-wrapper .main-container.dashboard .book-list .feed-item {
+  margin-top: 2em;
+}
+/* line 159, ../sass/_dashboard.scss */
+.main-wrapper .main-container.dashboard .book-list .feed-item .details {
+  line-height: 3;
+}
+/* line 162, ../sass/_dashboard.scss */
+.main-wrapper .main-container.dashboard .book-list .feed-item .details p .user {
+  margin-right: 30px;
+  font-family: "Lato Regular";
+  color: #151e27;
+}
+/* line 167, ../sass/_dashboard.scss */
+.main-wrapper .main-container.dashboard .book-list .feed-item .details p .event-name {
+  color: #151e27;
+}
+/* line 175, ../sass/_dashboard.scss */
 .main-wrapper .main-container .author-profile {
   position: relative;
 }
-/* line 86, ../sass/_dashboard.scss */
-.main-wrapper .main-container .author-profile .cover-container {
-  position: relative;
-  width: 100%;
-  z-index: 4;
-}
-/* line 90, ../sass/_dashboard.scss */
-.main-wrapper .main-container .author-profile .cover-container .cover-wrapper {
-  margin-top: 0px;
-  height: 500px;
-}
-/* line 91, ../sass/_dashboard.scss */
-.main-wrapper .main-container .author-profile .cover-container .cover-wrapper::before {
-  display: block;
-  content: "";
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  box-shadow: inset 0 0 1px 1px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-}
-/* line 102, ../sass/_dashboard.scss */
-.main-wrapper .main-container .author-profile .cover-container .cover-wrapper .cover {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  overflow: hidden;
-}
-/* line 109, ../sass/_dashboard.scss */
-.main-wrapper .main-container .author-profile .cover-container .cover-wrapper .cover img {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: -9999px;
-  bottom: -9999px;
-  margin: auto 0;
-  width: 100%;
-  transform: translate3d(0px, 41.9775px, 0px);
-  transform: none;
-}
-/* line 120, ../sass/_dashboard.scss */
-.main-wrapper .main-container .author-profile .cover-container .cover-wrapper .cover .overlay {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  margin: auto 0;
-  width: 100%;
-  transform: translate3d(0px, 41.9775px, 0px);
-  transform: none;
-  background: linear-gradient(to top, rgba(19, 27, 33, 0.7), rgba(19, 30, 46, 0.6), rgba(30, 48, 73, 0.2));
-  z-index: 2;
-}
-/* line 136, ../sass/_dashboard.scss */
+/* line 177, ../sass/_dashboard.scss */
 .main-wrapper .main-container .author-profile .profile-details {
   position: absolute;
   z-index: 6;
@@ -464,39 +679,39 @@ a:hover:focus, a:visited:focus, a:active:focus, a:focus:focus {
   top: 80px;
   color: #fff;
 }
-/* line 145, ../sass/_dashboard.scss */
+/* line 186, ../sass/_dashboard.scss */
 .main-wrapper .main-container .author-profile .profile-details .user-profile {
   width: 100%;
   padding-left: 86px;
 }
-/* line 148, ../sass/_dashboard.scss */
+/* line 189, ../sass/_dashboard.scss */
 .main-wrapper .main-container .author-profile .profile-details .user-profile .details {
   margin-left: 12em;
 }
-/* line 150, ../sass/_dashboard.scss */
+/* line 191, ../sass/_dashboard.scss */
 .main-wrapper .main-container .author-profile .profile-details .user-profile .details h1 {
   margin: 10px 0;
 }
-/* line 153, ../sass/_dashboard.scss */
+/* line 194, ../sass/_dashboard.scss */
 .main-wrapper .main-container .author-profile .profile-details .user-profile .details h3 {
   width: 80%;
 }
-/* line 156, ../sass/_dashboard.scss */
+/* line 197, ../sass/_dashboard.scss */
 .main-wrapper .main-container .author-profile .profile-details .user-profile .details .social-icons {
   margin-top: -0.5em;
 }
-/* line 158, ../sass/_dashboard.scss */
+/* line 199, ../sass/_dashboard.scss */
 .main-wrapper .main-container .author-profile .profile-details .user-profile .details .social-icons a {
   margin: 0 10.5px;
   color: #fff;
   font-size: 20px;
 }
-/* line 165, ../sass/_dashboard.scss */
+/* line 206, ../sass/_dashboard.scss */
 .main-wrapper .main-container .author-profile .profile-details .user-profile .actions {
-  width: 17em;
+  width: 20em;
   margin-top: 25px;
 }
-/* line 172, ../sass/_dashboard.scss */
+/* line 213, ../sass/_dashboard.scss */
 .main-wrapper .main-container .profile-content {
   position: relative;
   z-index: 4;
@@ -508,28 +723,33 @@ a:hover:focus, a:visited:focus, a:active:focus, a:focus:focus {
   margin-left: 2.5%;
   margin-top: -400px;
   margin-bottom: 470px;
+  min-height: 100%;
 }
-/* line 183, ../sass/_dashboard.scss */
+/* line 225, ../sass/_dashboard.scss */
 .main-wrapper .main-container .profile-content .profile-sidebar {
   padding-right: 1em;
   font-family: "Open Sans Regular";
 }
-/* line 187, ../sass/_dashboard.scss */
+/* line 228, ../sass/_dashboard.scss */
+.main-wrapper .main-container .profile-content .profile-sidebar ul {
+  list-style: none;
+}
+/* line 233, ../sass/_dashboard.scss */
 .main-wrapper .main-container .profile-content .profile-sidebar .user-info .message {
   line-height: 1.43;
   text-align: left;
   color: #9daab6;
 }
-/* line 192, ../sass/_dashboard.scss */
+/* line 238, ../sass/_dashboard.scss */
 .main-wrapper .main-container .profile-content .profile-sidebar .user-info .meta-info {
   color: #9daab6;
 }
-/* line 194, ../sass/_dashboard.scss */
+/* line 240, ../sass/_dashboard.scss */
 .main-wrapper .main-container .profile-content .profile-sidebar .user-info .meta-info span {
   margin-right: 0.2em;
   font-size: 1.2em;
 }
-/* line 201, ../sass/_dashboard.scss */
+/* line 247, ../sass/_dashboard.scss */
 .main-wrapper .main-container .profile-content .book-card {
   background-color: #131f27;
   border-radius: 10px;
@@ -540,7 +760,7 @@ a:hover:focus, a:visited:focus, a:active:focus, a:focus:focus {
   box-shadow: 0px 34px 38px -53px rgba(0, 0, 0, 0.26);
   margin: 30px 0;
 }
-/* line 210, ../sass/_dashboard.scss */
+/* line 256, ../sass/_dashboard.scss */
 .main-wrapper .main-container .profile-content .book-card .cover {
   width: 220px;
   float: left;
@@ -548,99 +768,592 @@ a:hover:focus, a:visited:focus, a:active:focus, a:focus:focus {
   overflow: hidden;
   border-bottom-left-radius: 10px;
 }
-/* line 216, ../sass/_dashboard.scss */
+/* line 262, ../sass/_dashboard.scss */
 .main-wrapper .main-container .profile-content .book-card .cover img {
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
 }
-/* line 221, ../sass/_dashboard.scss */
+/* line 267, ../sass/_dashboard.scss */
 .main-wrapper .main-container .profile-content .book-card .details {
   padding: 0 40px 0 20px;
   width: 100%;
   position: relative;
 }
-/* line 225, ../sass/_dashboard.scss */
+/* line 271, ../sass/_dashboard.scss */
 .main-wrapper .main-container .profile-content .book-card .details .bookmark-btn {
   color: #2e455a;
   font-size: 1.5em;
 }
-/* line 228, ../sass/_dashboard.scss */
+/* line 274, ../sass/_dashboard.scss */
 .main-wrapper .main-container .profile-content .book-card .details .bookmark-btn:hover {
   transition: ease 0.2s;
   color: #5d7992;
 }
-/* line 233, ../sass/_dashboard.scss */
+/* line 279, ../sass/_dashboard.scss */
 .main-wrapper .main-container .profile-content .book-card .details .status {
   color: #0ecfeb;
   margin-top: 5px;
 }
-/* line 237, ../sass/_dashboard.scss */
+/* line 283, ../sass/_dashboard.scss */
 .main-wrapper .main-container .profile-content .book-card .details .title {
   color: #fff;
   padding-right: 3em;
   line-height: 1.4;
   margin-bottom: 5px;
 }
-/* line 243, ../sass/_dashboard.scss */
+/* line 289, ../sass/_dashboard.scss */
 .main-wrapper .main-container .profile-content .book-card .details .description {
   color: #9daab6;
   line-height: 1.43;
   text-align: left;
   font-family: "Open Sans Regular";
 }
-/* line 249, ../sass/_dashboard.scss */
+/* line 295, ../sass/_dashboard.scss */
 .main-wrapper .main-container .profile-content .book-card .details .rating {
   color: #fac331;
   font-size: 12px;
   margin-bottom: 8px;
 }
-/* line 253, ../sass/_dashboard.scss */
+/* line 299, ../sass/_dashboard.scss */
 .main-wrapper .main-container .profile-content .book-card .details .rating span {
   margin: 0 0.2em;
 }
-/* line 257, ../sass/_dashboard.scss */
+/* line 303, ../sass/_dashboard.scss */
 .main-wrapper .main-container .profile-content .book-card .details .price {
   color: #0ec896;
 }
-/* line 260, ../sass/_dashboard.scss */
+/* line 306, ../sass/_dashboard.scss */
 .main-wrapper .main-container .profile-content .book-card .details .social-meta {
   position: absolute;
   bottom: 0;
 }
-/* line 267, ../sass/_dashboard.scss */
+/* line 312, ../sass/_dashboard.scss */
+.main-wrapper .main-container .profile-content .panel {
+  background-color: transparent;
+}
+/* line 315, ../sass/_dashboard.scss */
+.main-wrapper .main-container .profile-content .panel .panel-heading .nav-tabs {
+  border-bottom: none;
+}
+/* line 319, ../sass/_dashboard.scss */
+.main-wrapper .main-container .profile-content .panel .panel-heading .nav-tabs li.active a {
+  border-bottom: solid 2px white;
+  border: none;
+  background-color: transparent;
+  border: none;
+}
+/* line 324, ../sass/_dashboard.scss */
+.main-wrapper .main-container .profile-content .panel .panel-heading .nav-tabs li.active a:hover, .main-wrapper .main-container .profile-content .panel .panel-heading .nav-tabs li.active a:active, .main-wrapper .main-container .profile-content .panel .panel-heading .nav-tabs li.active a:focus, .main-wrapper .main-container .profile-content .panel .panel-heading .nav-tabs li.active a:visited {
+  border-bottom: solid 2px white;
+  background-color: transparent;
+  color: #fff;
+}
+/* line 331, ../sass/_dashboard.scss */
+.main-wrapper .main-container .profile-content .panel .panel-heading .nav-tabs li.active a:hover:focus, .main-wrapper .main-container .profile-content .panel .panel-heading .nav-tabs li.active a:active:focus, .main-wrapper .main-container .profile-content .panel .panel-heading .nav-tabs li.active a:focus:focus, .main-wrapper .main-container .profile-content .panel .panel-heading .nav-tabs li.active a:visited:focus {
+  border-bottom: solid 2px white;
+  background-color: transparent;
+  color: #fff;
+}
+/* line 339, ../sass/_dashboard.scss */
+.main-wrapper .main-container .profile-content .panel .panel-heading .nav-tabs li a {
+  border-bottom: solid 2px rgba(255, 255, 255, 0);
+  background-color: transparent;
+  border: none;
+}
+/* line 343, ../sass/_dashboard.scss */
+.main-wrapper .main-container .profile-content .panel .panel-heading .nav-tabs li a:hover, .main-wrapper .main-container .profile-content .panel .panel-heading .nav-tabs li a:active, .main-wrapper .main-container .profile-content .panel .panel-heading .nav-tabs li a:focus {
+  border-bottom: solid 2px white;
+  background-color: transparent;
+  color: #fff;
+}
+/* line 349, ../sass/_dashboard.scss */
+.main-wrapper .main-container .profile-content .panel .panel-heading .nav-tabs li a:hover:focus, .main-wrapper .main-container .profile-content .panel .panel-heading .nav-tabs li a:active:focus, .main-wrapper .main-container .profile-content .panel .panel-heading .nav-tabs li a:focus:focus {
+  border-bottom: solid 2px white;
+  background-color: transparent;
+  color: #fff;
+}
+/* line 360, ../sass/_dashboard.scss */
+.main-wrapper .main-container .profile-content .panel #changepw .input-container {
+  display: block;
+}
+/* line 364, ../sass/_dashboard.scss */
+.main-wrapper .main-container .profile-content .panel .changepw {
+  padding-left: 25px;
+  color: #129a6f;
+}
+/* line 370, ../sass/_dashboard.scss */
 .main-wrapper .main-container .profile-content .related-books .section-header {
   font-weight: 300;
   text-align: left;
   color: #9daab6;
   font-family: "Lato Regular";
 }
-/* line 273, ../sass/_dashboard.scss */
+/* line 376, ../sass/_dashboard.scss */
 .main-wrapper .main-container .profile-content .related-books .books {
   margin-top: 30px;
 }
-/* line 275, ../sass/_dashboard.scss */
+/* line 378, ../sass/_dashboard.scss */
 .main-wrapper .main-container .profile-content .related-books .books .item {
   display: inline-block;
   float: left;
   margin-right: 15px;
 }
-/* line 279, ../sass/_dashboard.scss */
+/* line 382, ../sass/_dashboard.scss */
 .main-wrapper .main-container .profile-content .related-books .books .item .cover {
   width: 152px;
   height: 227px;
   overflow: hidden;
 }
-/* line 285, ../sass/_dashboard.scss */
+/* line 388, ../sass/_dashboard.scss */
 .main-wrapper .main-container .profile-content .related-books .books .item .title {
   color: #ffffff;
   margin-bottom: 0;
   margin-top: 10px;
 }
-/* line 290, ../sass/_dashboard.scss */
+/* line 393, ../sass/_dashboard.scss */
 .main-wrapper .main-container .profile-content .related-books .books .item .category {
   color: #9daab6;
 }
-/* line 294, ../sass/_dashboard.scss */
-.main-wrapper .main-container .profile-content .related-books .books .item .social-meta a {
+/* line 396, ../sass/_dashboard.scss */
+.main-wrapper .main-container .profile-content .related-books .books .item .social-meta {
+  position: relative;
+  bottom: 0;
+}
+/* line 400, ../sass/_dashboard.scss */
+.main-wrapper .main-container .profile-content .related-books .books .item .social-meta p a {
   margin: 0 6px;
+}
+/* line 410, ../sass/_dashboard.scss */
+.main-wrapper .activities {
+  padding: 60px 20px 60px 30px;
+  width: 320px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  bottom: 0;
+  background: #fff;
+  overflow-y: auto;
+  padding: 60px 0;
+}
+/* line 421, ../sass/_dashboard.scss */
+.main-wrapper .activities .nav-title {
+  padding: 18px 35px 18px 18px;
+}
+/* line 426, ../sass/_dashboard.scss */
+.main-wrapper .activities .nav-links .item a, .main-wrapper .activities .main-container .profile-content .profile-sidebar ul .item a, .main-wrapper .main-container .profile-content .profile-sidebar .activities ul .item a {
+  border-left: solid 2px #fff;
+  color: #333333;
+  padding: 18px 19px 18px 18px;
+}
+/* line 430, ../sass/_dashboard.scss */
+.main-wrapper .activities .nav-links .item a:hover, .main-wrapper .activities .main-container .profile-content .profile-sidebar ul .item a:hover, .main-wrapper .main-container .profile-content .profile-sidebar .activities ul .item a:hover {
+  background-color: #f1fefb;
+  border-left: solid 2px #0ac6a1;
+}
+
+/* line 440, ../sass/_dashboard.scss */
+.book-card {
+  background-color: #fff;
+  border-radius: 4px;
+  height: auto;
+  display: flex;
+  -webkit-box-shadow: 0px 34px 38px -53px rgba(0, 0, 0, 0.26);
+  -moz-box-shadow: 0px 34px 38px -53px rgba(0, 0, 0, 0.26);
+  box-shadow: 0px 34px 38px -53px rgba(0, 0, 0, 0.26);
+  margin: 30px 0;
+}
+/* line 449, ../sass/_dashboard.scss */
+.book-card .cover {
+  width: 220px;
+  float: left;
+  height: 220px;
+  overflow: hidden;
+  border-bottom-left-radius: 4px;
+}
+/* line 455, ../sass/_dashboard.scss */
+.book-card .cover img {
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+/* line 460, ../sass/_dashboard.scss */
+.book-card .details {
+  padding: 0 40px 0 20px;
+  width: 100%;
+  position: relative;
+}
+/* line 464, ../sass/_dashboard.scss */
+.book-card .details .bookmark-btn {
+  color: #2e455a;
+  font-size: 1.5em;
+}
+/* line 467, ../sass/_dashboard.scss */
+.book-card .details .bookmark-btn:hover {
+  transition: ease 0.2s;
+  color: #5d7992;
+}
+/* line 472, ../sass/_dashboard.scss */
+.book-card .details .status {
+  color: #0ecfeb;
+  margin-top: 5px;
+}
+/* line 476, ../sass/_dashboard.scss */
+.book-card .details .title {
+  color: #151e27;
+  padding-right: 3em;
+  line-height: 1.4;
+  margin-bottom: 5px;
+  font-weight: 500;
+  font-family: "Lato Regular";
+}
+/* line 484, ../sass/_dashboard.scss */
+.book-card .details .description {
+  color: #9daab6;
+  line-height: 1.43;
+  text-align: left;
+  font-family: "Open Sans Regular";
+}
+/* line 490, ../sass/_dashboard.scss */
+.book-card .details .rating {
+  color: #fac331;
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+/* line 494, ../sass/_dashboard.scss */
+.book-card .details .rating span {
+  margin: 0 0.2em;
+}
+/* line 498, ../sass/_dashboard.scss */
+.book-card .details .price {
+  color: #0ec896;
+}
+
+/* line 504, ../sass/_dashboard.scss */
+.caret-inner {
+  top: 27px;
+  left: 1px;
+  border-left: 9px solid transparent;
+  border-right: 9px solid transparent;
+  border-bottom: 9px solid #fff;
+  border-bottom-color: #fff;
+  transform: translateZ;
+  transform: rotate(-90deg);
+  position: absolute;
+}
+
+/* line 2, ../sass/_pages.scss */
+.blurb-wrapper {
+  position: absolute;
+  z-index: 6;
+  display: flex;
+  align-items: center;
+  height: 396px;
+  width: 90%;
+  top: 80px;
+  color: #fff;
+}
+/* line 11, ../sass/_pages.scss */
+.blurb-wrapper .blurb {
+  width: 100%;
+  padding-left: 86px;
+}
+/* line 14, ../sass/_pages.scss */
+.blurb-wrapper .blurb .details {
+  margin-left: 0;
+}
+/* line 16, ../sass/_pages.scss */
+.blurb-wrapper .blurb .details h1 {
+  margin: 10px 0;
+}
+/* line 19, ../sass/_pages.scss */
+.blurb-wrapper .blurb .details h2 {
+  width: 80%;
+}
+/* line 22, ../sass/_pages.scss */
+.blurb-wrapper .blurb .details .social-icons {
+  margin-top: -0.5em;
+}
+/* line 24, ../sass/_pages.scss */
+.blurb-wrapper .blurb .details .social-icons a {
+  margin: 0 10.5px;
+  color: #fff;
+  font-size: 20px;
+}
+/* line 31, ../sass/_pages.scss */
+.blurb-wrapper .blurb .social-meta {
+  position: relative;
+  margin-top: 45px;
+}
+/* line 34, ../sass/_pages.scss */
+.blurb-wrapper .blurb .social-meta a {
+  color: #fff;
+}
+/* line 36, ../sass/_pages.scss */
+.blurb-wrapper .blurb .social-meta a .more-people {
+  color: #67727c;
+}
+
+/* line 45, ../sass/_pages.scss */
+.explore .search-books {
+  width: 434px;
+  margin: 55px auto;
+}
+/* line 48, ../sass/_pages.scss */
+.explore .search-books .search-label {
+  font-size: 12px;
+  text-align: left;
+  color: #636363;
+}
+/* line 53, ../sass/_pages.scss */
+.explore .search-books input {
+  border-radius: 0;
+  border: none;
+  border-bottom: solid 1px #9daab6;
+  background: none;
+  box-shadow: none;
+  font-size: 20px;
+  padding-bottom: 10px;
+}
+/* line 61, ../sass/_pages.scss */
+.explore .search-books input::placeholder {
+  color: #9daab6;
+  font-family: "Lato Regular";
+}
+/* line 68, ../sass/_pages.scss */
+.explore .explore-books {
+  padding: 65px;
+}
+/* line 70, ../sass/_pages.scss */
+.explore .explore-books .books,
+.explore .explore-books .featured-books {
+  margin-left: 25px;
+}
+/* line 72, ../sass/_pages.scss */
+.explore .explore-books .books h3,
+.explore .explore-books .featured-books h3 {
+  color: #111c22;
+  font-family: "Lato Regular";
+}
+/* line 77, ../sass/_pages.scss */
+.explore .explore-books .books .more-books,
+.explore .explore-books .featured-books .more-books {
+  margin-right: 25px;
+}
+/* line 79, ../sass/_pages.scss */
+.explore .explore-books .books .more-books .show-all,
+.explore .explore-books .featured-books .more-books .show-all {
+  color: #9daab6;
+}
+/* line 82, ../sass/_pages.scss */
+.explore .explore-books .books .more-books .icon,
+.explore .explore-books .featured-books .more-books .icon {
+  color: #1e2733;
+}
+/* line 85, ../sass/_pages.scss */
+.explore .explore-books .books .more-books a,
+.explore .explore-books .featured-books .more-books a {
+  margin-left: 1em;
+}
+/* line 89, ../sass/_pages.scss */
+.explore .explore-books .books .item,
+.explore .explore-books .books .featured-item,
+.explore .explore-books .featured-books .item,
+.explore .explore-books .featured-books .featured-item {
+  display: inline-block;
+  margin-right: 25px;
+}
+/* line 93, ../sass/_pages.scss */
+.explore .explore-books .books .item .title,
+.explore .explore-books .books .featured-item .title,
+.explore .explore-books .featured-books .item .title,
+.explore .explore-books .featured-books .featured-item .title {
+  color: #111c22;
+  font-size: 17px;
+  font-family: "Lato Regular";
+}
+/* line 98, ../sass/_pages.scss */
+.explore .explore-books .books .item .genre,
+.explore .explore-books .books .featured-item .genre,
+.explore .explore-books .featured-books .item .genre,
+.explore .explore-books .featured-books .featured-item .genre {
+  font-family: "Open Sans Regular";
+  color: #666666;
+}
+/* line 103, ../sass/_pages.scss */
+.explore .explore-books .books .item,
+.explore .explore-books .featured-books .item {
+  width: 17%;
+}
+/* line 105, ../sass/_pages.scss */
+.explore .explore-books .books .item img,
+.explore .explore-books .featured-books .item img {
+  width: 157px;
+  height: 208px;
+}
+/* line 110, ../sass/_pages.scss */
+.explore .explore-books .books .featured-item,
+.explore .explore-books .featured-books .featured-item {
+  width: 30%;
+}
+
+/* line 1, ../sass/_input.scss */
+.input-field {
+  width: 620px;
+}
+/* line 2, ../sass/_input.scss */
+.input-field .input-container {
+  display: inline-grid;
+}
+/* line 5, ../sass/_input.scss */
+.input-field .input-container select.form-control {
+  height: 45px;
+}
+/* line 9, ../sass/_input.scss */
+.input-field .input-container .show-profile {
+  padding-left: 25px;
+  color: #9daab6;
+}
+/* line 12, ../sass/_input.scss */
+.input-field .input-container .show-profile label {
+  font-weight: normal;
+}
+/* line 15, ../sass/_input.scss */
+.input-field .input-container .show-profile input[type='checkbox'] {
+  width: 14px;
+  padding: 0;
+  margin: 0 4px;
+}
+/* line 21, ../sass/_input.scss */
+.input-field .input-container .error-message {
+  display: block;
+  font-size: 14px;
+  padding-left: 25px;
+  text-align: left;
+  opacity: 0;
+}
+/* line 29, ../sass/_input.scss */
+.input-field .input-container.error input {
+  color: #f72e66;
+  border-bottom: solid 1px #f72e66;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 96%, #f72e66 4%);
+  background-position: -250px 0;
+  background-size: 250px 100%;
+  background-repeat: no-repeat;
+}
+/* line 36, ../sass/_input.scss */
+.input-field .input-container.error input:focus, .input-field .input-container.error input:active {
+  box-shadow: none;
+  outline: none;
+  background-position: 0 0;
+}
+/* line 41, ../sass/_input.scss */
+.input-field .input-container.error input:focus::-webkit-input-placeholder, .input-field .input-container.error input:active::-webkit-input-placeholder {
+  color: #f72e66;
+  font-size: 11px;
+  transform: translateY(-20px);
+  visibility: visible !important;
+}
+/* line 49, ../sass/_input.scss */
+.input-field .input-container.error .error-message {
+  opacity: 1;
+  color: #f72e66;
+}
+/* line 57, ../sass/_input.scss */
+.input-field input::-webkit-input-placeholder, .input-field button {
+  font-family: 'roboto', sans-serif;
+  transition: all 0.3s ease-in-out;
+}
+/* line 61, ../sass/_input.scss */
+.input-field input {
+  margin: 20px 25px;
+  width: 250px;
+  display: inline;
+  border: none;
+  padding: 10px 0;
+  border-bottom: solid 1px #1abc9c;
+  transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 96%, #1abc9c 4%);
+  background-position: -250px 0;
+  background-size: 250px 100%;
+  background-repeat: no-repeat;
+  color: #9daab6;
+  font-size: 16px;
+}
+/* line 75, ../sass/_input.scss */
+.input-field input:focus, .input-field input:active {
+  box-shadow: none;
+  outline: none;
+  background-position: 0 0;
+}
+/* line 80, ../sass/_input.scss */
+.input-field input:focus::-webkit-input-placeholder, .input-field input:active::-webkit-input-placeholder {
+  color: #1abc9c;
+  font-size: 11px;
+  transform: translateY(-20px);
+  visibility: visible !important;
+}
+/* line 88, ../sass/_input.scss */
+.input-field select {
+  margin: 20px 25px;
+  width: 250px;
+  display: inline;
+  border: none;
+  padding: 0;
+  border-radius: 0;
+  border-bottom: solid 1px #1abc9c;
+  transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 96%, #1abc9c 4%);
+  background-position: -250px 0;
+  background-size: 250px 100%;
+  background-repeat: no-repeat;
+  color: #0e6252;
+  font-size: 16px;
+}
+/* line 103, ../sass/_input.scss */
+.input-field select:focus, .input-field select:active {
+  box-shadow: none;
+  outline: none;
+  background-position: 0 0;
+}
+/* line 108, ../sass/_input.scss */
+.input-field select:focus::-webkit-input-placeholder, .input-field select:active::-webkit-input-placeholder {
+  color: #1abc9c;
+  font-size: 11px;
+  transform: translateY(-20px);
+  visibility: visible !important;
+}
+/* line 116, ../sass/_input.scss */
+.input-field textarea {
+  font-size: 16px;
+  margin: 20px 25px;
+  width: 552px;
+  display: inline;
+  border: none;
+  padding: 0;
+  border-radius: 0;
+  background: none;
+  border: solid 1px #1abc9c;
+  color: #9daab6;
+  min-height: 179px;
+}
+/* line 128, ../sass/_input.scss */
+.input-field textarea:focus, .input-field textarea:active {
+  box-shadow: none;
+  outline: none;
+  background-position: 0 0;
+}
+/* line 133, ../sass/_input.scss */
+.input-field textarea:focus::-webkit-input-placeholder, .input-field textarea:active::-webkit-input-placeholder {
+  color: #1abc9c;
+  font-size: 11px;
+  transform: translateY(-20px);
+  visibility: visible !important;
+}
+/* line 141, ../sass/_input.scss */
+.input-field .actions {
+  margin: 4em 2em 12em;
+}
+/* line 143, ../sass/_input.scss */
+.input-field .actions a {
+  margin: 0 1em;
 }

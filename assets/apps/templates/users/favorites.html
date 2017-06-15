@@ -1,0 +1,38 @@
+<h1>Favorites</h1>
+
+
+<div class="col-md-9">
+    <div ng-repeat="book in ctrl.books" class="book-card">
+        <div class="cover">
+            <img src="{{ book.cover }}" class="img-responsive">
+        </div>
+        <div class="details">
+            <div>
+                <div class="price pull-right">
+                    <p ng-if="book.price !== '0.00'">${{ book.price }}</p>
+                    <p ng-if="book.price === '0.00'">FREE</p>
+                </div>
+                <h3 class="title">{{ book.title }}</h3>
+                <div>
+                    <div class="rating">
+                    <span class="icon ion-android-star"></span>
+                    <span class="icon ion-android-star"></span>
+                    <span class="icon ion-android-star-outline"></span>
+                    <span class="icon ion-android-star-outline"></span>
+                    <span class="icon ion-android-star-outline"></span>
+                    <span class="status hide">Trending</span>
+                </div>
+                </div>
+            </div>
+            <!-- limited to 300 characters -->
+            <p class="description">{{ book.description }}</p>
+            <div class="social-meta">
+                <p>
+                    <a href="#" id="like" class="active"><span class="icon ion-heart"></span> {{ book.interested.length }}</a>
+                    <a href="#" id="read" class="active" ><span class="icon ion-ios-book"></span>1,202</a>
+                    <a href="#" ><span class="icon ion-chatbubble"></span>{{ book.reviews.length }}</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

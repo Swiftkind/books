@@ -1,9 +1,12 @@
+from django.apps import apps
+from django.conf import settings
 from django.contrib.auth.models import (
     AbstractBaseUser,
     BaseUserManager,
     PermissionsMixin,
 )
 from django.db import models
+from django.shortcuts import get_object_or_404
 from django.utils.translation import ugettext_lazy as _
 
 
@@ -44,6 +47,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     location = models.CharField(max_length=150, null=True, blank=True)
     country = models.CharField(max_length=150, null=True, blank=True)
 
+    cover = models.ImageField(upload_to="users/cover/", null=True, blank=True)
     image = models.ImageField(upload_to="users/", null=True, blank=True)
 
     fans = models.ManyToManyField('self', blank=True)
@@ -75,6 +79,9 @@ class User(AbstractBaseUser, PermissionsMixin):
         """
         return "{}".format(self.first_name)
 
+    def get_following(self):
+        return self.__class__.objects.filter(fans=self)
+
     def follow(self, fan):
         if self.fans.filter(id=fan.id).exists():
             self.fans.remove(fan)
@@ -82,6 +89,7 @@ class User(AbstractBaseUser, PermissionsMixin):
         
         self.fans.add(fan)
         return
+
 
 
 class Commendation(models.Model):
@@ -94,3 +102,10 @@ class Commendation(models.Model):
 
     def __str__(self):
         return "{}| {}".format(self.author, self.date_created)
+
+
+# class Activity(models.Model):
+#     """ user activities
+#     """
+#     user = models.ForeignKey(settings.AUTH_USER_MODEL)
+#     date_created = models.DateTimeField(auto_now_add=True)

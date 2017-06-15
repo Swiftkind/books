@@ -18,7 +18,7 @@
         <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                 <span>Hi, {{ ctrl.AuthService.auth.username }}</span>
-                <img src="/static/images/userx1.png" class="img-responsive img-circle">
+                <img src="{{ ctrl.AuthService.auth.image }}" class="img-responsive img-circle avatar-xs">
                 <span class="icon ion-ios-arrow-down"></span>
             </a>
         </li>

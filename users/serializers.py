@@ -29,6 +29,11 @@ class LoginSerializer(serializers.Serializer):
 class UserSerializer(serializers.ModelSerializer):
     """ user serializer
     """
+    display_name = serializers.SerializerMethodField()
+
+    def get_display_name(self, instance):
+        return "{}".format(instance.get_full_name() or instance.email)
+
     class Meta:
         model = User
         fields = ('__all__')

@@ -48,6 +48,12 @@ class UserAPI(viewsets.ViewSet):
         return Response(serializer.data, status=200)
 
 
+class FeedAPI(viewsets.ViewSet):
+    """ user feed
+    """
+    def feed(self, *args, **kwargs):
+        pass
+
 class UsersAPI(viewsets.ViewSet):
     """ users endpoint
     """

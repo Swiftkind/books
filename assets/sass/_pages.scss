@@ -1,0 +1,115 @@
+//explore
+.blurb-wrapper {
+    position: absolute;
+    z-index: 6;
+    display: flex;
+    align-items: center;
+    height: 396px;
+    width: 90%;
+    top: 80px;
+    color: #fff;
+    .blurb {
+        width: 100%;
+        padding-left: 86px;
+        .details {
+            margin-left: 0;
+            h1 {
+                margin: 10px 0;
+            }
+            h2 {
+                width: 80%;
+            }
+            .social-icons {
+                margin-top: -0.5em;
+                a {
+                    margin: 0 10.5px;
+                    color: #fff;
+                    font-size: 20px;
+                }
+            }
+        }
+        .social-meta {
+            position: relative;
+            margin-top: 45px;
+            a {
+                color: #fff;
+                .more-people {
+                    color: #67727c;
+                }
+            }
+        }
+    }
+}
+
+.explore {
+    .search-books {
+        width: 434px;
+        margin: 55px auto;
+        .search-label {
+            font-size: 12px;
+            text-align: left;
+            color: #636363;
+        }
+        input {
+            border-radius: 0;
+            border: none;
+            border-bottom: solid 1px #9daab6;
+            background: none;
+            box-shadow: none;
+             font-size: 20px; 
+             padding-bottom: 10px;
+            &::placeholder{
+            	color: #9daab6;
+            	font-family: $Lato-Regular;
+            }
+        }
+
+    }
+    .explore-books {
+        padding: 65px;
+        .books,
+        .featured-books {
+            h3 {
+                color: #111c22;
+                font-family: $Lato-Regular;
+            }
+            margin-left: 25px;
+            .more-books {
+                margin-right: 25px;
+                .show-all {
+                    color: #9daab6;
+                }
+                .icon {
+                    color: #1e2733;
+                }
+                a {
+                    margin-left: 1em;
+                }
+            }
+            .item,
+            .featured-item {
+                display: inline-block;
+                margin-right: 25px;
+                .title {
+                    color: #111c22;
+                    font-size: 17px;
+                    font-family: $Lato-Regular;
+                }
+                .genre {
+                    font-family: $Open-Sans-Regular;
+                    color: #666666;
+                }
+            }
+            .item {
+                width: 17%;
+                img {
+                    width: 157px;
+                    height: 208px;
+                }
+            }
+            .featured-item {
+                width: 30%;
+            }
+        }
+    }
+}
