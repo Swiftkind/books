@@ -1,47 +1,8 @@
 <div class="main-container">
-    <div class="author-profile">
-        <div class="cover-container">
-            <div class="cover-wrapper">
-                <div class="cover">
-                    <img src="{{ ctrl.user.cover }}" class="img-responsive">
-                    <div class="overlay"></div>
-                </div>
-            </div>
-        </div>
-        <div class="profile-details">
-            <div class="user-profile">
-                <div class="avatar-lg user-avatar">
-                    <div class="photo img-circle" style="background-image:url('{{ ctrl.user.image }}');">
-                    </div>
-                </div>
-                <div class="details">
-                    <h4>{{ ctrl.user.job_title }}</h4>
-                    <h1 ng-if="ctrl.user.first_name && ctrl.user.last_name">{{ ctrl.user.first_name }} {{ ctrl.user.last_name }}</h1>
-                    <h1 ng-if="!ctrl.user.first_name && !ctrl.user.last_name">{{ ctrl.user.first_name }} {{ ctrl.user.last_name }}</h1>
-                    <h3>{{ ctrl.user.quote }}</h3>
-                    <div>
-                        <div class="pull-right social-icons">
-                            <a href="#"><span class="icon ion-social-facebook"></span></a>
-                            <a href="#"><span class="icon ion-social-pinterest"></span></a>
-                            <a href="#"><span class="icon ion-social-instagram-outline"></span></a>
-                            <a href="#"><span class="icon ion-social-snapchat"></span></a>
-                            <a href="#"><span class="icon ion-social-twitter"></span></a>
-                        </div>
-                        <div class="actions">
-                            <div class="pull-right">
-                                <a ng-click="ctrl.follow(ctrl.user.id);" class="green-br">
-                                    <span ng-if="!ctrl._.contains(ctrl.user.fans, ctrl.AuthService.auth.id)">Subscribe</span>
-                                    <span ng-if="ctrl._.contains(ctrl.user.fans, ctrl.AuthService.auth.id)">Subscribed</span>
-                                </a>
-                            </div>
-                            <p>{{ ctrl.user.fans.length }} Subscribers</p>
-                        </div>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-    </div>
+    
+    <div ng-include
+         src="'/static/apps/templates/users/profile/header.html'"></div>
+
     <div class="profile-content">
         <div class="container-fluid">
             <div class="row">
@@ -97,11 +58,11 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
     </div>
+
     <div class="profile-content">
         <div class="container-fluid">
             <div class="row">
