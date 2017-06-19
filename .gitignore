@@ -1,5 +1,6 @@
 *.pyc
 *local_settings.py
 *.sqlite3
+*package-lock.json
 static/
 media/

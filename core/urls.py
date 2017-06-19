@@ -10,6 +10,9 @@ urlpatterns = [
     url(r'^api/users/', include('users.urls')),
     url(r'^api/books/', include('books.urls')),
     url(r'^api/feeds/', include('feeds.urls')),
+
+    # social auth account url
+    url(r'^accounts/', include('allauth.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
