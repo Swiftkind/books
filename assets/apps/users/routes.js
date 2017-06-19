@@ -48,8 +48,14 @@
       })
       .state('profile', {
         url          : '/:handle/',
-        templateUrl  : TEMPLATE_URL + 'users/profile.html',
+        templateUrl  : TEMPLATE_URL + 'users/profile/profile.html',
         controller   : 'ProfileController',
+        controllerAs : 'ctrl'
+      })
+      .state('profile-edit', {
+        url          : '/:handle/edit/',
+        templateUrl  : TEMPLATE_URL + 'users/profile/edit.html',
+        controller   : 'ProfileEditController',
         controllerAs : 'ctrl'
       })
       .state('favorites', {

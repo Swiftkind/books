@@ -9,13 +9,19 @@
     .controller('DashboardController', DashboardController)
     .controller('FeedController', FeedController)
     .controller('ProfileController', ProfileController)
+    .controller('ProfileEditController', ProfileEditController)
     .controller('FavoritesController', FavoritesController)
+    .controller('RecentActivitiesController', RecentActivitiesController)
   ;
 
   function UserController ($scope, AuthService) {
     var self = this;
 
     self.AuthService = AuthService;
+  };
+
+  function RecentActivitiesController ($scope, AuthService) {
+    var self = this;
   };
 
   function IndexController ($scope) {
@@ -45,7 +51,6 @@
   function DashboardController ($scope, AuthService) {
     var self = this;
 
-    
   };
 
   function FeedController ($scope, FeedService, AuthService) {
@@ -123,6 +128,14 @@
 
       BookService.favorite(book.id);
     };
+
+  }; // END OF PROFILE CONTROLLER
+
+  function ProfileEditController ($scope, AuthService) {
+    var self = this;
+
+    self.AuthService = AuthService;
+    self.user = AuthService.auth;
 
   };
 

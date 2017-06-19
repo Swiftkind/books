@@ -1,0 +1,160 @@
+<div class="main-container">
+    
+    <div ng-include
+         src="'/static/apps/templates/users/profile/header.html'"></div>
+
+    <div class="profile-content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-3 no-padding">
+                    <div class="profile-sidebar">
+                        <ul>
+                            <li>
+                                <a href="#" class="hvr-sweep-to-right"><span class="icon ion-icecream"></span> Personal</a>
+                            </li>
+                            <li>
+                                <a href="#" class="hvr-sweep-to-right"><span class="icon ion-qr-scanner"></span> Appearance</a>
+                            </li>
+                            <li>
+                                <a href="#" class="hvr-sweep-to-right"><span class="icon ion-umbrella"></span> Privacy and Security</a>
+                            </li>
+                            <li>
+                                <a href="#" class="hvr-sweep-to-right"><span class="icon ion-stats-bars"></span> Analytics</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <div class="panel with-nav-tabs">
+                        <div class="panel-heading">
+                            <ul class="nav   nav-tabs secondary-nav"> 
+                                <li>
+                                    <a href="#profile" class="active" id=""  data-toggle="tab">Profile</a>
+                                </li>
+                                <li>
+                                    <a href="#account" id="" data-toggle="tab">Account</a>
+                                </li>
+                                <li>
+                                    <a href="#preferences" id="" data-toggle="tab">Preferences</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="panel-body">
+                            <div class="tab-content">
+                                <div class="tab-pane fade in active" id="profile">
+                                    <div class="input-field">
+                                        <span class="input-container">
+                                            <input placeholder="First name" type="text">
+                                            <span class="error-message">Please provide you first name</span>
+                                        </span>
+                                        <span class="input-container error">
+                                            <input placeholder="Last name" type="text">
+                                            <span class="error-message">Please provide you last name</span>
+                                        </span>
+                                        <span class="input-container">
+                                            <input placeholder="Birthday" type="date">
+                                            <span class="show-profile">
+                                                    <label>
+                                                        <input type="checkbox" name="">Show on profile
+                                                    </label>
+                                            </span>
+                                            <span class="error-message">Please provide you first name</span>
+                                        </span>
+                                        <span class="input-container">
+                                            <select class="form-control">
+                                                <option>Female</option>
+                                                <option>Male</option>
+                                             </select>
+                                             <span class="show-profile">
+                                                <label>
+                                                    <input type="checkbox" name="">Show on profile
+                                                </label>
+                                             </span>
+                                             <span class="error-message">Please provide you first name</span>
+                                        </span>
+                                         <span class="input-container">
+                                            <input placeholder="Phone" type="text">
+                                            <span class="error-message">Please provide you first name</span>
+                                         </span>
+                                        <span class="input-container">
+                                            <input placeholder="Location" type="text">
+                                            <span class="error-message">Please provide you first name</span>
+                                        </span>
+                                        <span class="input-container">
+                                            <textarea class="form-control"></textarea>
+                                        </span>
+                                        <div class="actions">
+                                            <div class="pull-right">
+                                                <a href="#" class="green-br">Save</a>
+                                            </div>
+                                            <div class="pull-right">
+                                                <a href="#" class="br-default">Cancel</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="account">
+                                    <div class="input-field">
+                                        <span class="input-container">
+                                            <input placeholder="Username" type="text">
+                                            <span class="error-message">You can't leave this blank</span>
+                                        </span>
+                                        <span class="input-container error">
+                                            <input placeholder="E-mail" type="text">
+                                            <span class="error-message">You can't leave this blank</span>
+                                        </span>
+                                        <span class="input-container">
+                                            <a href="#changepw" data-toggle="tab" class="changepw">Change password</a>
+                                        </span>
+                                        
+                                        <div class="actions">
+                                            <div class="pull-right">
+                                                <a href="#" class="green-br">Save</a>
+                                            </div>
+                                            <div class="pull-right">
+                                                <a href="#" class="br-default">Cancel</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="changepw">
+                                    <div class="input-field">
+                                        <span class="input-container">  
+                                            <div class="show-profile">
+                                                <label>Password</label>
+                                            </div>
+                                        </span>
+                                        <span class="input-container">
+                                            <input placeholder="Current password" type="text">
+                                            <span class="error-message">You can't leave this blank</span>
+                                        </span>
+                                        <span class="input-container error">
+                                            <input placeholder="New Password" type="text">
+                                            <span class="error-message">Please enter your correct password</span>
+                                        </span>
+                                        <span class="input-container error">
+                                            <input placeholder="Confirm Password" type="text">
+                                            <span class="error-message">Password did not match</span>
+                                        </span>
+                                        
+                                        <div class="actions">
+                                            <div class="pull-right">
+                                                <a href="#" class="green-br">Save</a>
+                                            </div>
+                                            <div class="pull-right">
+                                                <a href="#" class="br-default">Cancel</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="preferences">
+                                    preferences
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
