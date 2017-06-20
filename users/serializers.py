@@ -37,3 +37,15 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ('__all__')
+        read_only_fields = ('image', 'cover')
+
+
+class UserPhotoSerializer(serializers.ModelSerializer):
+    """ user photo update serializer
+    """
+    class Meta:
+        model = User
+        fields = [
+            'image',
+            'cover'
+        ]

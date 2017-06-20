@@ -145,6 +145,31 @@
 
     self.AuthService = AuthService;
     self.user = AuthService.auth;
+    self.user.birthday = moment(self.user.birthday).toDate();
+
+    self.updateProfile = function (form) {
+      var data = angular.copy(form);
+      data.birthday = moment(data.birthday).format('YYYY-MM-DD');
+
+      AuthService.update(data).then(function (resp) {
+        //succesfully updated
+        console.log('Updated');
+      });
+    };
+
+    self.updatePhoto = function (data) {
+      AuthService.updatePhoto(data).then(function (resp) {
+        //succesfully uploaded
+        self.user.image = resp.data.image;
+      });
+    };
+
+    self.updateCover = function (data) {
+      AuthService.updatePhoto(data).then(function (resp) {
+        //succesfully uploaded
+        self.user.cover = resp.data.cover;
+      });
+    };
 
   };
 

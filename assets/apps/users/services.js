@@ -7,7 +7,7 @@
   ;
 
 
-  function AuthService ($http) {
+  function AuthService ($http, Upload) {
 
     var s = {
       login      : connect,
@@ -15,7 +15,9 @@
       detail     : getprofiledata,
       follow     : follow,
       auth       : undefined,
-      userloaded : false
+      userloaded : false,
+      update     : update,
+      updatePhoto: updatePhoto
     };
 
     // NOTE: this causes 500 error when user is not logged in.
@@ -46,6 +48,18 @@
     function getAuthUser () {
       return $http.get('/api/users/auth/user/').then(function (r) {
         s.auth = r.data; s.userloaded = true;
+      });
+    };
+
+    // update user profile
+    function update (form) { return $http.put('/api/users/auth/user/', form)};
+
+    // update user photo
+    function updatePhoto (data) {
+      return Upload.upload({
+          url:'/api/users/auth/user/photo',
+          data: data,
+          method: 'PUT'
       });
     };
 

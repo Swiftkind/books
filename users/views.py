@@ -5,7 +5,7 @@ from rest_framework import viewsets
 from rest_framework.response import Response
 
 from .models import User
-from .serializers import LoginSerializer, UserSerializer
+from .serializers import LoginSerializer, UserSerializer, UserPhotoSerializer
 
 
 class UserAPI(viewsets.ViewSet):
@@ -46,6 +46,20 @@ class UserAPI(viewsets.ViewSet):
             ).fans.all(), many=True)
 
         return Response(serializer.data, status=200)
+
+    def update(self, *args, **kwargs):
+        serializer = UserSerializer(self.request.user, data=self.request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=200)
+        return Response(serializer.errors, status=400)
+
+    def photo(self, *args, **kwargs):
+        serializer = UserPhotoSerializer(self.request.user, data=self.request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=200)
+        return Response(serializer.errors, status=400)
 
 
 class FeedAPI(viewsets.ViewSet):
