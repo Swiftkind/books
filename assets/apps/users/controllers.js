@@ -12,6 +12,7 @@
     .controller('ProfileEditController', ProfileEditController)
     .controller('FavoritesController', FavoritesController)
     .controller('RecentActivitiesController', RecentActivitiesController)
+    .controller('SocialAuthController', SocialAuthController)
   ;
 
   function UserController ($scope, AuthService) {
@@ -47,6 +48,14 @@
     };
 
   }; // END OF LOGIN CONTROLLER
+
+  ///////////////////////////////
+  /* SOCIAL ACCOUNT CONTROLLER */
+  ///////////////////////////////
+
+  function SocialAuthController () {
+    window.location.reload();
+  }
 
   function DashboardController ($scope, AuthService) {
     var self = this;
