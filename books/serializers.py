@@ -1,11 +1,21 @@
 from rest_framework import serializers
-from .models import Book, Review
+from .models import Book, Review, Category
+
+
+class CategorySerializer(serializers.ModelSerializer):
+    """ book serializer
+    """
+
+    class Meta:
+        model = Category
+        fields = ['id','name']
 
 
 class BookSerializer(serializers.ModelSerializer):
     """ book serializer
     """
     reviews = serializers.SerializerMethodField()
+    category = CategorySerializer()
 
     class Meta:
         model = Book

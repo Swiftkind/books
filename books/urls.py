@@ -14,4 +14,9 @@ urlpatterns = [
     url(r'^(?P<book_id>\d+)/favorite/$', BookAPI.as_view({
         'post': 'favorite',
     }), name="book_favorite"),
+
+    url(r'^related/$', BooksAPI.as_view({
+        'get': 'related_books',
+    }), name="related_books"),
+
 ]
