@@ -10,6 +10,9 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="{% static 'css/ionicons.min.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'node_modules/owl.carousel/dist/assets/owl.carousel.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'node_modules/owl.carousel/dist/assets/owl.theme.default.css' %}">
+
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 
     <base href="/">
@@ -34,6 +37,9 @@
             <ui-view></ui-view>
         </div>
     </div>
+    
+    <script src="{% static 'node_modules/jquery/dist/jquery.min.js' %}"></script>
+    <script src="{% static 'node_modules/owl.carousel/dist/owl.carousel.js' %}"></script>
 
     {# ANGULAR SCRIPTS #}
     <script src="{% static 'node_modules/angular/angular.min.js' %}"></script>
@@ -42,6 +48,7 @@
     <script src="{% static 'node_modules/underscore/underscore-min.js' %}"></script>
     <script src="{% static 'node_modules/moment/moment.js' %}"></script>
     <script src="{% static 'node_modules/ng-file-upload/dist/ng-file-upload.min.js' %}"></script>
+    <script src="{% static 'node_modules/angular-owl-carousel2/src/angular-owl-carousel-2.js' %}"></script>
 
     <script src="{% static 'apps/app.js' %}"></script>
     {% if user.is_authenticated %}

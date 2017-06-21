@@ -11,7 +11,9 @@ class Book(models.Model):
     cover = models.ImageField(upload_to="books/", null=True, blank=True)
     price = models.DecimalField(max_digits=9, decimal_places=2, default=0.00)
 
-    categories = models.ManyToManyField('Category', blank=True)
+    category = models.ForeignKey('Category', related_name="category")
+    tags = models.ManyToManyField('Category', blank=True)
+
     interested = models.ManyToManyField(settings.AUTH_USER_MODEL,
         related_name="interested", blank=True)
 

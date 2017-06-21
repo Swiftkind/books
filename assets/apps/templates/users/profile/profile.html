@@ -70,72 +70,22 @@
                     <div class="related-books">
                         <h4 class="text-uppercase section-header">RELATED BOOKS</h4>
                         <div class="books">
-                            <div class="item">
-                                <div class="cover">
-                                    <img src="/static/images/book2.jpg" class="img-responsive">
-                                </div>  
-                                <p class="title">The Road</p>
-                                <p class="category">Classics</p>
-                                <div class="social-meta">
-                                    <p>
-                                        <a href="#" id="like" class="active"><span class="icon ion-heart"></span> 12</a>
-                                        <a href="#" id="read" class="active" ><span class="icon ion-ios-book"></span>2</a>
-                                        <a href="#" ><span class="icon ion-chatbubble"></span>32</a>
-                                    </p>
+                            <ng-owl-carousel class="owl-theme" owl-items="ctrl.relatedBooks" owl-properties="properties" owl-ready="ready($api)">
+                                <div class="item" ng-repeat="book in ctrl.relatedBooks">
+                                    <div class="cover">
+                                        <img src="{{book.cover}}" class="img-responsive">
+                                    </div>  
+                                    <p class="title">{{ book.title }}</p>
+                                    <p class="category">{{ book.category.name }}</p>
+                                    <div class="social-meta">
+                                        <p>
+                                            <a href="#" id="like" class="active"><span class="icon ion-heart"></span> 12</a>
+                                            <a href="#" id="read" class="active" ><span class="icon ion-ios-book"></span>2</a>
+                                            <a href="#" ><span class="icon ion-chatbubble"></span>32</a>
+                                        </p>
+                                    </div>
                                 </div>
-                            </div><div class="item">
-                                <div class="cover">
-                                    <img src="/static/images/book2.jpg" class="img-responsive">
-                                </div>  
-                                <p class="title">The Road</p>
-                                <p class="category">Classics</p>
-                                <div class="social-meta">
-                                    <p>
-                                        <a href="#" id="like" class="active"><span class="icon ion-heart"></span> 12</a>
-                                        <a href="#" id="read" class="active" ><span class="icon ion-ios-book"></span>2</a>
-                                        <a href="#" ><span class="icon ion-chatbubble"></span>32</a>
-                                    </p>
-                                </div>
-                            </div><div class="item">
-                                <div class="cover">
-                                    <img src="/static/images/book2.jpg" class="img-responsive">
-                                </div>  
-                                <p class="title">The Road</p>
-                                <p class="category">Classics</p>
-                                <div class="social-meta">
-                                    <p>
-                                        <a href="#" id="like" class="active"><span class="icon ion-heart"></span> 12</a>
-                                        <a href="#" id="read" class="active" ><span class="icon ion-ios-book"></span>2</a>
-                                        <a href="#" ><span class="icon ion-chatbubble"></span>32</a>
-                                    </p>
-                                </div>
-                            </div><div class="item">
-                                <div class="cover">
-                                    <img src="/static/images/book2.jpg" class="img-responsive">
-                                </div>  
-                                <p class="title">The Road</p>
-                                <p class="category">Classics</p>
-                                <div class="social-meta">
-                                    <p>
-                                        <a href="#" id="like" class="active"><span class="icon ion-heart"></span> 12</a>
-                                        <a href="#" id="read" class="active" ><span class="icon ion-ios-book"></span>2</a>
-                                        <a href="#" ><span class="icon ion-chatbubble"></span>32</a>
-                                    </p>
-                                </div>
-                            </div><div class="item">
-                                <div class="cover">
-                                    <img src="/static/images/book2.jpg" class="img-responsive">
-                                </div>  
-                                <p class="title">The Road</p>
-                                <p class="category">Classics</p>
-                                <div class="social-meta">
-                                    <p>
-                                        <a href="#" id="like" class="active"><span class="icon ion-heart"></span> 12</a>
-                                        <a href="#" id="read" class="active" ><span class="icon ion-ios-book"></span>2</a>
-                                        <a href="#" ><span class="icon ion-chatbubble"></span>32</a>
-                                    </p>
-                                </div>
-                            </div>
+                            </ng-owl-carousel>
                         </div>
                     </div>
                 </div>

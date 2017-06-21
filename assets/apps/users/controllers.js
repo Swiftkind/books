@@ -87,14 +87,36 @@
     
   };
 
-  function ProfileController ($scope, $stateParams, AuthService, BookService) {
+  function ProfileController ($scope, $stateParams,  AuthService, BookService) {
     var self = this;
 
     self._ = _;
     self.AuthService = AuthService;
 
     self.user = undefined;
-    self.books = [];
+    self.relatedBooks = [];
+
+
+    /* GET RELATED BOOKS LIST
+     */
+    BookService.related().then(function(resp){
+      self.relatedBooks = _.shuffle(resp.data);
+    });
+
+
+    // owl carousel config
+    var owlAPi;
+    $scope.properties = {
+        animateIn: 'fadeIn',
+        lazyLoad: true,
+        items: 5,
+        dots: false
+    };
+
+    $scope.ready = function ($api) {
+        owlAPi = $api;
+    };
+
 
     /* GET USER DETAILS
      */

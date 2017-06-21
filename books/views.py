@@ -6,6 +6,8 @@ from rest_framework.response import Response
 from .models import Book, Category
 from .serializers import BookSerializer
 
+import collections
+
 
 class BooksAPI(viewsets.ViewSet):
     """ books list
@@ -27,6 +29,16 @@ class BooksAPI(viewsets.ViewSet):
 
     def _clean_params(self, **params):
         return {k:v if len(v) > 1 else v[0] for k,v in params.items()}
+
+    def related_books(self, *args, **kwargs):
+        books = Book.objects.filter(author=self.request.user)
+
+        tags = books.values_list('tags', flat=True)
+        related = [item for item, count in collections.Counter(tags).items() if count > 1]
+        related_books = books.filter(tags__id__in=related).distinct()
+        serializer = BookSerializer(related_books, many=True)
+
+        return Response(serializer.data, status=200)
 
 
 class BookAPI(viewsets.ViewSet):
