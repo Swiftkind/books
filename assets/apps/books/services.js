@@ -13,7 +13,8 @@
       list    : list,
       search  : search,
       reviews : reviews,
-      favorite: favorite
+      favorite: favorite,
+      related : related,
     };
 
     return s;
@@ -36,6 +37,8 @@
     // favorite a book
     function favorite (bookid) { return $http.post('/api/books/' + bookid + '/favorite/'); };
 
+    // get related categories 
+    function related () { return $http.get('/api/books/related/'); };
   };
 
 })();

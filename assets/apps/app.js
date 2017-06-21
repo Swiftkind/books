@@ -6,6 +6,7 @@
       'ui.router',
       'ui.bootstrap',
       'ngFileUpload',
+      'angular-owl-carousel-2',
     ])
     .constant('TEMPLATE_URL', '/static/apps/templates/')
     .config(csrf)
