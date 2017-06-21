@@ -13,7 +13,12 @@ urlpatterns = [
 
     url(r'^auth/user/$', UserAPI.as_view({
         'get': 'auth',
+        'put' : 'update',
     }), name="auth_user"),
+
+    url(r'^auth/user/photo$', UserAPI.as_view({
+        'put' : 'photo',
+    }), name="user_photo"),
 
     url(r'^(?P<handle>\w+)/$', UserAPI.as_view({
         'get': 'detail',

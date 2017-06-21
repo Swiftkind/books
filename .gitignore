@@ -4,3 +4,4 @@
 *package-lock.json
 static/
 media/
+node_modules

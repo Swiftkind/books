@@ -25,6 +25,22 @@
                     </div>
                 </div>
                 <div class="col-md-9">
+                    <label style="color: red">Update Profile Photo</label>
+                    <input 
+                        type="file" 
+                        name="image"
+                        ngf-select
+                        ng-model="user.image"
+                        ngf-accept="'image/*'"
+                        ng-change="ctrl.updatePhoto(user)">
+                    <label style="color: red">Update Cover Photo</label>
+                    <input 
+                        type="file" 
+                        name="image"
+                        ngf-select
+                        ng-model="user.cover"
+                        ngf-accept="'image/*'"
+                        ng-change="ctrl.updateCover(user)">
                     <div class="panel with-nav-tabs">
                         <div class="panel-heading">
                             <ul class="nav   nav-tabs secondary-nav"> 
@@ -42,56 +58,95 @@
                         <div class="panel-body">
                             <div class="tab-content">
                                 <div class="tab-pane fade in active" id="profile">
-                                    <div class="input-field">
-                                        <span class="input-container">
-                                            <input placeholder="First name" type="text">
-                                            <span class="error-message">Please provide you first name</span>
-                                        </span>
-                                        <span class="input-container error">
-                                            <input placeholder="Last name" type="text">
-                                            <span class="error-message">Please provide you last name</span>
-                                        </span>
-                                        <span class="input-container">
-                                            <input placeholder="Birthday" type="date">
-                                            <span class="show-profile">
+                                    <form name="profileForm" ng-submit="profileForm.$valid && ctrl.updateProfile(ctrl.user)" novalidate>
+                                        <div class="input-field">
+                                            <span class="input-container" ng-class="{'error':profileForm.first_name.$error.required}">
+                                                <input 
+                                                    name="first_name"
+                                                    placeholder="First name" 
+                                                    type="text" 
+                                                    ng-model="ctrl.user.first_name"
+                                                    required>
+                                                <span class="error-message" ng-show="profileForm.first_name.$error.required">
+                                                    Please provide your first name</span>
+                                            </span>
+                                            <span class="input-container" ng-class="{'error':profileForm.last_name.$error.required}">
+                                                <input 
+                                                    name="last_name" 
+                                                    placeholder="Last name" 
+                                                    type="text"
+                                                    ng-model="ctrl.user.last_name"
+                                                    required>
+                                                <span class="error-message" ng-show="profileForm.last_name.$error.required">
+                                                    Please provide your last name</span>
+                                            </span>
+                                            <span class="input-container" ng-class="{'error':profileForm.birthday.$error.required}">
+                                                <input
+                                                    name="birthday"
+                                                    placeholder="Birthday" 
+                                                    type="date"
+                                                    ng-model="ctrl.user.birthday"
+                                                    required>
+                                                <span class="show-profile">
+                                                        <label>
+                                                            <input type="checkbox" name="">Show on profile
+                                                        </label>
+                                                </span>
+                                                <span class="error-message" ng-show="profileForm.birthday.$error.required">
+                                                    Please provide your birthdate</span>
+                                            </span>
+                                            <span class="input-container" ng-class="{'error':profileForm.gender.$error.required}">
+                                                <select name="gender" class="form-control" ng-model="ctrl.user.gender" required>
+                                                    <option value="female">Female</option>
+                                                    <option value="male">Male</option>
+                                                 </select>
+                                                 <span class="show-profile">
                                                     <label>
                                                         <input type="checkbox" name="">Show on profile
                                                     </label>
+                                                 </span>
+                                                 <span class="error-message" ng-show="profileForm.gender.$error.required">
+                                                    Please provide your gender</span>
                                             </span>
-                                            <span class="error-message">Please provide you first name</span>
-                                        </span>
-                                        <span class="input-container">
-                                            <select class="form-control">
-                                                <option>Female</option>
-                                                <option>Male</option>
-                                             </select>
-                                             <span class="show-profile">
-                                                <label>
-                                                    <input type="checkbox" name="">Show on profile
-                                                </label>
+                                             <span class="input-container" ng-class="{'error':profileForm.phone.$error.required || profileForm.phone.$error.pattern}">
+                                                <input 
+                                                    name="phone"
+                                                    placeholder="Phone" 
+                                                    type="text"
+                                                    ng-pattern="/^[0-9+(+)+-]*$/"
+                                                    ng-model="ctrl.user.phone"
+                                                    required>
+                                                <span class="error-message" ng-show="profileForm.phone.$error.required">
+                                                    Please provide your phone number</span>
+                                                <span class="error-message" ng-show="profileForm.phone.$error.pattern">
+                                                    Please provide valid phone number</span>
                                              </span>
-                                             <span class="error-message">Please provide you first name</span>
-                                        </span>
-                                         <span class="input-container">
-                                            <input placeholder="Phone" type="text">
-                                            <span class="error-message">Please provide you first name</span>
-                                         </span>
-                                        <span class="input-container">
-                                            <input placeholder="Location" type="text">
-                                            <span class="error-message">Please provide you first name</span>
-                                        </span>
-                                        <span class="input-container">
-                                            <textarea class="form-control"></textarea>
-                                        </span>
-                                        <div class="actions">
-                                            <div class="pull-right">
-                                                <a href="#" class="green-br">Save</a>
-                                            </div>
-                                            <div class="pull-right">
-                                                <a href="#" class="br-default">Cancel</a>
+                                            <span class="input-container" ng-class="{'error':profileForm.location.$error.required}">
+                                                <input 
+                                                    name="location"
+                                                    placeholder="Location" 
+                                                    type="text"
+                                                    ng-model="ctrl.user.location"
+                                                    required>
+                                                <span class="error-message" ng-show="profileForm.location.$error.required">
+                                                    Please provide you first name</span>
+                                            </span>
+                                            <span class="input-container">
+                                                <textarea 
+                                                    class="form-control"
+                                                    ng-model="ctrl.user.about_me">
+                                                </textarea>
+                                            </span>
+                                            <div class="actions">
+                                                <div class="pull-right">
+                                                    <button type="submit" class="green-br">Save</button>
+                                                </div>
+                                                <div class="pull-right">
+                                                    <button type="button" class="br-default" ng-click="ctrl.cancelUpdate()">Cancel</button>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </form>
                                 </div>
                                 <div class="tab-pane fade" id="account">
                                     <div class="input-field">

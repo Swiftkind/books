@@ -36,16 +36,26 @@ class UserManager(BaseUserManager):
 class User(AbstractBaseUser, PermissionsMixin):
     """ user model
     """
+    MALE = 'male'
+    FEMALE = 'female'
+    GENDER = (
+        (MALE, "Male"),
+        (FEMALE, "Female"),
+    )
+
     email = models.EmailField(max_length=150, unique=True)
     username = models.CharField(max_length=150, unique=True)
     first_name = models.CharField(max_length=40, null=True, blank=True)
     last_name = models.CharField(max_length=40, null=True, blank=True)
+    birthday = models.DateField(null=True, blank=True)
+    gender = models.CharField(max_length=50, choices=GENDER, default=MALE)
     job_title = models.CharField(max_length=150, null=True, blank=True)
     quote = models.CharField(max_length=250, null=True, blank=True)
     about_me = models.TextField(null=True, blank=True)
     website = models.URLField(null=True, blank=True)
     location = models.CharField(max_length=150, null=True, blank=True)
     country = models.CharField(max_length=150, null=True, blank=True)
+    phone = models.CharField(max_length=20, null=True, blank=True)
 
     cover = models.ImageField(upload_to="users/cover/", null=True, blank=True)
     image = models.ImageField(upload_to="users/", null=True, blank=True)
