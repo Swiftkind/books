@@ -3,7 +3,7 @@ from .models import Book, Category, Review
 
 
 class BookAdmin(admin.ModelAdmin):
-    filter_horizontal = ['categories']
+    filter_horizontal = ['tags']
 
     class Meta:
         model = Book
