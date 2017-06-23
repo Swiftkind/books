@@ -13,6 +13,7 @@
     .controller('FavoritesController', FavoritesController)
     .controller('RecentActivitiesController', RecentActivitiesController)
     .controller('SocialAuthController', SocialAuthController)
+    .controller('ChatsController', ChatsController)
   ;
 
   function UserController ($scope, AuthService) {
@@ -222,6 +223,38 @@
       }
     );
 
+  };
+
+  function ChatsController ($scope, AuthService, MessageService) {
+    var self = this;
+
+    self.AuthService = AuthService;
+    self.MessageService = MessageService;
+
+    self.user = AuthService.auth;
+
+    self.message = {
+      user_from: self.user.id,
+    }
+
+    self.onMessageResolve = function (data) {
+      // Append the message to the UI here
+      console.log('Request accepted:', data)
+    }
+
+    self.onMessageReject = function (xhr) {
+      // Show an error message here
+      console.log('Request rejected:', xhr)
+    }
+
+    self.onSubmitMessage = function (form) {
+      console.log('hello')
+      self.MessageService.sendMessage(self.message).then(function (response) {
+        self.onMessageResolve(response)
+      }, function (xhr) {
+        self.onMessageReject(xhr);
+      })
+    }
   };
 
 })();
