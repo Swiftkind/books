@@ -3,6 +3,23 @@
     <div class="temporary" style="padding-top: 50px">
         <div class="container">
             <h1>Message</h1>
+
+            <div class="row" ng-repeat='message in ctrl.messages track by $index'>
+                <div class="col-md-6">
+                    <div class="alert alert-info">
+                        <span class="label label-default">
+                            From: {{ message.user_from }}
+                        </span>
+                        &nbsp;
+                        <span class="label label-primary">
+                            Sent: {{ message.date_created }}
+                        </span>
+                        <hr>
+                        <p>{{ message.text }}</p>
+                    </div>
+                </div>
+            </div>
+
             <form name="messageForm" ng-submit='ctrl.onSubmitMessage(messageForm)'>
                 <div class="form-group">
                     <label>To:</label>

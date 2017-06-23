@@ -233,13 +233,23 @@
 
     self.user = AuthService.auth;
 
+    // TODO: Make the messages in this list dynamic
+    self.messages = [];
+
     self.message = {
       user_from: self.user.id,
     }
 
-    self.onMessageResolve = function (data) {
+    self.onMessageResolve = function (response) {
       // Append the message to the UI here
-      console.log('Request accepted:', data)
+      console.log('Request accepted:', response)
+      var message = response.data;
+
+      // Format date to human-readable format
+      message.date_created = moment(message.date_created).format('YYYY-MM-DD');
+
+      // Add the response to the message list
+      self.messages.push(response.data);
     }
 
     self.onMessageReject = function (xhr) {
