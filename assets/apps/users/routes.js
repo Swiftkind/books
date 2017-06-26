@@ -64,6 +64,12 @@
         controller   : 'FavoritesController',
         controllerAs : 'ctrl'
       })
+      .state('chat', {
+        url          : '/chat/',
+        templateUrl  : TEMPLATE_URL + 'chats/message.html',
+        controller   : 'ChatsController',
+        controllerAs : 'ctrl'
+      })
     ;
 
   };

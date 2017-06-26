@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'users',
     'books',
     'feeds',
+    'chats',
 
     'allauth',
     'allauth.account',

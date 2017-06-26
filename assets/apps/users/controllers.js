@@ -13,6 +13,7 @@
     .controller('FavoritesController', FavoritesController)
     .controller('RecentActivitiesController', RecentActivitiesController)
     .controller('SocialAuthController', SocialAuthController)
+    .controller('ChatsController', ChatsController)
   ;
 
   function UserController ($scope, AuthService) {
@@ -222,6 +223,48 @@
       }
     );
 
+  };
+
+  function ChatsController ($scope, AuthService, MessageService) {
+    var self = this;
+
+    self.AuthService = AuthService;
+    self.MessageService = MessageService;
+
+    self.user = AuthService.auth;
+
+    // TODO: Make the messages in this list dynamic
+    self.messages = [];
+
+    self.message = {
+      user_from: self.user.id,
+    }
+
+    self.onMessageResolve = function (response) {
+      // Append the message to the UI here
+      console.log('Request accepted:', response)
+      var message = response.data;
+
+      // Format date to human-readable format
+      message.date_created = moment(message.date_created).format('YYYY-MM-DD');
+
+      // Add the response to the message list
+      self.messages.push(response.data);
+    }
+
+    self.onMessageReject = function (xhr) {
+      // Show an error message here
+      console.log('Request rejected:', xhr)
+    }
+
+    self.onSubmitMessage = function (form) {
+      console.log('hello')
+      self.MessageService.sendMessage(self.message).then(function (response) {
+        self.onMessageResolve(response)
+      }, function (xhr) {
+        self.onMessageReject(xhr);
+      })
+    }
   };
 
 })();

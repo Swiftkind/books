@@ -4,6 +4,7 @@
   angular
     .module('core')
     .service('AuthService', AuthService)
+    .service('MessageService', MessageService)
   ;
 
 
@@ -63,6 +64,22 @@
       });
     };
 
+  };
+
+
+  function MessageService($http) {
+    var s = {
+      sendMessage: sendMessage,
+    };
+
+    return s;
+
+    // sendMessage
+    // @description - sends a POST request to the chat API containing message data
+    // @return - returns a promise
+    function sendMessage(data) {
+      return $http.post('/api/chats/', data);
+    };
   };
 
 

@@ -10,6 +10,7 @@ urlpatterns = [
     url(r'^api/users/', include('users.urls')),
     url(r'^api/books/', include('books.urls')),
     url(r'^api/feeds/', include('feeds.urls')),
+    url(r'^api/chats/', include('chats.urls')),
 
     # social auth account url
     url(r'^accounts/', include('allauth.urls')),
