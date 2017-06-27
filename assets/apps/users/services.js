@@ -17,8 +17,10 @@
       follow     : follow,
       auth       : undefined,
       userloaded : false,
+      reloadUser : getAuthUser,
       update     : update,
-      updatePhoto: updatePhoto
+      updatePhoto: updatePhoto,
+      resetPassword: resetPassword
     };
 
     // NOTE: this causes 500 error when user is not logged in.
@@ -63,6 +65,9 @@
           method: 'PUT'
       });
     };
+
+    // reset user password
+    function resetPassword (form) { return $http.put('/api/users/auth/user/reset/', form)};
 
   };
 

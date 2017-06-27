@@ -12,6 +12,8 @@
     "angular": "^1.6.4",
     "angular-bootstrap": "^0.12.2",
     "angular-owl-carousel2": "^1.0.6",
+    "angular-ui-bootstrap": "^2.5.0",
+    "angular-ui-notification": "^0.3.6",
     "angular-ui-router": "^1.0.3",
     "ionicons": "^3.0.0",
     "moment": "^2.18.1",

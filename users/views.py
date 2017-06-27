@@ -5,7 +5,12 @@ from rest_framework import viewsets
 from rest_framework.response import Response
 
 from .models import User
-from .serializers import LoginSerializer, UserSerializer, UserPhotoSerializer
+from .serializers import( 
+                        LoginSerializer, 
+                        UserSerializer, 
+                        UserPhotoSerializer, 
+                        ResetPasswordSerializer
+                        )
 
 
 class UserAPI(viewsets.ViewSet):
@@ -59,6 +64,18 @@ class UserAPI(viewsets.ViewSet):
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=200)
+        return Response(serializer.errors, status=400)
+
+    def reset_password(self, *args, **kwargs):
+        user = self.request.user
+        data = self.request.data
+        serializer = ResetPasswordSerializer(user, data=data)
+        if serializer.is_valid():
+            if user.check_password(data['current_password']):
+                user.set_password(data['password'])
+                user.save()
+                return Response(status=200)
+            return Response ('incorrect', status=400)
         return Response(serializer.errors, status=400)
 
 
