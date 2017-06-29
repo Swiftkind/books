@@ -13,6 +13,7 @@
     "angular-bootstrap": "^0.12.2",
     "angular-owl-carousel2": "^1.0.6",
     "angular-ui-router": "^1.0.3",
+    "ionicons": "^3.0.0",
     "moment": "^2.18.1",
     "ng-file-upload": "^12.2.13",
     "owl.carousel": "^2.2.0",

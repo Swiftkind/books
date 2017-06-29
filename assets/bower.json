@@ -1,0 +1,21 @@
+{
+  "name": "assets",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Earvin Gemenez <earvin.gemenez@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/Swiftkind/books",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "3"
+  }
+}
