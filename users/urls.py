@@ -20,6 +20,10 @@ urlpatterns = [
         'put' : 'photo',
     }), name="user_photo"),
 
+    url(r'^auth/user/reset/$', UserAPI.as_view({
+        'put' : 'reset_password',
+    }), name="reset_password"),
+
     url(r'^(?P<handle>\w+)/$', UserAPI.as_view({
         'get': 'detail',
     }), name="user_detail"),

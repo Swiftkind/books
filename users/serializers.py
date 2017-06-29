@@ -49,3 +49,12 @@ class UserPhotoSerializer(serializers.ModelSerializer):
             'image',
             'cover'
         ]
+
+class ResetPasswordSerializer(serializers.ModelSerializer):
+    """ user reset password serializer
+    """
+    class Meta:
+        model = User
+        fields = [
+            'password'
+        ]

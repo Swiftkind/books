@@ -163,8 +163,11 @@
 
   }; // END OF PROFILE CONTROLLER
 
-  function ProfileEditController ($scope, AuthService) {
+  function ProfileEditController ($scope, AuthService, Notification) {
     var self = this;
+
+    $scope.profile = true;
+    $scope.personal = true;
 
     self.AuthService = AuthService;
     self.user = AuthService.auth;
@@ -172,11 +175,36 @@
 
     self.updateProfile = function (form) {
       var data = angular.copy(form);
-      data.birthday = moment(data.birthday).format('YYYY-MM-DD');
+      if (form.birthday!=null) {
+        data.birthday = moment(data.birthday).format('YYYY-MM-DD');
+      }
+
+      if (data.birthday=="Invalid date") {
+        data.birthday = null;
+      }
 
       AuthService.update(data).then(function (resp) {
         //succesfully updated
-        console.log('Updated');
+        Notification.success('Profile succesfully updated.');
+      });
+    };
+
+    self.resetPassword = function (form) {
+      AuthService.resetPassword(form)
+        .then(function (resp) {
+          //succesfully password reset
+          Notification.success('Password has been succesfully changed.');
+          $scope.password_incorrect = false;
+          $scope.changepw = false;
+          $scope.account = true;
+          $scope.form = '';
+      })
+        .catch(function (err) {
+          //password incorrect
+          if (err.data='incorrect') {
+            $scope.password_incorrect = true;
+          }
+          Notification.error({message: 'Change password failed.', delay: 1000});
       });
     };
 
@@ -191,6 +219,13 @@
       AuthService.updatePhoto(data).then(function (resp) {
         //succesfully uploaded
         self.user.cover = resp.data.cover;
+      });
+    };
+
+    self.cancel = function () {
+      //cancel profile update
+      AuthService.reloadUser().then (function () {
+        self.user = AuthService.auth;
       });
     };
 

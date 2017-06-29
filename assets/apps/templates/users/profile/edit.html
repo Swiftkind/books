@@ -10,54 +10,65 @@
                     <div class="profile-sidebar">
                         <ul>
                             <li>
-                                <a href="#" class="hvr-sweep-to-right"><span class="icon ion-icecream"></span> Personal</a>
+                                <a href="" class="hvr-sweep-to-right" 
+                                    ng-click="personal=true; apprnce=false; prisec=false; analytics=false">
+                                    <span class="icon ion-icecream"></span> Personal
+                                </a>
                             </li>
                             <li>
-                                <a href="#" class="hvr-sweep-to-right"><span class="icon ion-qr-scanner"></span> Appearance</a>
+                                <a href="" class="hvr-sweep-to-right"
+                                    ng-click="personal=false; apprnce=true; prisec=false; analytics=false">
+                                    <span class="icon ion-qr-scanner"></span> Appearance
+                                </a>
                             </li>
                             <li>
-                                <a href="#" class="hvr-sweep-to-right"><span class="icon ion-umbrella"></span> Privacy and Security</a>
+                                <a href="" class="hvr-sweep-to-right"
+                                    ng-click="personal=false; apprnce=false; prisec=true; analytics=false">
+                                    <span class="icon ion-umbrella"></span> Privacy and Security
+                                </a>
                             </li>
                             <li>
-                                <a href="#" class="hvr-sweep-to-right"><span class="icon ion-stats-bars"></span> Analytics</a>
+                                <a href="" class="hvr-sweep-to-right"
+                                    ng-click="personal=false; apprnce=false; prisec=false; analytics=true">
+                                    <span class="icon ion-stats-bars"></span> Analytics
+                                </a>
                             </li>
                         </ul>
                     </div>
                 </div>
-                <div class="col-md-9">
-                    <label style="color: red">Update Profile Photo</label>
-                    <input 
-                        type="file" 
-                        name="image"
-                        ngf-select
-                        ng-model="user.image"
-                        ngf-accept="'image/*'"
-                        ng-change="ctrl.updatePhoto(user)">
-                    <label style="color: red">Update Cover Photo</label>
-                    <input 
-                        type="file" 
-                        name="image"
-                        ngf-select
-                        ng-model="user.cover"
-                        ngf-accept="'image/*'"
-                        ng-change="ctrl.updateCover(user)">
+                <div class="col-md-9" ng-show="personal">
                     <div class="panel with-nav-tabs">
                         <div class="panel-heading">
                             <ul class="nav   nav-tabs secondary-nav"> 
                                 <li>
-                                    <a href="#profile" class="active" id=""  data-toggle="tab">Profile</a>
+                                    <a href="" 
+                                       ng-click="profile=true; 
+                                                 account=false;
+                                                 changepw=false; 
+                                                 preferences=false">Profile
+                                    </a>
                                 </li>
                                 <li>
-                                    <a href="#account" id="" data-toggle="tab">Account</a>
+                                    <a href="" 
+                                       ng-click="account=true;
+                                                 profile=false; 
+                                                 changepw=false;
+                                                 preferences=false">Account
+                                    </a>
                                 </li>
                                 <li>
-                                    <a href="#preferences" id="" data-toggle="tab">Preferences</a>
+                                    <a href="" 
+                                       ng-click="preferences=true; 
+                                                 profile=false;
+                                                 changepw=false;
+                                                 account=false">Preferences
+                                    </a>
                                 </li>
                             </ul>
                         </div>
                         <div class="panel-body">
                             <div class="tab-content">
-                                <div class="tab-pane fade in active" id="profile">
+                                <div class="tab-pane fade" id="profile" ng-class="{'in active':profile}">
                                     <form name="profileForm" ng-submit="profileForm.$valid && ctrl.updateProfile(ctrl.user)" novalidate>
                                         <div class="input-field">
                                             <span class="input-container" ng-class="{'error':profileForm.first_name.$error.required}">
@@ -85,15 +96,12 @@
                                                     name="birthday"
                                                     placeholder="Birthday" 
                                                     type="date"
-                                                    ng-model="ctrl.user.birthday"
-                                                    required>
+                                                    ng-model="ctrl.user.birthday">
                                                 <span class="show-profile">
                                                         <label>
                                                             <input type="checkbox" name="">Show on profile
                                                         </label>
                                                 </span>
-                                                <span class="error-message" ng-show="profileForm.birthday.$error.required">
-                                                    Please provide your birthdate</span>
                                             </span>
                                             <span class="input-container" ng-class="{'error':profileForm.gender.$error.required}">
                                                 <select name="gender" class="form-control" ng-model="ctrl.user.gender" required>
@@ -108,16 +116,13 @@
                                                  <span class="error-message" ng-show="profileForm.gender.$error.required">
                                                     Please provide your gender</span>
                                             </span>
-                                             <span class="input-container" ng-class="{'error':profileForm.phone.$error.required || profileForm.phone.$error.pattern}">
+                                             <span class="input-container" ng-class="{'error':profileForm.phone.$error.pattern}">
                                                 <input 
                                                     name="phone"
                                                     placeholder="Phone" 
                                                     type="text"
                                                     ng-pattern="/^[0-9+(+)+-]*$/"
-                                                    ng-model="ctrl.user.phone"
-                                                    required>
-                                                <span class="error-message" ng-show="profileForm.phone.$error.required">
-                                                    Please provide your phone number</span>
+                                                    ng-model="ctrl.user.phone">
                                                 <span class="error-message" ng-show="profileForm.phone.$error.pattern">
                                                     Please provide valid phone number</span>
                                              </span>
@@ -139,75 +144,131 @@
                                             </span>
                                             <div class="actions">
                                                 <div class="pull-right">
+                                                    <button type="button" class="br-default" ng-click="ctrl.cancel()">Cancel</button>
                                                     <button type="submit" class="green-br">Save</button>
-                                                </div>
-                                                <div class="pull-right">
-                                                    <button type="button" class="br-default" ng-click="ctrl.cancelUpdate()">Cancel</button>
                                                 </div>
                                             </div>
                                         </div>
                                     </form>
                                 </div>
-                                <div class="tab-pane fade" id="account">
-                                    <div class="input-field">
-                                        <span class="input-container">
-                                            <input placeholder="Username" type="text">
-                                            <span class="error-message">You can't leave this blank</span>
-                                        </span>
-                                        <span class="input-container error">
-                                            <input placeholder="E-mail" type="text">
-                                            <span class="error-message">You can't leave this blank</span>
-                                        </span>
-                                        <span class="input-container">
-                                            <a href="#changepw" data-toggle="tab" class="changepw">Change password</a>
-                                        </span>
-                                        
-                                        <div class="actions">
-                                            <div class="pull-right">
-                                                <a href="#" class="green-br">Save</a>
-                                            </div>
-                                            <div class="pull-right">
-                                                <a href="#" class="br-default">Cancel</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="tab-pane fade" id="changepw">
-                                    <div class="input-field">
-                                        <span class="input-container">  
-                                            <div class="show-profile">
-                                                <label>Password</label>
-                                            </div>
-                                        </span>
-                                        <span class="input-container">
-                                            <input placeholder="Current password" type="text">
-                                            <span class="error-message">You can't leave this blank</span>
-                                        </span>
-                                        <span class="input-container error">
-                                            <input placeholder="New Password" type="text">
-                                            <span class="error-message">Please enter your correct password</span>
-                                        </span>
-                                        <span class="input-container error">
-                                            <input placeholder="Confirm Password" type="text">
-                                            <span class="error-message">Password did not match</span>
-                                        </span>
-                                        
-                                        <div class="actions">
-                                            <div class="pull-right">
-                                                <a href="#" class="green-br">Save</a>
-                                            </div>
-                                            <div class="pull-right">
-                                                <a href="#" class="br-default">Cancel</a>
+                                <div class="tab-pane fade" id="account" ng-class="{'in active':account}">
+                                    <form name="accountForm" ng-submit="accountForm.$valid && ctrl.updateProfile(ctrl.user)" novalidate>
+                                        <div class="input-field">
+                                            <span class="input-container" ng-class="{'error':accountForm.username.$error.required}">
+                                                <input 
+                                                    name="username"
+                                                    placeholder="Username" 
+                                                    type="text"
+                                                    ng-model="ctrl.user.username"
+                                                    required>
+                                                <span class="error-message" ng-show="accountForm.username.$error.required">
+                                                    You can't leave this blank</span>
+                                            </span>
+                                            <span class="input-container" ng-class="{'error':accountForm.email.$error.required}">
+                                                <input 
+                                                    name="email"
+                                                    placeholder="E-mail"
+                                                    type="email"
+                                                    ng-model="ctrl.user.email"
+                                                    required>
+                                                <span class="error-message" ng-show="accountForm.email.$error.required">
+                                                    You can't leave this blank</span>
+                                            </span>
+                                            <span class="input-container">
+                                                <a href="" class="changepw" ng-click="changepw=true; account=false">Change password</a>
+                                            </span>
+                                            
+                                            <div class="actions">
+                                                <div class="pull-right">
+                                                    <button type="button" class="br-default" ng-click="ctrl.cancel()">Cancel</button>
+                                                    <button type="submit" class="green-br">Save</button>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </form>
                                 </div>
-                                <div class="tab-pane fade" id="preferences">
+                                <div class="tab-pane fade" id="changepw" ng-class="{'in active':changepw}">
+                                    <form name="changePassword" ng-submit="changePassword.$valid && ctrl.resetPassword(form)" novalidate>
+                                        <div class="input-field">
+                                            <span class="input-container">  
+                                                <div class="show-profile">
+                                                    <label>Password</label>
+                                                </div>
+                                            </span>
+                                            <span class="input-container error" ng-show="password_incorrect">
+                                                <span class="error-message">Please enter your correct password</span>
+                                            </span>
+                                            <span class="input-container" ng-class="{'error':changePassword.current_password.$error.required}">
+                                                <input 
+                                                    name="current_password"
+                                                    placeholder="Current password" 
+                                                    type="password"
+                                                    ng-model="form.current_password"
+                                                    required>
+                                                <span class="error-message" ng-show="changePassword.current_password.$error.required">
+                                                    You can't leave this blank</span>
+                                            </span>
+                                            <span class="input-container" ng-class="{'error':changePassword.new_password.$error.required}">
+                                                <input 
+                                                    name="new_password"
+                                                    placeholder="New password" 
+                                                    type="password"
+                                                    ng-model="form.password"
+                                                    ng-disabled="!form.current_password"
+                                                    required>
+                                                <span class="error-message" ng-show="changePassword.new_password.$error.required">
+                                                    You can't leave this blank</span>
+                                            </span>
+                                            <span 
+                                                class="input-container"
+                                                ng-class="{'error':changePassword.confirm_password.$error.required || 
+                                                                   changePassword.confirm_password.$error.pattern}">
+                                                <input 
+                                                    name="confirm_password"
+                                                    placeholder="Confirm password" 
+                                                    type="password"
+                                                    ng-model="form.confirm_password"
+                                                    ng-disabled="!form.current_password"
+                                                    ng-pattern="form.password"
+                                                    required>
+                                                <span class="error-message" ng-show="changePassword.confirm_password.$error.required">
+                                                    You can't leave this blank</span>
+                                                <span class="error-message" ng-show="changePassword.confirm_password.$error.pattern">
+                                                    Password did not match</span>
+                                            </span>
+                                            <div class="actions">
+                                                <div class="pull-right">
+                                                    <button type="button" class="br-default" ng-click="changepw=false; account=true">Cancel</button>
+                                                    <button type="submit" class="green-br">Save</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="tab-pane fade" id="preferences" ng-class="{'in active':preferences}">
                                     preferences
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="col-md-9" ng-show="apprnce">
+                    <label style="color: red">Update Profile Photo</label>
+                    <input 
+                        type="file" 
+                        name="image"
+                        ngf-select
+                        ng-model="user.image"
+                        ngf-accept="'image/*'"
+                        ng-change="ctrl.updatePhoto(user)">
+                    <label style="color: red">Update Cover Photo</label>
+                    <input 
+                        type="file" 
+                        name="image"
+                        ngf-select
+                        ng-model="user.cover"
+                        ngf-accept="'image/*'"
+                        ng-change="ctrl.updateCover(user)">
                 </div>
             </div>
         </div>
