@@ -2,6 +2,7 @@
 *local_settings.py
 *.sqlite3
 *package-lock.json
+assets/css/
 static/
 media/
 node_modules
