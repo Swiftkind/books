@@ -1,5 +1,6 @@
 from django.conf import settings
 from django.db import models
+from django.contrib.postgres.fields import JSONField
 
 
 class Book(models.Model):
@@ -16,7 +17,7 @@ class Book(models.Model):
 
     interested = models.ManyToManyField(settings.AUTH_USER_MODEL,
         related_name="interested", blank=True)
-
+    # status(choices)
     date_created = models.DateTimeField(auto_now_add=True)
     date_updated = models.DateTimeField(auto_now=True)
 
@@ -30,6 +31,19 @@ class Book(models.Model):
         
         self.interested.add(user)
         return
+
+
+class Page(models.Model):
+    """ Page model
+    """
+    book = models.ForeignKey(Book, related_name='Pages')
+    order = models.PositiveIntegerField(default=0)
+    content = JSONField()
+    date_created = models.DateTimeField(auto_now_add=True)
+    date_updated = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return 'page-{}'.format(self.order)
 
 
 class Category(models.Model):
