@@ -70,6 +70,10 @@
         controller   : 'ChatsController',
         controllerAs : 'ctrl'
       })
+      .state('create', {
+        url          : '/create/',
+        template     : '<book-create></book-create>'
+      })
     ;
 
   };

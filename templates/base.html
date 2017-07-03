@@ -59,7 +59,6 @@
     <script src="{% static 'node_modules/angular-elastic/elastic.js' %}"></script>
     <script src="{% static 'node_modules/ng-textarea-enter/src/ng-textarea-enter.js' %}"></script>
     <script src="{% static 'node_modules/angular-timeago/dist/angular-timeago.min.js' %}"></script>
-
     <script src="{% static 'apps/app.js' %}"></script>
     {% if user.is_authenticated %}
         <script src="{% static 'apps/users/routes.js' %}"></script>
@@ -69,8 +68,9 @@
 
     <script src="{% static 'apps/users/controllers.js' %}"></script>
     <script src="{% static 'apps/users/services.js' %}"></script>
-
+    <script src="{% static 'apps/books/components.js' %}"></script>
     <script src="{% static 'apps/books/services.js' %}"></script>
+    
     <script src="{% static 'apps/feeds/services.js' %}"></script>
     <script src="{% static 'apps/feeds/directive.js' %}"></script>
 
