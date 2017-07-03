@@ -16,6 +16,7 @@
     "tests"
   ],
   "dependencies": {
-    "bootstrap": "3"
+    "bootstrap": "3",
+    "Ionicons": "ionicons#^2.0.1"
   }
 }

@@ -9,7 +9,7 @@
       'ui.bootstrap',
       'ngFileUpload',
       'angular-owl-carousel-2',
-      'ui-notification'
+      'ui-notification',
       'monospaced.elastic',
       'ngTextareaEnter',
       'yaru22.angular-timeago'
