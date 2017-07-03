@@ -63,7 +63,7 @@
 
   };
 
-  function FeedController ($scope, FeedService, AuthService) {
+  function FeedController ($scope, $rootScope, FeedService, AuthService,  $uibModal) {
     var self = this;
 
     self.AuthService = AuthService;
@@ -79,10 +79,154 @@
     FeedService.feed().then(function (resp) {
       self.feeds = resp.data;
     });
+    
 
+    FeedService.comment().then(function(resp){
+      self.comments = resp.data;
+    });
+
+    // $scope.limit = -3;
+
+    // $scope.showMoreItems = function() {
+    //   _.each(self.comments, function(comment){
+    //     $scope.limit = comment.children.length;
+    //   });
+
+
+    // };
+  
+    $scope.addcomment = undefined;
+    $scope.addChildComment = undefined;
+
+    $scope.addComment = function(feedId, form) {
+        FeedService.addComment(feedId, form).then(function(resp){
+          form.comment = '';  // reset comment
+
+          var data = resp.data;
+          data.children = [];
+          self.comments.push(data);
+      });
+    };
+
+    $scope.addChildComment = function(parent, feedId, form) {
+        form.parent = parent
+        FeedService.addComment(feedId, form).then(function(resp){
+          form.comment = '';  // reset comment
+
+          var data = resp.data;
+          _.each(self.comments, function(comment){
+            if (comment.id == parent) {
+              comment.children.push(data);
+            }
+          });
+      });
+    };
+
+    $scope.editComment = function(feedId, commentId, form){
+      FeedService.updateComment(feedId, commentId, form).then(function(resp){
+        $scope.form = {}
+        self.edited = false;
+        self.editedChild = false;
+        self.childCommentId = undefined;
+        self.commentId = undefined;
+      });
+    }
+
+    self.reply = false;
+    self.comId = undefined;
+    $scope.replyComment = function(commentId){
+      self.comId = commentId;
+      self.reply = true;
+    }
+
+    self.edited = false;
+    self.commentId = undefined;
+    $scope.updateComment = function(commentId){
+      self.commentId = commentId;
+      self.edited = true;
+    }
+
+    self.editedChild = false;
+    self.childCommentId = undefined
+    $scope.updateChildComment = function(commentId){
+      self.childCommentId = commentId;
+      self.editedChild = true;
+    }
+
+    self.confirmDelete = function (feedId, commentId) {
+      $uibModal.open({
+        animation: true,
+        ariaLabelledBy: 'modal-title',
+        ariaDescribedBy: 'modal-body',
+        templateUrl: 'deleteFeedComment.html',
+        controllerAs: 'ctrl',
+        size: 'md',
+        backdrop: false,
+        controller: function($scope, $uibModalInstance) {
+          var ctrl = this;
+
+
+          ctrl.deleteComment = function() {
+            $uibModalInstance.close();
+            FeedService.deleteComment(feedId, commentId).then(function(resp){
+              var x = self.comments.find(function(comment){
+                  return comment.id == commentId;
+              });
+
+              var index = self.comments.indexOf(x);
+              if (index === -1) return;
+              self.comments.splice(index, 1);
+             
+            });
+          };
+
+          ctrl.cancel = function () {
+            $uibModalInstance.close();
+          };
+        }   
+      });
+    };
+
+
+    self.confirmDeleteChild = function (feedId, commentId) {
+      $uibModal.open({
+        animation: true,
+        ariaLabelledBy: 'modal-title',
+        ariaDescribedBy: 'modal-body',
+        templateUrl: 'deleteChildComment.html',
+        controllerAs: 'ctrl',
+        size: 'md',
+        backdrop: false,
+        controller: function($scope, $uibModalInstance) {
+          var ctrl = this;
+
+          ctrl.deleteChildComment = function() {
+            $uibModalInstance.close();
+            FeedService.deleteComment(feedId, commentId).then(function(resp){             
+              _.each(self.comments, function(comment){
+                var x = comment.children.find(function(child){
+                    return child.id == commentId;
+                });
+                
+                var index = comment.children.indexOf(x);
+                if (index === -1) return;
+                comment.children.splice(index, 1);
+
+              });
+            });
+          };
+
+          ctrl.cancel = function () {
+            $uibModalInstance.close();
+          };
+        }   
+      });
+    };
+           
   }; // END OF FEED CONTROLLER
 
-  function SearchController ($scope, ) {
+
+  function SearchController ($scope) {
     var self = this;
 
     

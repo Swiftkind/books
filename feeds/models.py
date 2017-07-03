@@ -32,3 +32,16 @@ class Feed(models.Model):
 
     def __str__(self):
         return "[{}] {}".format(self.action, self.id)
+
+
+class Comment(models.Model):
+    """ Post comment
+    """
+    user = models.ForeignKey(settings.AUTH_USER_MODEL)
+    parent = models.ForeignKey('self', null=True, blank=True, related_name="replies")
+    feed = models.ForeignKey(Feed)
+    comment = models.TextField()
+    comment_date = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return "{user} {comment}".format(user=self.user, comment=self.comment)

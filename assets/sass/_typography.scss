@@ -107,8 +107,131 @@
     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
 }
 
+@font-face {
+    font-family: 'Proxima Nova Regular';
+    font-style: normal;
+    font-weight: normal;
+    src:url(../fonts/proxima-nova/Proxima-Nova-Alt-Regular.eot) format('eot'),url(../fonts/proxima-nova/proximaSans-Regular.ttf) format('ttf');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+
+@font-face {
+    font-family: 'Proxima Nova Thin';
+    font-style: normal;
+    font-weight: normal;
+    src:url(../fonts/proxima-nova/Proxima-Nova-Thin.eot) format('eot'),url(../fonts/proxima-nova/ProximaNova-Light.otf) format('otf'),url(../fonts/proxima-nova/Proxima-Nova-Thin.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+
+@font-face {
+  font-family: 'Lora';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Lora Italic'), local('Lora-Italic'), url(../fonts/lora/lora.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+20B4, U+2DE0-2DFF, U+A640-A69F;
+}
+
+
+
+@font-face {
+  font-family: 'Montserrat-Black';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Montserrat-Black'), local('Montserrat-Black'), url(../fonts/montserrat/Montserrat-Black.ttf) format('ttf');
+}
+
+@font-face {
+  font-family: 'Montserrat-Bold';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Montserrat-Bold'), local('Montserrat-Black'), url(../fonts/montserrat/Montserrat-Bold.ttf) format('ttf');
+}
+
+@font-face {
+  font-family: 'Montserrat-Light';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Montserrat-Light'), local('Montserrat-Black'), url(../fonts/montserrat/Montserrat-Light.ttf) format('ttf');
+}
+@font-face {
+  font-family: 'Montserrat-Regular';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Montserrat-Regular'), local('Montserrat-Black'), url(../fonts/montserrat/Montserrat-Regular.ttf) format('ttf');
+}
+@font-face {
+  font-family: 'Montserrat-Thin';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Montserrat-Thin'), local('Montserrat-Black'), url(../fonts/montserrat/Montserrat-Thin.ttf) format('ttf');
+}
+
+
+@font-face {
+  font-family: 'SourceSansPro-Black';
+  font-style: normal;
+  font-weight: normal;
+  src: local('SourceSansPro-Black'), url(../fonts/source-sans-pro/SourceSansPro-Black.otf) format('otf');
+}
+
+@font-face {
+  font-family: 'SourceSansPro-Black';
+  font-style: normal;
+  font-weight: normal;
+  src: local('SourceSansPro-Black'),  url(../fonts/source-sans-pro/SourceSansPro-Black.otf) format('otf');
+}
+
+@font-face {
+  font-family: 'SourceSansPro-Blacklt';
+  font-style: normal;
+  font-weight: normal;
+  src: local('SourceSansPro-Blacklt'),  url(../fonts/source-sans-pro/SourceSansPro-Blacklt.otf) format('otf');
+}
+
+@font-face {
+  font-family: 'SourceSansPro-Bold';
+  font-style: normal;
+  font-weight: normal;
+  src: local('SourceSansPro-Bold'), url(../fonts/source-sans-pro/SourceSansPro-Bold.otf) format('otf');
+}
+
+
+
+@font-face {
+  font-family: 'SourceSansPro-ExtraLight';
+  font-style: normal;
+  font-weight: normal;
+  src: local('SourceSansPro-ExtraLight'),  url(../fonts/source-sans-pro/SourceSansPro-ExtraLight.otf) format('otf');
+}
+
+
+@font-face {
+  font-family: 'SourceSansPro-Light';
+  font-style: normal;
+  font-weight: normal;
+  src: local('SourceSansPro-Light'),  url(../fonts/source-sans-pro/SourceSansPro-Light.otf) format('otf');
+}
+
+
+@font-face {
+  font-family: 'SourceSansPro-Regular';
+  font-style: normal;
+  font-weight: normal;
+  src: local('SourceSansPro-Regular'),  url(../fonts/source-sans-pro/SourceSansPro-Regular.otf) format('otf');
+}
+
+
+@font-face {
+  font-family: 'SourceSansPro-Semibold';
+  font-style: normal;
+  font-weight: normal;
+  src: local('SourceSansPro-Semibold'),  url(../fonts/source-sans-pro/SourceSansPro-Semibold.otf) format('otf');
+}
+
+
+
 body {
-    font-family: "Lato Regular", Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-family: "SourceSansPro-Regular", Helvetica Neue, Helvetica, Arial, sans-serif;
     font-size: 14px;
     line-height: 1.42857143;
     color: #333;

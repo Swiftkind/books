@@ -48,12 +48,17 @@
     <script src="{% static 'node_modules/angular/angular.min.js' %}"></script>
     <script src="{% static 'node_modules/angular-ui-router/release/angular-ui-router.min.js' %}"></script>
     <script src="{% static 'node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js' %}"></script>
-    <script src="{% static 'node_modules/angular-ui-bootstrap/dist/ui-bootstrap.js' %}"></script>
+    <script src="{% static 'node_modules/angular-animate/angular-animate.min.js' %}"></script>
+    <script src="{% static 'node_modules/angular-sanitize/angular-sanitize.min.js' %}"></script>
+    <script src="{% static 'node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js' %}"></script>
     <script src="{% static 'node_modules/underscore/underscore-min.js' %}"></script>
     <script src="{% static 'node_modules/moment/moment.js' %}"></script>
     <script src="{% static 'node_modules/ng-file-upload/dist/ng-file-upload.min.js' %}"></script>
     <script src="{% static 'node_modules/angular-owl-carousel2/src/angular-owl-carousel-2.js' %}"></script>
     <script src="{% static 'node_modules/angular-ui-notification/dist/angular-ui-notification.min.js' %}"></script>
+    <script src="{% static 'node_modules/angular-elastic/elastic.js' %}"></script>
+    <script src="{% static 'node_modules/ng-textarea-enter/src/ng-textarea-enter.js' %}"></script>
+    <script src="{% static 'node_modules/angular-timeago/dist/angular-timeago.min.js' %}"></script>
 
     <script src="{% static 'apps/app.js' %}"></script>
     {% if user.is_authenticated %}
@@ -67,6 +72,8 @@
 
     <script src="{% static 'apps/books/services.js' %}"></script>
     <script src="{% static 'apps/feeds/services.js' %}"></script>
+    <script src="{% static 'apps/feeds/directive.js' %}"></script>
+
 </body>
 
 </html>

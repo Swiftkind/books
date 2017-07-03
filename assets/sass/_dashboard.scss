@@ -23,7 +23,7 @@
     position: relative;
     .sidebar {
         padding: 60px 20px 60px 30px;
-        width: 350px;
+        width: 250px;
         position: fixed;
         left: 0;
         top: 0;
@@ -143,7 +143,7 @@
     }
     .main-container {
         position: absolute;
-        left: 350px;
+        left: 250px;
         top: 0;
         bottom: 0;
         background: none;
@@ -151,26 +151,7 @@
         &.dashboard {
             background: #f8f5fd;
             overflow-y: auto;
-            right: 0;
-            .book-list {
-                padding: 80px 33px;
-                .feed-item {
-                    margin-top: 2em;
-                    .details {
-                        line-height: 3;
-                        p {
-                            .user {
-                                margin-right: 30px;
-                                font-family: $Lato-Regular;
-                                color: #151e27;
-                            }
-                            .event-name {
-                                color: #151e27;
-                            }
-                        }
-                    }
-                }
-            }
+            right: 0;   
         }
         .author-profile {
             position: relative;
@@ -409,7 +390,7 @@
     }
     .activities {
         padding: 60px 20px 60px 30px;
-        width: 320px;
+        width: 250px;
         position: absolute;
         right: 0;
         top: 0;
@@ -432,6 +413,16 @@
                         border-left: solid 2px #0ac6a1;
                     }
                 }
+            }
+        }
+    }
+}
+
+.main-wrapper {
+    &.right-open {
+        .main-container {
+            &.dashboard {
+                right: 250px;
             }
         }
     }
