@@ -1,0 +1,181 @@
+.full-main-nav {
+    -webkit-box-shadow: -1px 0px 27px -3px rgba(0, 0, 0, 0.19);
+    -moz-box-shadow: -1px 0px 27px -3px rgba(0, 0, 0, 0.19);
+    box-shadow: -1px 0px 27px -3px rgba(0, 0, 0, 0.19);
+    z-index: 10;
+    background-color: $white;
+    border-radius: 0;
+    .nav {
+        &__title {
+            font-size: 20px;
+            color: #1b2733;
+            font-family: $Lato-Bold;
+        }
+    }
+}
+
+.doc {
+    &__container {
+        width: 100%;
+        position: relative;
+    }
+}
+
+.sider {
+    z-index: 1;
+    background-color: #ffffff;
+    border-right: solid 0.5px #d7d7d7;
+    width: 74px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    display: inline-flex;
+    height: 100%;
+    flex-direction: column;
+    padding-top: 80px;
+    text-align: center;
+    &__links {
+        list-style: none;
+        flex-basis: 100%;
+        padding: 0;
+        &__item {
+            padding: 25px 0;
+            a {
+                font-size: 20px;
+                color: $primary-green;
+            }
+        }
+    }
+}
+
+.pages {
+    &--container {
+        width: 180px;
+        background-color: #eeeeee;
+        border-right: solid 0.5px #d7d7d7;
+        position: fixed;
+        left: 72px;
+        top: 0;
+        bottom: 0;
+        height: 100%;
+        padding-top: 80px;
+        overflow-y: auto;
+        h4 {
+            margin-left: 25px;
+            font-family: $Lato-Regular;
+        }
+    }
+    &__wrapper {
+        margin: 20px 29px;
+        .page__number {
+            text-align: right;
+            color: #a1a1a1;
+        }
+        &__item {
+            width: 122.6px;
+            height: 159.7px;
+            background-color: #ffffff;
+            position: absolute;
+            display: block;
+            position: relative;
+            box-shadow: 0px 2px 5.8px 0.2px rgba(0, 0, 0, 0.07);
+            &.active {
+                outline: solid 10px $primary-green;
+            }
+        }
+    }
+}
+
+.document {
+    &__container {
+        background-color: #f8f8f8;
+        width: auto;
+        height: 100%;
+        position: fixed;
+        left: 252px;
+        padding-top: 80px;
+        right: 277px;
+    }
+    &__inline__actions {
+        border-radius: 2.4px;
+        background-color: #1b2733;
+        box-shadow: 0px 2px 4.5px 0.5px rgba(0, 0, 0, 0.12);
+        width: auto;
+        display: inline;
+        padding:10px;
+
+        a{
+        	color: $white;
+        	margin: 0 8px;
+        }
+    }
+    &__page {
+        margin: 0 auto;
+        width: 794px;
+        margin-top: 35px;
+        &__editor {
+        	margin-top: 30px;
+            width: 794px;
+            height: 994.9px;
+            background-color: #ffffff;
+            box-shadow: 0px 2px 4.5px 0.5px rgba(0, 0, 0, 0.12);
+        }
+    }
+}
+
+.action {
+    &--sider {
+        width: 277px;
+        background-color: #ffffff;
+        border-right: solid 0.5px #d7d7d7;
+        height: 100%;
+        position: fixed;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        padding-top: 80px;
+        .panel {
+            .panel-heading {
+                .nav {
+                    border: none;
+                    li {
+                        &.active {
+                            a {
+                                border-bottom: solid 2px $primary-green;
+                                &:hover {
+                                    background-color: transparent;
+                                }
+                            }
+                        }
+                        a {
+                            color: #1b2733;
+                            border-bottom: solid 2px $white;
+                            border: none;
+                            &:hover {
+                                background-color: transparent;
+                                border: none;
+                                border-bottom: solid 2px $primary-green;
+                                transition: 0.2s;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &__element {
+        margin: 10px 0;
+        label {
+            color: #c1c1c1;
+            font-family: $Lato-Regular;
+            font-weight: normal;
+            margin-bottom: 12px;
+        }
+    }
+    &__flex__vertical{
+    	    display: flex;
+    flex-direction: row;
+    counter-reset: element;
+    }
+}

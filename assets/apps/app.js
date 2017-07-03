@@ -4,10 +4,15 @@
   angular
     .module('core', [
       'ui.router',
+      'ngAnimate',
+      'ngSanitize',
       'ui.bootstrap',
       'ngFileUpload',
       'angular-owl-carousel-2',
       'ui-notification'
+      'monospaced.elastic',
+      'ngTextareaEnter',
+      'yaru22.angular-timeago'
     ])
     .constant('TEMPLATE_URL', '/static/apps/templates/')
     .config(csrf)

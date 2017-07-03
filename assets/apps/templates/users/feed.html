@@ -1,70 +1,268 @@
 <div class="main-container dashboard">
-    <div class="book-list">
+    <div class="feed-container">
+        <div class="dashboard-nav">
+            <ul class="navbar nav navbar-nav">
+                <li class="active">
+                    <a href="#">Your Feed</a>
+                    <div class="border"></div>
+                </li>
+                <li>
+                    <a href="#">Discover</a>
+                    <div class="border"></div>
+                </li>
+                <li>
+                    <a href="#">New Releases</a>
+                    <div class="border"></div>
+                </li>
+            </ul>
+        </div>
 
-        <div ng-repeat="feed in ctrl.feeds" class="feed-item">
-            <div class="user-profile">
-                <div class="avatar-sm pull-left">
-                    <div class="photo img-circle" style="background-image:url('{{ feed.user.image }}');">
+        <div class="row">
+            <div class="col-md-7">
+                <div ng-repeat="feed in ctrl.feeds" class="feed-activity">
+                    <div class="feed-title">
+                        <div class="avatar-sm avatar">
+                            <div class="photo img-circle" style="background-image:url('{{ feed.user.image }}');">
+                            </div>
+                        </div>
+                        <div class="feed-title-description">
+                           <a ui-sref="profile({handle:feed.user.username})" class="user--author"><span class="user">{{ feed.user.display_name }}</span></a>
+                           <p class="time-stamp"><span>{{ feed.date_created | date : 'MMM d, y h:mm:ss a'}} </span><span class="middot"></span><span>New York City</span></p>
+                        </div>
+                        <div class="feed-dropdown">
+                            <p><span class="icon ion-more"></span></p>
+                        </div>
                     </div>
-                </div>
-                <div class="details">
-                    <p>
-                        <a ui-sref="profile({handle:feed.user.username})"><span class="user">{{ feed.user.display_name }}</span></a>
-                        <span class="event-name">{{ ctrl.actionText[feed.action] }}&nbsp;&nbsp;<a href="">{{ feed.item.title || feed.item.display_name }}</a></span>
-                    </p>
+                    <div class="feed-action">
+                        <p>{{ ctrl.actionText[feed.action] }} <a href="#">{{ feed.item.title }}</a></p>
+                        <div class="author-comment">
+                            <p>
+                                Bespoke small batch enamel pin, tattooed intelligentsia master cleanse glossier church-key skateboard normcore selfies. 
+                            </p>
+                        </div>
+                    </div>
+                    <div class="feed-content flex">
+                        <div class="cover">
+                            <img src="{{ feed.item.cover }}" class="img-responsive">
+                        </div>
+                        <div class="description">
+                            <div class="title">
+                                <h3>{{ feed.item.title }}</h3>
+                            </div>
+                            <p class="category">{{ feed.item.category.name }}</p>
+                            <p class="book-description">
+                                {{ feed.item.description }}
+                            </p>
+                            <div class="text-right">
+                                <div class="inline-flex">
+                                    <a href="#" class="btn-ba-default ">Save</a>
+                                    <a href="#" class="btn-ba-primary">Read</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="feed-meta flex">
+                        <div class="element">
+                            <a href="#">1.1k reads</a>
+                        </div>
+                        <div class="element">
+                            <a href="#"><span class="icon ion-heart"></span> 1.5k</a>
+                        </div>
+                        <div class="element">
+                            <a href="#"><span class="icon ion-ios-chatbubble"></span> Comments</a>
+                        </div>
+                        <div class="element">
+                            <a href="#">Share <span class="share"><i class="icon ion-ios-redo"></i></span></a>
+                        </div>
+                    </div>
+                    <div class="feed-comment" ng-repeat="comment in ctrl.comments">
+                        <div ng-if="feed.id == comment.feed">
+                        <div class="first-child">
+                            <div class="posted-comment flex">
+                               <div class="avatar-sm avatar">
+                                    <div class="photo img-circle" style="background-image:url('{{ comment.user.image }}');"></div>
+                                </div>
+                                <div class="comment-content" ng-hide="comment.id == ctrl.commentId">
+                                    <div class="comment-header">
+                                        <div class="pull-right comment-actions">
+                                            <p><time-ago from-time='{{ comment.comment_date }}' format='MM/dd/yyyy'></time-ago></p>
+                                            <span uib-dropdown>
+                                              <a href id="comment-dropdown" uib-dropdown-toggle>
+                                                <span class="caret"></span>
+                                              </a>
+                                              <ul class="dropdown-menu comment-menu" uib-dropdown-menu aria-labelledby="comment-dropdown">
+                                                <li role="menuitem"><a href="" ng-click="updateComment(comment.id)"><span class="icon ion-edit"> Edit</span></a></li>
+                                                <li role="menuitem"><a href="" ng-click="ctrl.confirmDelete(feed.id, comment.id)"><span class="icon ion-ios-trash"> Delete</span></a></li>
+                                              </ul>
+                                            </span>
+                                        </div>
+                                        <a href="#" class="comment-author">{{ comment.user.first_name }} {{ comment.user.last_name }}</a>
+                                    </div>
+                                    <p class="comment-text">
+                                        {{ comment.comment }}
+                                    </p>
+                                    <div>
+                                        <ul class="list-inline">
+                                            <li><a href="" ng-click="replyComment(comment.id)">Reply</a></li>
+                                        </ul>
+                                    </div>
+                                </div> 
+
+                                <div class="comment-content" ng-show="comment.id == ctrl.commentId">
+                                    <div class="edit-comment">
+                                        <form class="form-inline" name="commentForm" ng-if="ctrl.edited">
+                                            <textarea
+                                                auto-resize 
+                                                name="comment"
+                                                ng-model="comment.comment" 
+                                                class="text-container"
+                                                required
+                                                ng-textarea-enter="editComment(feed.id, comment.id, comment)"
+                                                >
+                                            </textarea>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="second-child" ng-repeat="child in comment.children">
+                                <div class="posted-comment flex ">
+                                    <div class="avatar-as avatar">
+                                        <div class="photo img-circle" style="background-image:url('{{ child.user.image }}');"></div>
+                                    </div>
+                                    <div class="comment-content">
+                                        <div ng-hide="ctrl.childCommentId == child.id">
+                                        <div class="comment-header">
+                                            <div class="pull-right comment-actions">
+                                                <time-ago from-time='{{ child.comment_date }}' format='MM/dd/yyyy'></time-ago>
+                                                <span uib-dropdown>
+                                                  <a href id="comment-dropdown" uib-dropdown-toggle>
+                                                    <span class="caret"></span>
+                                                  </a>
+                                                  <ul class="dropdown-menu comment-menu" uib-dropdown-menu aria-labelledby="comment-dropdown">
+                                                    <li role="menuitem"><a href="" ng-click="updateChildComment(child.id)"><span class="icon ion-edit"> Edit</span></a></li>
+                                                    <li role="menuitem"><a href="" ng-click="ctrl.confirmDeleteChild(feed.id, child.id)"><span class="icon ion-ios-trash"> Delete</span></a></li>
+                                                  </ul>
+                                                </span>
+                                            </div>
+                                            <a href="" class="comment-author">{{ child.user.first_name }} {{ child.user.last_name }}</a>
+                                        </div>
+                                        <p class="comment-text">
+                                            {{ child.comment }}
+                                        </p>
+                                    </div>
+
+                                    <div ng-show="child.id == ctrl.childCommentId">
+                                        <div class="edit-comment">
+                                            <form class="form-inline" name="commentForm">
+                                                <textarea
+                                                    msd-elastic
+                                                    name="comment"
+                                                    ng-model="child.comment" 
+                                                    class="text-container"
+                                                    required
+                                                    ng-textarea-enter="editComment(feed.id, child.id, child)">
+                                                </textarea>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div ng-show="comment.id == ctrl.comId">
+                                <div class="reply-comment">
+                                    <div class="avatar-as pull-left">
+                                        <div class="photo img-circle" style="background-image:url('{{ ctrl.AuthService.auth.image }}');"></div>
+                                    </div>
+                                    <div class="write-comment">
+                                        <form class="form-inline reply-comment-form" name="commentChildForm" ng-if="ctrl.reply">
+                                            <textarea
+                                                name="comment"
+                                                ng-model="childForm.comment" 
+                                                class="text-container"
+                                                placeholder="Write a reply..."
+                                                required
+                                                msd-elastic
+                                                ng-textarea-enter="addChildComment(comment.id, feed.id, childForm)"
+                                                >
+                                            </textarea>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        </div>
+                    </div>
+
+                    <div class="new-comment">
+                        <div class="avatar-as pull-left">
+                            <div class="photo img-circle" style="background-image:url('{{ ctrl.AuthService.auth.image }}');"></div>
+                        </div>
+                        <div class="write-comment">
+                             <form class="form-inline" name="commentForm">
+                                <textarea
+                                    name="comment"
+                                    ng-model="form.comment" 
+                                    class="text-container"
+                                    placeholder="Leave a comment"
+                                    required
+                                    msd-elastic
+                                    ng-textarea-enter="addComment(feed.id, form)"
+                                    >
+                                </textarea>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div ng-if="feed.action !== 'follow'" class="book-card">
-                <div class="cover">
-                    <img src="{{ feed.item.cover }}" class="img-responsive">
-                </div>
-                <div class="details">
-                    <div>
-                        <div class="pull-right">
-                        </div>
-                        <h3 class="title">{{ feed.item.title }}</h3>
-                        <div>
-                            <div class="price pull-right">
-                                <p ng-if="feed.item.price !== '0.00'">$ {{ feed.item.price }}</p>
-                                <p ng-if="feed.item.price === '0.00'">FREE</p>
-                            </div>
-                            <div class="rating">
-                                <span class="icon ion-android-star"></span>
-                                <span class="icon ion-android-star"></span>
-                                <span class="icon ion-android-star"></span>
-                                <span class="icon ion-android-star-outline"></span>
-                                <span class="icon ion-android-star-outline"></span>
-                                <span class="status">Trending</span>
+            <div class="col-md-5">
+                <div class="feed-activity">
+                    <div class="feed-title">
+                        <div class="avatar-sm avatar">
+                            <div class="photo img-circle" style="background-image:url('assets/images/userx3.png');">
                             </div>
                         </div>
-                    </div>
-                    <!-- limited to 300 characters -->
-                    <p class="description">{{ feed.item.description }}</p>
-                    <div>
-                        <div class="social-meta">
-                            <div class="pull-right">
-                                <a href="#"><span class="icon ion-android-share-alt"></span></a>
-                                <a href="#"><span class="icon ion-more"></span></a>
-                            </div>
-                            <a href="#">Read now</a>
-                            <a href="#"><span class="icon ion-ios-heart-outline"></span></a>
-                            <a href="#">
-                                <div class="photo img-circle " style="background-image:url('/static/images/userx3.png');"></div>
-                                <div class="photo img-circle " style="background-image:url('/static/images/userx3.png');"></div>
-                                <div class="photo img-circle " style="background-image:url('/static/images/userx3.png');"></div>
-                                <div class="photo img-circle " style="background-image:url('/static/images/userx3.png');"></div>
-                                <div class="photo img-circle more-people">+5</div>
-                            </a>
-                            <a href="#">9 Comments</a>
+                        <div class="feed-title-description">
+                            <p><a href="#" class="account">Rod Williams</a> published a new book <a href="#" class="item-highlight">The Happy Lemon</a></p>
+                        </div>
+                        <div class="feed-dropdown">
+                            <p>2m <span class="icon ion-more"></span></p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
     </div>
 </div>
+
+<script type="text/ng-template" id="deleteFeedComment.html">
+    <div class="modal-header">
+        <h3 class="modal-title" id="modal-title">Delete Comment</h3>
+    </div>
+    <div class="modal-body" id="modal-body">
+        <p>Are you sure you want to delete this comment?</p>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-danger" type="button" ng-click="ctrl.deleteComment()">Delete</button>
+        <button class="btn btn-default" type="button" ng-click="ctrl.cancel()">Cancel</button>
+    </div>
+</script>
+
+
+<script type="text/ng-template" id="deleteChildComment.html">
+    <div class="modal-header">
+        <h3 class="modal-title" id="modal-title">Delete Comment</h3>
+    </div>
+    <div class="modal-body" id="modal-body">
+        <p>Are you sure you want to delete this comment?</p>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-danger" type="button" ng-click="ctrl.deleteChildComment()">Delete</button>
+        <button class="btn btn-default" type="button" ng-click="ctrl.cancel()">Cancel</button>
+    </div>
+</script>
 
 <div ng-include
      ng-controller="RecentActivitiesController as ctrl"

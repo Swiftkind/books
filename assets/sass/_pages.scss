@@ -56,14 +56,13 @@
             border-bottom: solid 1px #9daab6;
             background: none;
             box-shadow: none;
-             font-size: 20px; 
-             padding-bottom: 10px;
-            &::placeholder{
-            	color: #9daab6;
-            	font-family: $Lato-Regular;
+            font-size: 20px;
+            padding-bottom: 10px;
+            &::placeholder {
+                color: #9daab6;
+                font-family: $Lato-Regular;
             }
         }
-
     }
     .explore-books {
         padding: 65px;
@@ -113,3 +112,267 @@
         }
     }
 }
+
+//feed page
+.feed-container {
+    margin-top: 5em;
+    padding: 0 20px;
+    .dashboard-nav{
+        display: inline-block;
+        ul{
+            li{
+                a{
+                    color: #9daab6;
+                    font-family: $Lato-Regular;
+                }
+            }
+        }
+    }
+    .feed-activity {
+        min-width: 451.5px;
+        height: auto;
+        border-radius: 4px;
+        background-color: #ffffff;
+        box-shadow: 0px 1px 3.4px 0.6px rgba(0, 0, 0, 0.01);
+        position: relative;
+        padding: 20.6px;
+        margin: 1.5em 0;
+        position: relative;
+        p{
+            color: $light-grey;
+            font-family: $Lato-Regular;
+        }
+        .feed-title {
+            .avatar {
+                flex-shrink: 0;
+            }
+            display: inline-flex;
+            flex-direction: row;
+            .feed-title-description {
+                margin-left: 20px;
+                padding-right: 3em;
+                .user{
+                    &--author{
+                        color: $dark-blue; 
+                        font-family: $Lato-Regular;
+                    }
+
+                }
+                .time-stamp{
+                    color: $light-grey;
+                    display: flex;
+                    align-items:center;
+                    .middot{
+                        width: 2px;
+                        height: 2px;
+                        border-radius: 50%;
+                        background-color: $light-grey;
+                        margin: 1em 0.5em;
+
+                    }
+                }
+            }
+            .feed-dropdown {
+                position: absolute;
+                right: 20.6px;
+                color: $light-grey;
+                span{
+                    margin-left: 10px;
+                }
+            }
+        }
+        .feed-action{
+            
+        }
+        .feed-content {
+            margin-top: 20px;
+            align-items: center;
+            .cover {
+                width: 125px;
+                height: 199px;
+                flex-shrink: 0;
+            }
+            .description {
+                padding-left: 20px;
+                .title {
+                    h3 {
+                        color: $dark-blue;
+                        font-family: $Lato-Regular;
+                        margin-top: 0px;
+                    }
+                    margin-bottom: 12px;
+                }
+                .category {
+                    border-radius: 9.2px;
+                    color: $dark-blue;
+                    display: inline;
+                    font-size: 14px;
+                    font-family: $Open-Sans-Regular;
+                }
+                .book-description {
+                    margin-top: 20px;
+                    color: $light-grey;
+                    font-weight: 300;
+                    line-height: 1.5;
+                    text-align: left;
+                }
+            }
+            .upload-portfolio {
+                .uploads {
+                    padding: 0.5em 15px;
+                }
+            }
+            .upload-description {
+                padding: 0.5em 15px;
+                .upload-title{
+                    a{
+                        color: $dark-blue;
+                        font-family: $Lato-Bold;
+                    }
+                }
+                .upload-content{
+                    p{
+                        color: $light-grey;
+                    }
+                }
+            }
+        }
+        .feed-meta {
+            justify-content: space-between;
+            padding: 2em 1em;
+            .element {
+                a {
+                    color: $light-grey;
+                    // .share{
+                    //     background: $light-grey;
+                    //     color: $white;
+                    //     padding:1em;
+                    //     border-radius:50%;
+                    // }
+                }
+            }
+        }
+        .feed-comment {
+            .posted-comment {
+                margin: 25px 0;
+                .avatar {
+                    flex-shrink: 0;
+                }
+                .comment-content {
+                    .comment-header {
+                        .comment-actions {
+                            color: $light-grey;
+                            font-family: $Lato-Light;
+                            display: inline-flex;
+                            .comment-menu {
+                                min-width: 120px;
+                                left: -90px;
+                            }
+                        }
+                    }
+                    width: 100%;
+                    margin-left: 20px;
+                    .comment-author {
+                        color: $dark-blue;
+                        font-weight: bold;
+                    }
+                    .comment-text {
+                        color: $light-grey;
+                        word-break: break-word;
+                    }              
+                    .edit-comment {
+                        .text-container {
+                            width: calc(100% - 35px);
+                            resize: none;
+                            height: 30px;
+                            border-radius: 16px;
+                            background-color: #f1f1f1;
+                            border-color: #f1f1f1;
+                            padding: 0.5em 1em;
+                            overflow: hidden!important;
+                            &:focus {
+                                outline: none;
+                            }
+                        }
+                    }
+                }
+            }
+            .second-child {
+                margin-left: 20px;
+                .posted-comment {
+                    margin: 0;
+                    .avatar-as {
+                        width: 35px;
+                        height: 35px;
+                    }
+                    .comment-actions {
+                        margin-right: 25px;
+                        display: inline-flex;
+                    }
+                    .comment-content {
+                        .edit-comment {
+                            .text-container {
+                                width: calc(100% - 35px);
+                                resize: none;
+                                height: 30px;
+                                border-radius: 16px;
+                                background-color: #f1f1f1;
+                                border-color: #f1f1f1;
+                                padding: 0.5em 1em;
+                                overflow: hidden!important;
+                                &:focus {
+                                    outline: none;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .new-comment {
+            .write-comment {
+                margin-left: 45px;
+                form {
+                    .text-container {
+                        width: calc(100% - 35px);
+                        height: 30px;
+                        resize: none;
+                        border-radius: 16px;
+                        background-color: #f1f1f1;
+                        border-color: #f1f1f1;
+                        padding: 0.5em 1em;
+                        &:focus {
+                            outline: none;
+                        }
+                    }
+                }
+            }
+        }
+        .reply-comment {
+            margin: 0 20px;
+            .avatar-as {
+                width: 35px;
+                height: 35px;
+            }
+            .write-comment {
+                margin-left: 45px; 
+                .reply-comment-form {
+                    .text-container {
+                        width: calc(100% - 35px);
+                        height: 30px;
+                        resize: none;
+                        border-radius: 16px;
+                        background-color: #f1f1f1;
+                        border-color: #f1f1f1;
+                        padding: 0.5em 1em;
+                        &:focus {
+                            outline: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
