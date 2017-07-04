@@ -9,19 +9,30 @@
                 accept="image/*" 
                 accept="image/*"
                 class="well"
-                style="height: 250px; border: 2px dashed #fff">
+                style="height: 250px; border: 2px dashed #fff"
+                ng-hide="file">
                 <p class="text-center" style="color: white; margin-top: 75px;">drop file here</p>
             </div>
+
+
+            <img ngf-thumbnail="file" class="img-thumbnail">
+            <button 
+                class="btn btn-sm btn-primary"
+                ngf-select
+                ng-model="file"
+                ng-show="file">Change</button>
         </div>
 
         <div class="col-sm-6">
-            <form class="form form-horizontal"
-                ng-submit="ctrl.createBook(form)">
+            <form class="form form-horizontal" name="bookForm"
+                ng-submit="ctrl.createBook(form) && bookForm.$valid">
+
                 <div class="form-group">
                     <label for="name">Title</label>
                     <input class="form-control"
                         placeholder="Your book name"
-                        name="title" ng-model="form.title"/>
+                        name="title" ng-model="form.title"
+                        required="required"/>
                 </div>
 
                 <div class="form-group">
