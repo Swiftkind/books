@@ -6,13 +6,22 @@
 		.controller('BookCreateController', BookCreateController)
 		.component('bookCreate',  {
 			templateUrl: '/static/apps/templates/books/create.html',
-			controller: 'BookCreateController'
+			controller: 'BookCreateController',
+			controllerAs: 'ctrl'
 		})
 	;
 
 	//////////////////////////////
-	function BookCreateController($scope) {
-		console.log('::BookCreateController');
+	function BookCreateController($scope, BookService) {
+		var self = this;
+		self.createBook = createBook;
+		self.categories = BookService.categories;
+		///////////////////////
+		function createBook(form){
+			BookService.create(form).then(function(data){
+				$scope.form = {}; // reset form; 
+			});
+		}
 	}
 
 })();

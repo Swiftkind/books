@@ -15,8 +15,11 @@
       reviews : reviews,
       favorite: favorite,
       related : related,
+      create  : create,
+      categories: {}
     };
 
+    get_categories();
     return s;
 
 
@@ -39,6 +42,19 @@
 
     // get related categories 
     function related () { return $http.get('/api/books/related/'); };
+
+    // create book 
+    function create(form) { return $http.post('/api/books/', form); }
+
+
+    // get list of book categories 
+    function get_categories() {
+      return $http.get('/api/books/categories/').then(function(response){
+        angular.forEach(response.data, function(category){
+          s.categories[category.id] = category;
+        });
+      });
+    }
   };
 
 })();

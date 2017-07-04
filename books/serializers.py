@@ -15,11 +15,11 @@ class BookSerializer(serializers.ModelSerializer):
     """ book serializer
     """
     reviews = serializers.SerializerMethodField()
-    category = CategorySerializer()
 
     class Meta:
         model = Book
         fields = ('__all__')
+        read_only_fields = ('author', 'category')
 
 
     def get_reviews(self, instance):
