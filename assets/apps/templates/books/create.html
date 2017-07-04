@@ -1,8 +1,16 @@
 <div class="main-container" style="margin-top: 150px;">
     <div class="row">
         <div class="col-sm-4">
-            <div class="well" style="height: 250px;">
-                Drop files here.
+            <div ngf-drop
+                ngf-select 
+                ng-model="file" class="drop-box" 
+                ngf-drag-over-class="'dragover'" 
+                ngf-multiple="false"
+                accept="image/*" 
+                accept="image/*"
+                class="well"
+                style="height: 250px; border: 2px dashed #fff">
+                <p class="text-center" style="color: white; margin-top: 75px;">drop file here</p>
             </div>
         </div>
 
@@ -24,9 +32,9 @@
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="form-group">
-                            <label for="name">Category</label>
                             <select name="category"
-                                ng-options="category.id as category.name for category in ctrl.categories track by category.id" ng-model="form.category"></options>
+                                ng-model="form.category"
+                                ng-options="category.id as category.name for category in ctrl.categories track by category.id" ></options>
                             </select>
                         </div>
                     </div>

@@ -7,7 +7,7 @@
   ;
 
 
-  function BookService ($http, $httpParamSerializer) {
+  function BookService ($http, $httpParamSerializer, Upload) {
 
     var s = {
       list    : list,
@@ -44,7 +44,12 @@
     function related () { return $http.get('/api/books/related/'); };
 
     // create book 
-    function create(form) { return $http.post('/api/books/', form); }
+    function create(form) {
+      return Upload.upload({
+        url: '/api/books/',
+        data: form, 
+      });
+    }
 
 
     // get list of book categories 
