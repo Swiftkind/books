@@ -5,7 +5,10 @@ from .views import BooksAPI, BookAPI
 urlpatterns = [
     url(r'^$', BooksAPI.as_view({
         'get': 'list',
+        'post': 'create_book'
     }), name="books"),
+    url('^categories/$', BooksAPI.as_view({
+        'get': 'get_categories'}), name="book_categories"),
 
     url(r'^search/$', BooksAPI.as_view({
         'get': 'search',

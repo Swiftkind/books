@@ -4,7 +4,7 @@ from rest_framework import viewsets
 from rest_framework.response import Response
 
 from .models import Book, Category
-from .serializers import BookSerializer
+from .serializers import BookSerializer, CategorySerializer
 
 import collections
 
@@ -38,6 +38,19 @@ class BooksAPI(viewsets.ViewSet):
         related_books = books.filter(tags__id__in=related).distinct()
         serializer = BookSerializer(related_books, many=True)
 
+        return Response(serializer.data, status=200)
+
+    def create_book(self, *args, **kwargs):
+        serializer = BookSerializer(data=self.request.data)
+        if serializer.is_valid():
+            category = Category.objects.get(id=self.request.data['category'])
+            serializer.save(author=self.request.user, category=category)
+            return Response(serializer.data, status=200)
+        return Response(serializer.errors, status=400)
+
+    def get_categories(self, *args, **kwargs):
+        categories = Category.objects.all()
+        serializer = CategorySerializer(categories, many=True)
         return Response(serializer.data, status=200)
 
 
