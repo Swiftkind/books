@@ -58,9 +58,38 @@
     window.location.reload();
   }
 
-  function DashboardController ($scope, AuthService) {
+  function DashboardController ($scope, $uibModal, AuthService, TEMPLATE_URL) {
     var self = this;
 
+    $scope.onBookDetailClick = function () {
+      var bookDetailModal = {
+        animation: true,
+        ariaLabelledBy: 'modal-title',
+        ariaDescribedBy: 'modal-body',
+        templateUrl: TEMPLATE_URL + 'users/modals/book-detail-modal.html',
+        controllerAs: 'ctrl',
+        size: 'lg',
+        backdrop: false,
+        controller: function($scope, $uibModalInstance) {
+          var ctrl = this;
+
+          ctrl.book = {
+            title: 'The Shining',
+            author: 'Stephen King',
+            description: 'A book.'
+          }
+
+          // Favorite book
+          // Read book
+
+          ctrl.cancel = function () {
+            $uibModalInstance.close();
+          };
+        }
+      }
+
+      $uibModal.open(bookDetailModal);
+    }
   };
 
   function FeedController ($scope, $rootScope, FeedService, AuthService,  $uibModal) {
