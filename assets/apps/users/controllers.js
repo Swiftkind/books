@@ -61,6 +61,7 @@
   function DashboardController ($scope, $uibModal, AuthService, TEMPLATE_URL, BookService) {
     var self = this;
 
+    self.BookService = BookService;
     $scope.featuredBooks = [];
 
     // Fetch featured books from the API
@@ -79,13 +80,18 @@
         controllerAs: 'ctrl',
         size: 'lg',
         backdrop: false,
-        controller: function($scope, $uibModalInstance) {
+        controller: function($scope, $uibModalInstance, ) {
           var ctrl = this;
 
           ctrl.book = selectedBook;
 
           // Favorite book
+          ctrl.onFavoriteBook = function () {
+            self.BookService.favorite(ctrl.book.id);
+          }
+
           // Read book
+          // Redirect to the full book detail state
 
           ctrl.cancel = function () {
             $uibModalInstance.close();
