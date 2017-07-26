@@ -437,7 +437,6 @@
     }
 
     self.onSubmitMessage = function (form) {
-      console.log('hello')
       self.MessageService.sendMessage(self.message).then(function (response) {
         self.onMessageResolve(response)
       }, function (xhr) {

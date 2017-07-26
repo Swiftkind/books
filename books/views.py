@@ -57,6 +57,12 @@ class BooksAPI(viewsets.ViewSet):
 class BookAPI(viewsets.ViewSet):
     """ book detail
     """
+    def retrieve(self, *args, **kwargs):
+        book = get_object_or_404(Book, id=kwargs.get('book_id'))
+
+        serializer = BookSerializer(book)
+        return Response(serializer.data, status=200)
+
     def favorite(self, *args, **kwargs):
         book = get_object_or_404(Book, id=kwargs.get('book_id'))
         book.favorite(self.request.user)
