@@ -16,7 +16,8 @@
       favorite: favorite,
       related : related,
       create  : create,
-      categories: {}
+      categories: {},
+      featuredBooks: featuredBooks,
     };
 
     get_categories();
@@ -60,6 +61,17 @@
         });
       });
     }
+
+    function featuredBooks() {
+      // TODO: Actually return a list of featured books
+      /**
+       * featuredBooks
+       * @description - sends a GET request to the API to retrieve featured books
+       * @return Array - a list of book data (could either be empty/filled)
+       */
+      return $http.get('/api/books/');
+    }
+
   };
 
 })();

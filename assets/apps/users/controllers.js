@@ -58,8 +58,17 @@
     window.location.reload();
   }
 
-  function DashboardController ($scope, $uibModal, AuthService, TEMPLATE_URL) {
+  function DashboardController ($scope, $uibModal, AuthService, TEMPLATE_URL, BookService) {
     var self = this;
+
+    $scope.featuredBooks = [];
+
+    // Fetch featured books from the API
+    BookService.featuredBooks().then(function (response) {
+      $scope.featuredBooks = response.data;
+    }, function (response) {
+      $scope.featuredBooks = [];
+    });
 
     $scope.onBookDetailClick = function () {
       var bookDetailModal = {
