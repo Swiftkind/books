@@ -103,7 +103,7 @@
                 <div ng-repeat='book in featuredBooks track by $index' class="featured-item">
                     <img src="/static/images/pic1.jpg" class="img-responsive">
                     <div class="details">
-                        <h4 class="title">{{ book.title }}</h4>
+                        <h4 class="title"><a href="#" ng-click='onBookDetailClick(book)'>{{ book.title }}</a></h4>
                         <p class="genre">{{ book.category }}</p>
                     </div>
                 </div>

@@ -70,7 +70,7 @@
       $scope.featuredBooks = [];
     });
 
-    $scope.onBookDetailClick = function () {
+    $scope.onBookDetailClick = function (selectedBook) {
       var bookDetailModal = {
         animation: true,
         ariaLabelledBy: 'modal-title',
@@ -82,11 +82,7 @@
         controller: function($scope, $uibModalInstance) {
           var ctrl = this;
 
-          ctrl.book = {
-            title: 'The Shining',
-            author: 'Stephen King',
-            description: 'A book.'
-          }
+          ctrl.book = selectedBook;
 
           // Favorite book
           // Read book
