@@ -58,9 +58,49 @@
     window.location.reload();
   }
 
-  function DashboardController ($scope, AuthService) {
+  function DashboardController ($scope, $uibModal, AuthService, TEMPLATE_URL, BookService) {
     var self = this;
 
+    self.BookService = BookService;
+    $scope.featuredBooks = [];
+
+    // Fetch featured books from the API
+    BookService.featuredBooks().then(function (response) {
+      $scope.featuredBooks = response.data;
+    }, function (response) {
+      $scope.featuredBooks = [];
+    });
+
+    $scope.onBookDetailClick = function (selectedBook) {
+      var bookDetailModal = {
+        animation: true,
+        ariaLabelledBy: 'modal-title',
+        ariaDescribedBy: 'modal-body',
+        templateUrl: TEMPLATE_URL + 'users/modals/book-detail-modal.html',
+        controllerAs: 'ctrl',
+        size: 'lg',
+        backdrop: false,
+        controller: function($scope, $uibModalInstance, ) {
+          var ctrl = this;
+
+          ctrl.book = selectedBook;
+
+          // Favorite book
+          ctrl.onFavoriteBook = function () {
+            self.BookService.favorite(ctrl.book.id);
+          }
+
+          // Read book
+          // Redirect to the full book detail state
+
+          ctrl.cancel = function () {
+            $uibModalInstance.close();
+          };
+        }
+      }
+
+      $uibModal.open(bookDetailModal);
+    }
   };
 
   function FeedController ($scope, $rootScope, FeedService, AuthService,  $uibModal) {
@@ -437,7 +477,6 @@
     }
 
     self.onSubmitMessage = function (form) {
-      console.log('hello')
       self.MessageService.sendMessage(self.message).then(function (response) {
         self.onMessageResolve(response)
       }, function (xhr) {

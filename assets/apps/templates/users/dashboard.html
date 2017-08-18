@@ -90,16 +90,25 @@
                     </div>
                 </div>
             </div>
-            <div class="featured-books">
+            <div class="featured-books" ng-if='featuredBooks.length'>
                 <div>
                     <div class="pull-right more-books">
                         <a href="#" class="show-all">SHOW ALL</a>
                         <a href="#"><span class="icon ion-chevron-left"></span></a>
                         <a href="#"><span class="icon ion-chevron-right"></span></a>
                     </div>
-                    <h3>Books you may like</h3>
+                    <h3>Featured Books</h3>
                 </div>
 
+                <div ng-repeat='book in featuredBooks track by $index' class="featured-item">
+                    <img src="/static/images/pic1.jpg" class="img-responsive">
+                    <div class="details">
+                        <h4 class="title"><a href="#" ng-click='onBookDetailClick(book)'>{{ book.title }}</a></h4>
+                        <p class="genre">{{ book.category }}</p>
+                    </div>
+                </div>
+
+                <!--
                 <div class="featured-item">
                     <img src="/static/images/pic1.jpg" class="img-responsive">
                     <div class="details">
@@ -120,7 +129,7 @@
                         <h4 class="title">Paper Craft</h4>
                         <p class="genre">Fiction</p>
                     </div>
-                </div>
+                </div> -->
             </div>
             <div class="books">
                 <div>

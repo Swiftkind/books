@@ -1,0 +1,20 @@
+<div class="modal-header">
+  <button ng-click='ctrl.cancel()' type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <h4 class="modal-title">{{ ctrl.book.title }}</h4>
+</div>
+<div class="modal-body">
+  <p>{{ ctrl.book.description }}</p>
+  <span class="label label-primary">{{ ctrl.book.category }}</span>
+</div>
+<div class="modal-footer">
+  <button ng-click='ctrl.onFavoriteBook()' type="button" class="btn btn-primary">
+    <span class="glyphicon glyphicon-heart"></span>
+    Favorite
+  </button>
+  <button type="button" class="btn btn-primary">
+    <span class="glyphicon glyphicon-eye-open"></span>
+    View
+  </button>
+
+  <button ng-click='ctrl.cancel()' type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+</div>

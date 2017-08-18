@@ -86,6 +86,4 @@
       return $http.post('/api/chats/', data);
     };
   };
-
-
 })();

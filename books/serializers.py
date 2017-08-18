@@ -15,6 +15,7 @@ class BookSerializer(serializers.ModelSerializer):
     """ book serializer
     """
     reviews = serializers.SerializerMethodField()
+    category = serializers.SerializerMethodField()
 
     class Meta:
         model = Book
@@ -25,3 +26,6 @@ class BookSerializer(serializers.ModelSerializer):
     def get_reviews(self, instance):
         return Review.objects.filter(book=instance) \
                 .values_list('id', flat=True)
+
+    def get_category(self, instance):
+        return instance.category.name
